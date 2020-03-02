@@ -2,6 +2,7 @@ package com.github.gresh113.bionimine.init;
 
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.objects.items.AirBladderItem;
 import com.github.gresh113.bionimine.objects.items.KanohiItem;
 import com.github.gresh113.bionimine.objects.items.KanohiItem.KanohiMaterial;
 
@@ -87,7 +88,7 @@ public class ItemInit {
 		event.getRegistry().register(new FlintAndSteelItem(new Item.Properties().maxStackSize(1).group(BioniMineItemGroup.instance)).setRegistryName("heatstone"));
 		
 		// Materials
-		event.getRegistry().register(new Item(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance)).setRegistryName("air_bladder"));
+		event.getRegistry().register(new AirBladderItem(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance)).setRegistryName("air_bladder"));
 		event.getRegistry().register(new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("lightstone"));
 		event.getRegistry().register(new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("protosteel"));
 		event.getRegistry().register(new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("protodermis"));
