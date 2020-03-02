@@ -1,8 +1,19 @@
 {
+	"itemGroup.bionimine": "BioniMine",
+	
 	"item.bionimine.protosteel": "Protosteel",
 	"item.bionimine.protodermis": "Protodermis",
+	"item.bionimine.air_bladder": "Air Bladder",
+	"item.bionimine.lightstone": "Lightstone",
+	"item.bionimine.heatstone": "Heatstone",
+	
 	"item.bionimine.hau": "Kanohi Hau",
-	"item.bionimine.protosteel_plating": "Protosteel Plating",
-	"block.bionimine.protosteel_plating": "Protosteel Plating",
-	"itemGroup.bionimine": "BioniMine"
+	"item.bionimine.miru": "Kanohi Miru",
+	"item.bionimine.akaku": "Kanohi Akaku",
+	"item.bionimine.kaukau": "Kanohi Kaukau",
+	"item.bionimine.pakari": "Kanohi Pakari",
+	"item.bionimine.kakama": "Kanohi Kakama",
+	
+	"item.bionimine.protosteel_plating": "Protosteel Plating"
+	
 }

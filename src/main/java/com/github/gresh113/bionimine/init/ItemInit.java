@@ -5,6 +5,7 @@ import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
 import com.github.gresh113.bionimine.objects.items.KanohiItem;
 import com.github.gresh113.bionimine.objects.items.KanohiItem.KanohiMaterial;
 
+import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -83,6 +84,7 @@ public class ItemInit {
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		
 		// Tools
+		event.getRegistry().register(new FlintAndSteelItem(new Item.Properties().maxStackSize(1).group(BioniMineItemGroup.instance)).setRegistryName("heatstone"));
 		
 		// Materials
 		event.getRegistry().register(new Item(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance)).setRegistryName("air_bladder"));
