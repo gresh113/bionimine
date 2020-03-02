@@ -3,8 +3,10 @@ package com.github.gresh113.bionimine.init;
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
 import com.github.gresh113.bionimine.objects.items.KanohiItem;
+import com.github.gresh113.bionimine.objects.items.KanohiItem.KanohiMaterial;
 
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -71,6 +73,7 @@ public class ItemInit {
 	public static final Item kaukau = null;
 	public static final Item pakari = null;
 	public static final Item kakama = null;
+	public static final Item vahi = null;
 	
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
@@ -84,14 +87,12 @@ public class ItemInit {
 		event.getRegistry().register(new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("protodermis"));
 		
 		//Kanohi
-		final KanohiItem KanohiRegistry = new KanohiItem(new Item.Properties().group(BioniMineItemGroup.instance).maxStackSize(1));
-			event.getRegistry().register(KanohiRegistry.setRegistryName("hau"));
-			//event.getRegistry().register(KanohiRegistry.setRegistryName("miru"));
-			//event.getRegistry().register(KanohiRegistry.setRegistryName("akaku"));
-			//event.getRegistry().register(KanohiRegistry.setRegistryName("kaukau"));
-			//event.getRegistry().register(KanohiRegistry.setRegistryName("pakari"));
-			//event.getRegistry().register(KanohiRegistry.setRegistryName("kakama"));
-			//event.getRegistry().register(KanohiRegistry.setRegistryName("vahi"));
+		event.getRegistry().register(new KanohiItem(KanohiMaterial.hau).setRegistryName("hau"));
+		event.getRegistry().register(new KanohiItem(KanohiMaterial.miru).setRegistryName("miru"));
+		event.getRegistry().register(new KanohiItem(KanohiMaterial.akaku).setRegistryName("akaku"));
+		event.getRegistry().register(new KanohiItem(KanohiMaterial.kaukau).setRegistryName("kaukau"));
+		event.getRegistry().register(new KanohiItem(KanohiMaterial.pakari).setRegistryName("pakari"));
+		event.getRegistry().register(new KanohiItem(KanohiMaterial.kakama).setRegistryName("kakama"));
 		}
 	
 	
