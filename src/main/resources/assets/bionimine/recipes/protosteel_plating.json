@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#x ",
+    "x# ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "bionimine:protosteel"
+    },
+	"x": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "bionimine:protosteel_plating"
+  }
