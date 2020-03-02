@@ -14,9 +14,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 
 public class KanohiItem extends ArmorItem {
-	public String texture = "kanohi";
 	
-
 	public KanohiItem(Properties builder) {
 		this(KanohiMaterial.hau, EquipmentSlotType.HEAD, builder);
 	}

@@ -1,6 +1,38 @@
-[02Mar2020 01:12:11.568] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [java.util.stream.ReferencePipeline$3@516df54, --gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20200122.131323, --fml.mcVersion, 1.15.2, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 31.1.0, --version, MOD_DEV, --assetIndex, 1.15, --assetsDir, C:\Users\Josiah\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ????????, --userProperties, {}]
-[02Mar2020 01:12:11.580] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 5.0.0-milestone.4+67+b1a340b starting: java version 1.8.0_242 by AdoptOpenJDK
-[02Mar2020 01:12:12.236] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
-[02Mar2020 01:12:15.466] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Josiah\.gradle\caches\forge_gradle\assets, java.util.stream.ReferencePipeline$3@516df54, --assetIndex, 1.15, --username, Dev, --accessToken, ????????, --userProperties, {}]
-[02Mar2020 01:12:16.055] [main/INFO] [STDOUT/]: [net.minecraft.client.main.Main:main:76]: Completely ignored arguments: [java.util.stream.ReferencePipeline$3@516df54]
-[02Mar2020 01:12:25.726] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[02Mar2020 15:26:02.373] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [java.util.stream.ReferencePipeline$3@68b87323, --gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20200122.131323, --fml.mcVersion, 1.15.2, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 31.1.0, --version, MOD_DEV, --assetIndex, 1.15, --assetsDir, C:\Users\Josiah\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[02Mar2020 15:26:02.380] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 5.0.0-milestone.4+67+b1a340b starting: java version 1.8.0_242 by AdoptOpenJDK
+[02Mar2020 15:26:02.726] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[02Mar2020 15:26:05.319] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Josiah\.gradle\caches\forge_gradle\assets, java.util.stream.ReferencePipeline$3@68b87323, --assetIndex, 1.15, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[02Mar2020 15:26:05.600] [main/INFO] [STDOUT/]: [net.minecraft.client.main.Main:main:76]: Completely ignored arguments: [java.util.stream.ReferencePipeline$3@68b87323]
+[02Mar2020 15:26:10.630] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[02Mar2020 15:26:37.797] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.2.2 build 10
+[02Mar2020 15:26:40.893] [modloading-worker-1/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 31.1.0, for MC 1.15.2 with MCP 20200122.131323
+[02Mar2020 15:26:40.894] [modloading-worker-1/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v31.1.0 Initialized
+[02Mar2020 15:26:41.903] [Render thread/INFO] [com.github.gresh113.bionimine.BioniMine/]: HELLO from Register Block
+[02Mar2020 15:26:50.877] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[02Mar2020 15:26:51.259] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[02Mar2020 15:27:02.905] [modloading-worker-3/INFO] [com.github.gresh113.bionimine.BioniMine/]: Got game settings net.minecraft.client.GameSettings@2bec1f90
+[02Mar2020 15:27:03.017] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[02Mar2020 15:27:03.819] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: UP_TO_DATE Current: 31.1.0 Target: null
+[02Mar2020 15:27:03.819] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [bionimine] Starting version check at http://myurl.me/
+[02Mar2020 15:27:04.061] [Forge Version Check/WARN] [net.minecraftforge.fml.VersionChecker/]: Failed to process update information
+java.io.IOException: Server returned HTTP response code: 400 for URL: http://myurl.me/
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_242]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_242]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_242]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[?:1.8.0_242]
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(HttpURLConnection.java:1950) ~[?:1.8.0_242]
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(HttpURLConnection.java:1945) ~[?:1.8.0_242]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_242]
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(HttpURLConnection.java:1944) ~[?:1.8.0_242]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1514) ~[?:1.8.0_242]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1498) ~[?:1.8.0_242]
+	at net.minecraftforge.fml.VersionChecker$1.openUrlStream(VersionChecker.java:189) ~[?:?]
+	at net.minecraftforge.fml.VersionChecker$1.process(VersionChecker.java:206) ~[?:?]
+	at java.lang.Iterable.forEach(Iterable.java:75) [?:1.8.0_242]
+	at net.minecraftforge.fml.VersionChecker$1.run(VersionChecker.java:157) [?:?]
+Caused by: java.io.IOException: Server returned HTTP response code: 400 for URL: http://myurl.me/
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1900) ~[?:1.8.0_242]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1498) ~[?:1.8.0_242]
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480) ~[?:1.8.0_242]
+	at net.minecraftforge.fml.VersionChecker$1.openUrlStream(VersionChecker.java:173) ~[?:?]
+	... 3 more

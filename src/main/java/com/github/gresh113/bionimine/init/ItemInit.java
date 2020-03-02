@@ -5,8 +5,6 @@ import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
 import com.github.gresh113.bionimine.objects.items.KanohiItem;
 import com.github.gresh113.bionimine.objects.items.KanohiItem.KanohiMaterial;
 
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -67,13 +65,19 @@ public class ItemInit {
 	public static final Item widget = null;
 	
 	// Kanohi
-	public static final Item hau = null;
-	public static final Item miru = null;
 	public static final Item akaku = null;
-	public static final Item kaukau = null;
-	public static final Item pakari = null;
+	public static final Item avohkii = null;
+	public static final Item hau = null;
 	public static final Item kakama = null;
+	public static final Item kaukau = null;
+	public static final Item krahkhan = null;
+	public static final Item miru = null;
+	public static final Item pakari = null;
 	public static final Item vahi = null;
+	// Nuva
+	
+	// Noble
+	
 	
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
