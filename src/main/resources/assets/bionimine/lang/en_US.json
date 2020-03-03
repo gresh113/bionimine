@@ -1,12 +1,14 @@
 {
 	"itemGroup.bionimine": "BioniMine",
-	"key.kanohiTrigger": "Trigger Kanohi",
+	"key.bionimine.kanohiTrigger": "Trigger Kanohi",
 	
 	"item.bionimine.protosteel": "Protosteel",
 	"item.bionimine.protodermis": "Protodermis",
 	"item.bionimine.air_bladder": "Air Bladder",
 	"item.bionimine.lightstone": "Lightstone",
 	"item.bionimine.heatstone": "Heatstone",
+	
+	"item.bionimine.fire_sword": "Fire Sword",
 	
 	"item.bionimine.hau": "Kanohi Hau",
 	"item.bionimine.miru": "Kanohi Miru",

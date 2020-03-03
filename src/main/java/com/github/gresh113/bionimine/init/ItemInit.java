@@ -24,6 +24,7 @@ public class ItemInit {
 	public static final Item air_bladder = null;
 	public static final Item bamboo_disk = null;
 	public static final Item book_of_chronicles = null;
+	public static final Item fire_sword = null;
 	public static final Item chroniclers_staff = null;
 	// public static final Item digger = null;
 	public static final Item disk_launcher = null;
@@ -87,6 +88,9 @@ public class ItemInit {
 		event.getRegistry().register(
 				new FlintAndSteelItem(new Item.Properties().maxStackSize(1).group(BioniMineItemGroup.instance))
 						.setRegistryName("heatstone"));
+		event.getRegistry().register(
+				new FlintAndSteelItem(new Item.Properties().maxStackSize(1).group(BioniMineItemGroup.instance))
+						.setRegistryName("fire_sword"));
 
 		// Materials
 		event.getRegistry()
