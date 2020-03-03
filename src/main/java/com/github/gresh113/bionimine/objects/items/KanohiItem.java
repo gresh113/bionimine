@@ -4,16 +4,22 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.init.ItemInit;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.world.World;
+import net.minecraftforge.common.extensions.IForgeItem;
 
-public class KanohiItem extends ArmorItem {
+public class KanohiItem extends ArmorItem implements IForgeItem{
 
 	public KanohiItem(Properties builder) {
 		this(KanohiMaterial.hau, EquipmentSlotType.HEAD, builder);
@@ -30,6 +36,17 @@ public class KanohiItem extends ArmorItem {
 
 	public KanohiItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
 		super(materialIn, slot, builder);
+	}
+	
+	@Override
+	public void onArmorTick(ItemStack stack, World world, PlayerEntity playerIn) {
+		Item currentMask = playerIn.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem();
+		KanohiItem currentKanohi = (KanohiItem) currentMask;
+		IArmorMaterial kanohiType = currentKanohi.getArmorMaterial();
+		if (kanohiType == KanohiMaterial.kaukau) {
+			playerIn.setAir(playerIn.getMaxAir());
+		}
+	   
 	}
 
 	public enum KanohiMaterial implements IArmorMaterial {
