@@ -2,8 +2,13 @@ package com.github.gresh113.bionimine.objects.items;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import org.lwjgl.glfw.GLFW;
+
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.KeyHandler;
+
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -37,12 +42,16 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 		super(materialIn, slot, builder);
 	}
 
-
+	
+	
+	//KeyHandler.kanohiTrigger.isKeyDown()/.isPressed();
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity playerIn) {
+		
 		Item currentMask = playerIn.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem();
 		KanohiItem currentKanohi = (KanohiItem) currentMask;
 		IArmorMaterial kanohiType = currentKanohi.getArmorMaterial();
+		
 		if (kanohiType == KanohiMaterial.kaukau) {
 			playerIn.setAir(playerIn.getMaxAir());
 		}
