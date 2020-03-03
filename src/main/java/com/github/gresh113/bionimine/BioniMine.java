@@ -49,11 +49,13 @@ public class BioniMine
     private void setup(final FMLCommonSetupEvent event)
     {
         // some preinit code - anything you want to happen commonly
+    	
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        KeyHandler.registerKeys();
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -91,6 +93,7 @@ public class BioniMine
     		return new ItemStack(ItemInit.hau);
     	}
     }
+    
 
     
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
