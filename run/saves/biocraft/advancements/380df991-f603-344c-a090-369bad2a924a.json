@@ -86,6 +86,7 @@
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:mountains": "2020-03-01 22:25:31 -0500",
+      "minecraft:forest": "2020-03-02 21:41:08 -0500",
       "minecraft:desert": "2020-03-01 21:48:26 -0500",
       "minecraft:beach": "2020-03-01 22:22:01 -0500",
       "minecraft:river": "2020-03-01 21:48:55 -0500",

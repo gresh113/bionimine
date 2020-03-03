@@ -4,9 +4,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
-import com.github.gresh113.bionimine.init.ItemInit;
-
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -21,7 +18,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class KanohiItem extends ArmorItem implements IForgeItem{
+public class KanohiItem extends ArmorItem implements IForgeItem {
 
 	public KanohiItem(Properties builder) {
 		this(KanohiMaterial.hau, EquipmentSlotType.HEAD, builder);
@@ -39,7 +36,8 @@ public class KanohiItem extends ArmorItem implements IForgeItem{
 	public KanohiItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
 		super(materialIn, slot, builder);
 	}
-	
+
+
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity playerIn) {
 		Item currentMask = playerIn.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem();
@@ -51,16 +49,22 @@ public class KanohiItem extends ArmorItem implements IForgeItem{
 		if (kanohiType == KanohiMaterial.kakama) {
 			playerIn.addPotionEffect(new EffectInstance(Effects.SPEED, 1, 3));
 		}
-	   
-	}
+		if (kanohiType == KanohiMaterial.miru) {
+			playerIn.addPotionEffect(new EffectInstance(Effects.LEVITATION, 1, -1));
+		}
 
+	}
+	
 	public enum KanohiMaterial implements IArmorMaterial {
 		hau("hau", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY),
 		miru("miru", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY),
 		akaku("akaku", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY),
 		kaukau("kaukau", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY),
 		pakari("pakari", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY),
-		kakama("kakama", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY);
+		kakama("kakama", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY),
+		vahi("vahi", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY),
+		avohkii("avokhii", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY),
+		kkrahkhan("krahkhan", 0, new int[] { 0, 0, 0, 0 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f, Ingredient.EMPTY);
 
 		private String name;
 		private SoundEvent equipSound;
