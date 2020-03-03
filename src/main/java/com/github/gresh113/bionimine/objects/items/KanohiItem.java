@@ -14,6 +14,8 @@ import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
@@ -45,6 +47,9 @@ public class KanohiItem extends ArmorItem implements IForgeItem{
 		IArmorMaterial kanohiType = currentKanohi.getArmorMaterial();
 		if (kanohiType == KanohiMaterial.kaukau) {
 			playerIn.setAir(playerIn.getMaxAir());
+		}
+		if (kanohiType == KanohiMaterial.kakama) {
+			playerIn.addPotionEffect(new EffectInstance(Effects.SPEED, 1, 3));
 		}
 	   
 	}
