@@ -45,7 +45,6 @@ public class ItemInit {
 	public static final Item toa_stone = null;
 
 	// Supplies
-	public static final Item bamboo = null;
 	public static final Item bamboo_pole = null;
 	public static final Item cowrie_shell = null;
 	public static final Item fishhook = null;
@@ -96,6 +95,10 @@ public class ItemInit {
 		event.getRegistry()
 				.register(new AirBladderItem(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance))
 						.setRegistryName("air_bladder"));
+		event.getRegistry().register(
+				new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("bamboo_pole"));
+		event.getRegistry().register(
+				new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("flag"));
 		event.getRegistry().register(
 				new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("lightstone"));
 		event.getRegistry().register(

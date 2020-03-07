@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " nb",
+    "nbs",
+    "b  ""
+  ],
+  "key": {
+    "b": {
+      "item": "bionimine:bamboo_pole"
+    },
+	"key": {
+    "n": {
+      "item": "minecraft:iron_ingot"
+    },
+	"key": {
+    "s": {
+      "item": "minecraft:kelp"
+    }
+  },
+  "result": {
+    "item": "bionimine:flag"
+  }
+}
