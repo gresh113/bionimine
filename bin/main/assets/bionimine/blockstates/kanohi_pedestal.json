@@ -1,0 +1,11 @@
+{
+"defaults": {
+    "model": "bionimine:block/kanohi_pedestal"
+  },
+    "variants": {
+        "facing=north": { "model": "bionimine:block/kanohi_pedestal" },
+        "facing=south": {"model": "bionimine:block/kanohi_pedestal","y": 180 },
+        "facing=west": {"model": "bionimine:block/kanohi_pedestal","y": 270 },
+        "facing=east": {"model": "bionimine:block/kanohi_pedestal", "y": 90 }
+    }
+}

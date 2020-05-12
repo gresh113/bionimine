@@ -1,0 +1,27 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"texture_size": [8, 8],
+	"textures": {
+		"0": "bionimine:blocks/kanohi_pedestal_front",
+		"1": "bionimine:blocks/kanohi_pedestal_top",
+		"2": "bionimine:blocks/kanohi_pedestal_side",
+		"3": "bionimine:blocks/kanohi_pedestal_bottom",
+		"particle": "bionimine:blocks/kanohi_pedestal_bottom"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 12, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15, 8, 12]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		}
+	]
+}

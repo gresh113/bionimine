@@ -76,6 +76,10 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 		if (kanohiType == KanohiMaterial.miru && kanohiActive) {
 			playerIn.addPotionEffect(new EffectInstance(Effects.LEVITATION, 1, -1));
 		}
+		if (kanohiType == KanohiMaterial.pakari && kanohiActive) {
+			playerIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 1, 3));
+			playerIn.addPotionEffect(new EffectInstance(Effects.HASTE, 1, 3));
+		}
 
 	}
 	

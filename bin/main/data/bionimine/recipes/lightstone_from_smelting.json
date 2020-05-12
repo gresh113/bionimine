@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bionimine:lightstone_ore"
+  },
+  "result": "bionimine:lightstone",
+  "experience": 1.0,
+  "cookingtime": 200
+}
