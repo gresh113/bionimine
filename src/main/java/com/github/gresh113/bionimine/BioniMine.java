@@ -3,6 +3,7 @@ package com.github.gresh113.bionimine;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.init.ItemInit;
 
 import net.minecraft.block.Block;
@@ -10,6 +11,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -31,24 +33,22 @@ public class BioniMine
     public static BioniMine instance;
     	
     public BioniMine() {
+    	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        // Register the enqueueIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+    	modEventBus.addListener(this::setup);
         // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-        
+    	modEventBus.addListener(this::doClientStuff);
+    	
+    	BionimineTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
+    	 
         instance = this;
-
+        
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code - anything you want to happen commonly
     	
     }
 
