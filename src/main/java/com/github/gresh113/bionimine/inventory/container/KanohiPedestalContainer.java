@@ -9,18 +9,20 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
+import net.minecraft.util.ResourceLocation;
 
 public class KanohiPedestalContainer extends Container {
 
 	public final KanohiPedestalTileEntity pedestalTileEntity;
 	private final IWorldPosCallable canInteractWithCallable;
 
-	public KanohiPedestalContainer(final int windowId, final PlayerInventory playerInventory,
-			final KanohiPedestalTileEntity tileEntity) {
+	public KanohiPedestalContainer(final int windowId, final PlayerInventory playerInventory, final KanohiPedestalTileEntity tileEntity) {
 		super(BionimineContainerTypes.PEDESTAL.get(), windowId);
 		this.pedestalTileEntity = tileEntity;
 		this.canInteractWithCallable = IWorldPosCallable.of(tileEntity.getWorld(), pedestalTileEntity.getPos());
@@ -54,8 +56,7 @@ public class KanohiPedestalContainer extends Container {
 
 	}
 
-	private static KanohiPedestalTileEntity getTileEntity(final PlayerInventory playerInventory,
-			final PacketBuffer data) {
+	private static KanohiPedestalTileEntity getTileEntity(final PlayerInventory playerInventory, final PacketBuffer data) {
 		Objects.requireNonNull(playerInventory, "playerInventory cannot be null");
 		Objects.requireNonNull(data, "data cannot be null");
 		final TileEntity tileAtPos = playerInventory.player.world.getTileEntity(data.readBlockPos());
@@ -74,29 +75,66 @@ public class KanohiPedestalContainer extends Container {
 		return isWithinUsableDistance(canInteractWithCallable, playerIn, BlockInit.kanohi_pedestal.get());
 	}
 
+	
+//	  public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
+//	  ItemStack itemstack = ItemStack.EMPTY; ResourceLocation masks = new
+//	  ResourceLocation("bionimine", "items"); Item item = itemstack.getItem();
+//	  boolean isInGroup =
+//	  ItemTags.getCollection().getOrCreate(masks).contains(item);
+//	  
+//	  Slot slot = this.inventorySlots.get(index); if (slot != null &&
+//	  slot.getHasStack() && isInGroup) { ItemStack itemstack1 = slot.getStack();
+//	  itemstack = itemstack1.copy(); if (index <
+//	  this.pedestalTileEntity.getSizeInventory()) { if
+//	  (!this.mergeItemStack(itemstack1, this.pedestalTileEntity.getSizeInventory(),
+//	  this.inventorySlots.size(), true)) { return ItemStack.EMPTY; } } else if
+//	  (!this.mergeItemStack(itemstack1, 0,
+//	  this.pedestalTileEntity.getSizeInventory(), false)) { return ItemStack.EMPTY;
+//	  }
+//	  
+//	  if (itemstack1.isEmpty()) { slot.putStack(ItemStack.EMPTY); } else {
+//	  slot.onSlotChanged(); } }
+//	  
+//	  return itemstack; }
+	 
+	/**
+	    * Handle when the stack in slot {@code index} is shift-clicked. Normally this moves the stack between the player
+	    * inventory and the other inventory(s).
+	    */
 	public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
-		ItemStack itemstack = ItemStack.EMPTY;
-		Slot slot = this.inventorySlots.get(index);
-		if (slot != null && slot.getHasStack()) {
-			ItemStack itemstack1 = slot.getStack();
-			itemstack = itemstack1.copy();
-			if (index < this.pedestalTileEntity.getSizeInventory()) {
-				if (!this.mergeItemStack(itemstack1, this.pedestalTileEntity.getSizeInventory(),
-						this.inventorySlots.size(), true)) {
-					return ItemStack.EMPTY;
-				}
-			} else if (!this.mergeItemStack(itemstack1, 0, this.pedestalTileEntity.getSizeInventory(), false)) {
-				return ItemStack.EMPTY;
-			}
+	      ItemStack itemstack = ItemStack.EMPTY;
+	      Slot slot = this.inventorySlots.get(index);
+	      ResourceLocation masks = new ResourceLocation("bionimine", "items"); 
+	      
+	      if (slot != null && slot.getHasStack()) {
+	         ItemStack itemstack1 = slot.getStack();
+	         itemstack = itemstack1.copy();
+	         Item item = itemstack.getItem();
+	         boolean isInGroup =  ItemTags.getCollection().getOrCreate(masks).contains(item);
+	         
+	         if (index < 1 && isInGroup) {
+	            if (!this.mergeItemStack(itemstack1, 2, 38, true)) {
+	               return ItemStack.EMPTY;
+	            }
+	         }
+	         else if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
+	            return ItemStack.EMPTY;
+	         }
 
-			if (itemstack1.isEmpty()) {
-				slot.putStack(ItemStack.EMPTY);
-			} else {
-				slot.onSlotChanged();
-			}
-		}
+	         if (itemstack1.isEmpty()) {
+	            slot.putStack(ItemStack.EMPTY);
+	         } 
+	         else {
+	            slot.onSlotChanged();
+	         }
 
-		return itemstack;
-	}
+	         if (itemstack1.getCount() == itemstack.getCount()) {
+	            return ItemStack.EMPTY;
+	         }
 
+	         slot.onTake(playerIn, itemstack1);
+	      }
+
+	      return itemstack;
+	   }
 }

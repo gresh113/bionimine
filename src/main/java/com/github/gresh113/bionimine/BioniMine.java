@@ -4,6 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
+import com.github.gresh113.bionimine.init.BlockInit;
+import com.github.gresh113.bionimine.init.BlockItemInit;
 import com.github.gresh113.bionimine.init.ItemInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 
@@ -41,6 +43,8 @@ public class BioniMine {
 
 		BionimineTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
 		BionimineContainerTypes.CONTAINER_TYPES.register(modEventBus);
+		BlockInit.BLOCKS.register(modEventBus);
+		BlockItemInit.BLOCK_ITEMS.register(modEventBus);
 
 		instance = this;
 

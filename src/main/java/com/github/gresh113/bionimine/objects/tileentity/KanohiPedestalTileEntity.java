@@ -15,6 +15,7 @@ import net.minecraft.command.ICommandSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IClearable;
+import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
@@ -106,9 +107,9 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 		return 1;
 	}
 
-	public void markDirty() {
-		KanohiPedestalTileEntity.this.markDirty();
-	}
+//	public void markDirty() {
+//		this.markDirty();
+//	}
 
 	/**
 	 * Don't rename this method to canInteractWith due to conflicts with Container
@@ -310,20 +311,19 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 
 	public void read(CompoundNBT compound) {
 		super.read(compound);
-		if (compound.contains("mask", 10)) {
-			this.mask = this.ensureResolved(ItemStack.read(compound.getCompound("mask")), (PlayerEntity) null);
-		} else {
-			this.mask = ItemStack.EMPTY;
+		this.pedestalContents = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
+		if (!this.checkLootAndRead(compound)) {
+			ItemStackHelper.loadAllItems(compound, this.pedestalContents);
 		}
 
 	}
 
 	public CompoundNBT write(CompoundNBT compound) {
 		super.write(compound);
-		if (!this.getMask().isEmpty()) {
-			compound.put("mask", this.getMask().write(new CompoundNBT()));
+		
+		if (!this.checkLootAndWrite(compound)) {
+			ItemStackHelper.saveAllItems(compound, this.pedestalContents);
 		}
-
 		return compound;
 	}
 
@@ -337,7 +337,16 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 	}
 
 	public ITextComponent getDisplayName() {
-		return new TranslationTextComponent("kanohi_pedestal");
+		return new TranslationTextComponent("container.kanohi_pedestal");
+	}
+	
+	
+	@Override
+	public void remove() {
+		super.remove();
+		if(itemHandler != null) {
+			itemHandler.invalidate();
+		}
 	}
 
 }

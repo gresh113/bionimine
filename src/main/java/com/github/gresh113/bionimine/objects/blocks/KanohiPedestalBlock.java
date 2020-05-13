@@ -11,6 +11,7 @@ import net.minecraft.block.ContainerBlock;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -34,6 +35,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.network.NetworkHooks;
 
 public class KanohiPedestalBlock extends ContainerBlock {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
@@ -107,16 +109,25 @@ public class KanohiPedestalBlock extends ContainerBlock {
 		builder.add(FACING, HAS_MASK);
 	}
 
-	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player,
-			Hand handIn, BlockRayTraceResult p_225533_6_) {
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult p_225533_6_) {
 		ResourceLocation masks = new ResourceLocation("bionimine", "items");
 		if (state.get(HAS_MASK)) {
 			return ActionResultType.FAIL;
 		} else {
+			/**
 			ItemStack itemstack = player.getHeldItem(handIn);
 			Item item = itemstack.getItem();
 			boolean isInGroup = ItemTags.getCollection().getOrCreate(masks).contains(item);
 			return !itemstack.isEmpty() && isInGroup ? ActionResultType.CONSUME : ActionResultType.PASS;
+			 */
+			if (!worldIn.isRemote) {
+				TileEntity tile = worldIn.getTileEntity(pos);
+				if (tile instanceof KanohiPedestalTileEntity) {
+					NetworkHooks.openGui((ServerPlayerEntity) player, (KanohiPedestalTileEntity) tile, pos);
+					return ActionResultType.SUCCESS;
+				}
+			}
+			return ActionResultType.FAIL;
 		}
 	}
 

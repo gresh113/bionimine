@@ -3,6 +3,10 @@
 	"key.bionimine.kanohiTrigger": "Trigger Kanohi",
 	"containers.kanohi_pedestal": "Kanohi Pedestal",
 	
+	"block.bionimine.protosteel_plating": "Protosteel Plating",
+	"block.bionimine.lightstone_ore": "Lightstone Ore",
+	"block.bionimine.kanohi_pedestal": "Kanohi Pedestal",
+	
 	"item.bionimine.protosteel": "Protosteel",
 	"item.bionimine.protodermis": "Protodermis",
 	"item.bionimine.air_bladder": "Air Bladder",

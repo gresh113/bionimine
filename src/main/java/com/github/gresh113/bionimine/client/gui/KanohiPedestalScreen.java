@@ -14,7 +14,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class KanohiPedestalScreen extends ContainerScreen<KanohiPedestalContainer> {
 	private static final ResourceLocation background_texture = new ResourceLocation(BioniMine.MODID,
-			"textures/gui/container/kanohi_pedestal");
+			"textures/gui/container/kanohi_pedestal.png");
 
 	public KanohiPedestalScreen(KanohiPedestalContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
 		super(screenContainer, inv, titleIn);
@@ -27,7 +27,7 @@ public class KanohiPedestalScreen extends ContainerScreen<KanohiPedestalContaine
 	@Override
 	public void render(final int mouseX, final int mouseY, final float partialTicks) {
 		this.renderBackground();
-		this.render(mouseX, mouseY, partialTicks);
+		super.render(mouseX, mouseY, partialTicks);
 		this.renderHoveredToolTip(mouseX, mouseY);
 	}
 
@@ -43,8 +43,8 @@ public class KanohiPedestalScreen extends ContainerScreen<KanohiPedestalContaine
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f);
 		this.minecraft.getTextureManager().bindTexture(background_texture);
-		int x = (this.width = this.xSize) / 2;
-		int y = (this.height = this.ySize) / 2;
+		int x = (this.width - this.xSize) / 2 ;
+		int y = (this.height - this.ySize) / 2;
 		this.blit(x, y, 0, 0, this.xSize, this.ySize);
 
 	}
