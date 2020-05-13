@@ -1,6 +1,7 @@
 {
 	"itemGroup.bionimine": "BioniMine",
 	"key.bionimine.kanohiTrigger": "Trigger Kanohi",
+	"containers.kanohi_pedestal": "Kanohi Pedestal",
 	
 	"item.bionimine.protosteel": "Protosteel",
 	"item.bionimine.protodermis": "Protodermis",
@@ -21,6 +22,7 @@
 	
 	"item.bionimine.lightstone_ore": "Lightstone Ore",
 	"item.bionimine.protosteel_plating": "Protosteel Plating",
+	"item.bionimine.kanohi_pedestal": "Kanohi Pedestal",
 	"item.bionimine.protosteel_plating": "Protosteel Plating"
 	
 }
