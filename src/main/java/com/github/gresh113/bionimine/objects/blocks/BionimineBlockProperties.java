@@ -1,8 +1,10 @@
 package com.github.gresh113.bionimine.objects.blocks;
 
-import net.minecraft.state.BooleanProperty;
+import com.github.gresh113.bionimine.state.properties.Mask;
+
+import net.minecraft.state.EnumProperty;
 import net.minecraft.state.properties.BlockStateProperties;
 
 public class BionimineBlockProperties extends BlockStateProperties{
-	public static final BooleanProperty HAS_MASK = BooleanProperty.create("has_mask");
+	public static final EnumProperty<Mask> MASK = EnumProperty.create("mask", Mask.class);
 }

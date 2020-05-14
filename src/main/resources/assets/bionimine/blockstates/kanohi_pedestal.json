@@ -1,8 +1,38 @@
 {
-    "variants": {
-         "facing=north": { "model": "bionimine:block/kanohi_pedestal" },
-        "facing=south": { "model": "bionimine:block/kanohi_pedestal", "y": 180 },
-        "facing=west":  { "model": "bionimine:block/kanohi_pedestal", "y": 270 },
-        "facing=east":  { "model": "bionimine:block/kanohi_pedestal", "y": 90 }
-    }
+"variants":{
+		"mask=none,facing=north":{"model":"bionimine:block/kanohi_pedestal"},
+		"mask=none,facing=south":{"model":"bionimine:block/kanohi_pedestal","y":180},
+		"mask=none,facing=west":{"model":"bionimine:block/kanohi_pedestal","y":270},
+		"mask=none,facing=east":{"model":"bionimine:block/kanohi_pedestal","y":90},
+		
+		"mask=hau,facing=north":{"model":"bionimine:block/kanohi_pedestal_hau"},
+		"mask=hau,facing=south":{"model":"bionimine:block/kanohi_pedestal_hau","y":180},
+		"mask=hau,facing=west":{"model":"bionimine:block/kanohi_pedestal_hau","y":270},
+		"mask=hau,facing=east":{"model":"bionimine:block/kanohi_pedestal_hau","y":90},
+		
+		"mask=miru,facing=north":{"model":"bionimine:block/kanohi_pedestal_miru"},
+		"mask=miru,facing=south":{"model":"bionimine:block/kanohi_pedestal_miru","y":180},
+		"mask=miru,facing=west":{"model":"bionimine:block/kanohi_pedestal_miru","y":270},
+		"mask=miru,facing=east":{"model":"bionimine:block/kanohi_pedestal_miru","y":90},
+		
+		"mask=kakama,facing=north":{"model":"bionimine:block/kanohi_pedestal"},
+		"mask=kakama,facing=south":{"model":"bionimine:block/kanohi_pedestal","y":180},
+		"mask=kakama,facing=west":{"model":"bionimine:block/kanohi_pedestal","y":270},
+		"mask=kakama,facing=east":{"model":"bionimine:block/kanohi_pedestal","y":90},
+		
+		"mask=kaukau,facing=north":{"model":"bionimine:block/kanohi_pedestal"},
+		"mask=kaukau,facing=south":{"model":"bionimine:block/kanohi_pedestal","y":180},
+		"mask=kaukau,facing=west":{"model":"bionimine:block/kanohi_pedestal","y":270},
+		"mask=kaukau,facing=east":{"model":"bionimine:block/kanohi_pedestal","y":90},
+		
+		"mask=akaku,facing=north":{"model":"bionimine:block/kanohi_pedestal"},
+		"mask=akaku,facing=south":{"model":"bionimine:block/kanohi_pedestal","y":180},
+		"mask=akaku,facing=west":{"model":"bionimine:block/kanohi_pedestal","y":270},
+		"mask=akaku,facing=east":{"model":"bionimine:block/kanohi_pedestal","y":90},
+		
+		"mask=pakari,facing=north":{"model":"bionimine:block/kanohi_pedestal"},
+		"mask=pakari,facing=south":{"model":"bionimine:block/kanohi_pedestal","y":180},
+		"mask=pakari,facing=west":{"model":"bionimine:block/kanohi_pedestal","y":270},
+		"mask=pakari,facing=east":{"model":"bionimine:block/kanohi_pedestal","y":90}
+}
 }
