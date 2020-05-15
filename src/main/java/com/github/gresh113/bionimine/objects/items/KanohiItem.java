@@ -59,7 +59,7 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 	@Override
     public boolean hasEffect(ItemStack stack)
     {
-        if(CurrentKanohiStack != ItemStack.EMPTY && (stack == CurrentKanohiStack)) {return true;}
+        if(CurrentKanohiStack != ItemStack.EMPTY && (stack == CurrentKanohiStack) && kanohiActive) {return true;}
         else {return false;}
     }
 	
