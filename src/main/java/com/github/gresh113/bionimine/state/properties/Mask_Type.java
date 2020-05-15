@@ -2,7 +2,7 @@ package com.github.gresh113.bionimine.state.properties;
 
 import net.minecraft.util.IStringSerializable;
 
-public enum Mask implements IStringSerializable{
+public enum Mask_Type implements IStringSerializable{
 	NONE("none"),
 	hau("hau"),
 	miru("miru"),
@@ -12,7 +12,7 @@ public enum Mask implements IStringSerializable{
 
 	private final String name;
 	
-	private Mask(String name) {
+	private Mask_Type(String name) {
 		this.name = name;
 	}
 

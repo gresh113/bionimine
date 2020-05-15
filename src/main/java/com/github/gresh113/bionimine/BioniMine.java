@@ -8,8 +8,11 @@ import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.init.BlockItemInit;
 import com.github.gresh113.bionimine.init.ItemInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
+import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -17,14 +20,17 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(BioniMine.MODID)
+@Mod.EventBusSubscriber(modid = BioniMine.MODID, bus = Bus.MOD)
 public class BioniMine {
 	// setting Mod ID
 	public static final String MODID = "bionimine";
@@ -53,13 +59,18 @@ public class BioniMine {
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
-
+		RenderTypeLookup.setRenderLayer(BlockInit.kanohi_pedestal.get(), RenderType.getCutout());
 	}
 
 	private void doClientStuff(final FMLClientSetupEvent event) {
 		// do something that can only be done on the client
 		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
 		KeyHandler.registerKeys();
+	}
+	
+	@SubscribeEvent
+	public static void loadCompleteEvent(FMLLoadCompleteEvent event) {
+		ProtodermisOreGen.generateOre();
 	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event) {

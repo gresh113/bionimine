@@ -1,7 +1,9 @@
 {
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "minecraft:plains": "2020-05-13 22:15:55 -0400"
+      "minecraft:forest": "2020-05-14 21:24:18 -0400",
+      "minecraft:beach": "2020-05-14 21:27:14 -0400",
+      "minecraft:river": "2020-05-14 21:26:06 -0400"
     },
     "done": false
   },

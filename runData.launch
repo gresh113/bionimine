@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
-  <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="new_project"/>
+  <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="bioinimine"/>
   <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="net.minecraftforge.userdev.LaunchTesting"/>
   <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=SCAN,REGISTRIES,REGISTRYDUMP"/>
-  <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--mod examplemod --all --output C:\Users\Public\Documents\My Documents\Modding\new_project\src\generated\resources"/>
-  <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:\Users\Public\Documents\My Documents\Modding\new_project\run"/>
+  <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--mod examplemod --all --output &quot;C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\generated\resources&quot;"/>
+  <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:\Users\Public\Documents\My Documents\Modding\bioinimine\run"/>
   <mapAttribute key="org.eclipse.debug.core.environmentVariables">
-    <mapEntry key="MOD_CLASSES" value="examplemod%%C:\Users\Public\Documents\My Documents\Modding\new_project\bin\main;examplemod%%C:\Users\Public\Documents\My Documents\Modding\new_project\bin\main"/>
-    <mapEntry key="MCP_MAPPINGS" value="snapshot_20200227-1.15.1"/>
+    <mapEntry key="MOD_CLASSES" value="examplemod%%C:\Users\Public\Documents\My Documents\Modding\bioinimine\bin\main;examplemod%%C:\Users\Public\Documents\My Documents\Modding\bioinimine\bin\main"/>
+    <mapEntry key="MCP_MAPPINGS" value="snapshot_20200514-1.15.1"/>
     <mapEntry key="MCP_VERSION" value="20200122.131323"/>
     <mapEntry key="FORGE_VERSION" value="31.1.0"/>
     <mapEntry key="FORGE_GROUP" value="net.minecraftforge"/>

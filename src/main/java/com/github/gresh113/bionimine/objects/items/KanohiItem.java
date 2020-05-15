@@ -1,10 +1,12 @@
 package com.github.gresh113.bionimine.objects.items;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
 import com.github.gresh113.bionimine.KeyHandler;
+import com.github.gresh113.bionimine.util.KanohiFunctions;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,6 +26,9 @@ import net.minecraftforge.common.extensions.IForgeItem;
 public class KanohiItem extends ArmorItem implements IForgeItem {
 	
 	boolean kanohiActive;
+	
+	@Nullable
+	private ItemStack CurrentKanohiStack;
 	
 	public KanohiItem(Properties builder) {
 		this(KanohiMaterial.hau, EquipmentSlotType.HEAD, builder);
@@ -50,7 +55,7 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 	@Override
     public boolean hasEffect(ItemStack stack)
     {
-        if(kanohiActive) {return true;}
+        if(kanohiActive  && (stack == CurrentKanohiStack)) {return true;}
         else {return false;}
     }
 	
@@ -61,9 +66,8 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 		
 		// Checks for kanohiTrigger key press, toggles Kanohi's active state if key press occurs
 		if(KeyHandler.kanohiTrigger.isPressed()) {kanohiActive = !kanohiActive;}
-		
-		Item currentMask = playerIn.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem();
-		KanohiItem currentKanohi = (KanohiItem) currentMask;
+		if (CurrentKanohiStack != ItemStack.EMPTY) {
+			KanohiItem currentKanohi = (KanohiItem) CurrentKanohiStack.getItem();
 		IArmorMaterial kanohiType = currentKanohi.getArmorMaterial();
 		
 		// Activates mask power based on "material" type
@@ -78,9 +82,14 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 		}
 		if (kanohiType == KanohiMaterial.pakari && kanohiActive) {
 			playerIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 1, 3));
-			playerIn.addPotionEffect(new EffectInstance(Effects.HASTE, 1, 3));
+			playerIn.addPotionEffect(new EffectInstance(Effects.HASTE, 1, 5));
 		}
-
+		if (kanohiType == KanohiMaterial.hau && kanohiActive) {
+			playerIn.addPotionEffect(new EffectInstance(Effects.ABSORPTION, 1, 1));
+			playerIn.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 1, 1));
+			playerIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 1, 2));
+		}
+		}
 	}
 	
 	// If KanohiItem is in inventory, checks to see if the kanohi is equipped in the head slot, if not, deactivates the kanohi
@@ -88,6 +97,13 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (entityIn instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity)entityIn;
+            if (KanohiFunctions.isKanohi(playerEntity.getItemStackFromSlot(EquipmentSlotType.HEAD))) {
+            	CurrentKanohiStack = playerEntity.getItemStackFromSlot(EquipmentSlotType.HEAD);
+            }
+            else {
+            	CurrentKanohiStack = ItemStack.EMPTY;
+            }
+            
             if(playerEntity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() != stack.getItem()) {
             	kanohiActive = false;
             	}

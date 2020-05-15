@@ -15,13 +15,19 @@ public class BlockInit {
 	//Blocks Registry
 	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, BioniMine.MODID);
 	
+	//Functional BLocks
 	public static final RegistryObject<Block> kanohi_pedestal = BLOCKS.register("kanohi_pedestal", () ->
 		new KanohiPedestalBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));
+	
+	//Building BLocks
 	public static final RegistryObject<Block> protosteel_plating = BLOCKS.register("protosteel_plating", () ->
 		new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(5, 30).sound(SoundType.METAL)));
+	
+	//Ores
 	public static final RegistryObject<Block> lightstone_ore = BLOCKS.register("lightstone_ore", () ->
 		new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));
-	
+	public static final RegistryObject<Block> protodermis_ore = BLOCKS.register("protodermis_ore", () ->
+		new OreBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));
 	
 	
 	

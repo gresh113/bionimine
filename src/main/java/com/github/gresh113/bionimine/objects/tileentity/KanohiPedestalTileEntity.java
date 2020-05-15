@@ -7,7 +7,8 @@ import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.inventory.container.KanohiPedestalContainer;
 import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
-import com.github.gresh113.bionimine.state.properties.Mask;
+import com.github.gresh113.bionimine.state.properties.Mask_Type;
+import com.github.gresh113.bionimine.util.KanohiFunctions;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -19,7 +20,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
@@ -69,13 +69,6 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 		return this.pedestalContents;
 	}
 	
-	public boolean isMask(ItemStack stackIn) {
-		final Tag<Item> maskTag = new ItemTags.Wrapper(new ResourceLocation(BioniMine.MODID, "masks"));
-		final Item item = stackIn.getItem();
-		final boolean itemIsMask = item.isIn(maskTag);
-		return itemIsMask;
-	}
-
 	@Override
 	public void setItems(NonNullList<ItemStack> itemsIn) {
 		ItemStack itemStack = itemsIn.get(0);
@@ -88,6 +81,11 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 	protected ITextComponent getDefaultName() {
 		return new TranslationTextComponent("container.kanohi_pedestal");
 	}
+	
+	public boolean isMask(ItemStack stackIn) {
+		return KanohiFunctions.isKanohi(stackIn);
+	}
+
 	@Nullable 
 	public ItemStack getDisplayItem() {
 		ItemStack displayItem = ItemStack.EMPTY;
@@ -100,8 +98,30 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 		}
 		return displayItem;
 	}
+	@Nullable
+	public Mask_Type getDisplayMask()
+	{
+		ItemStack displayMaskItem = this.getDisplayItem();
+		if (this.isMask(displayMaskItem)) {
+		Mask_Type displayMask = Mask_Type.valueOf(displayMaskItem.getItem().toString());
+		return displayMask;
+		}
+		else {return Mask_Type.NONE;}
+		
+	}
+	
 	public boolean hasMask() {
-		return !pedestalContents.isEmpty() ? true : false;
+		return !(this.getDisplayMask() == Mask_Type.NONE || this.getDisplayMask() == null) ? true : false;
+	}
+	
+	@Override
+	public void tick() {
+		BlockState state = this.getBlockState();
+		Mask_Type mask = Mask_Type.NONE;
+		if (this.hasMask()) {
+			mask = this.getDisplayMask();
+		}	
+		this.world.setBlockState(this.pos, state.with(KanohiPedestalBlock.MASK, mask), 2);
 	}
 
 	@Override
@@ -220,19 +240,5 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 		}
 	}
 
-	@Override
-	public void tick() {
-		Mask DisplayMask = Mask.NONE;
-		BlockState state = this.getBlockState();
-		ItemStack displayMaskItem = this.getDisplayItem();
-		if (this.isMask(displayMaskItem)) {
-		DisplayMask = Mask.valueOf(displayMaskItem.getItem().toString());
-		}
-		if (DisplayMask != Mask.NONE && DisplayMask != null) {
-			this.world.setBlockState(this.pos, state.with(KanohiPedestalBlock.MASK, DisplayMask), 2);
-		}
-		else {this.world.setBlockState(this.pos, state.with(KanohiPedestalBlock.MASK, Mask.NONE), 2);}
-		
-	}
-
+	
 }
