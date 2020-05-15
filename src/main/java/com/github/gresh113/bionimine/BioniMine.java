@@ -36,7 +36,7 @@ public class BioniMine {
 	public static final String MODID = "bionimine";
 
 	// Setting up Logger
-	private static final Logger LOGGER = LogManager.getLogger();
+	public static final Logger LOGGER = LogManager.getLogger();
 
 	public static BioniMine instance;
 
