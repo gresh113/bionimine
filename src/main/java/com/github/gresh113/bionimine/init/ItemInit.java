@@ -28,7 +28,6 @@ public class ItemInit {
 	public static final Item chroniclers_staff = null;
 	// public static final Item digger = null;
 	public static final Item disk_launcher = null;
-	public static final Item flag = null;
 	public static final Item flute = null;
 	// public static final Item hatchet = null;
 	public static final Item heatstone = null;

@@ -1,6 +1,7 @@
 package com.github.gresh113.bionimine.init;
 
 import com.github.gresh113.bionimine.BioniMine;
+import com.github.gresh113.bionimine.objects.blocks.FlagBlock;
 import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
 
 import net.minecraft.block.Block;
@@ -18,6 +19,9 @@ public class BlockInit {
 	//Functional BLocks
 	public static final RegistryObject<Block> kanohi_pedestal = BLOCKS.register("kanohi_pedestal", () ->
 		new KanohiPedestalBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));
+	
+//	public static final RegistryObject<Block> flag = BLOCKS.register("flag", () ->
+//		new FlagBlock(Block.Properties.create(Material.BAMBOO).hardnessAndResistance(3.0F, 3.0F)));
 	
 	//Building BLocks
 	public static final RegistryObject<Block> protosteel_plating = BLOCKS.register("protosteel_plating", () ->

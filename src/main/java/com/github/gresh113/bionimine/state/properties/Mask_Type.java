@@ -8,6 +8,7 @@ public enum Mask_Type implements IStringSerializable{
 	miru("miru"),
 	kaukau("kaukau"),
 	kakama("kakama"),
+	akaku("akaku"),
 	pakari("pakari");
 
 	private final String name;

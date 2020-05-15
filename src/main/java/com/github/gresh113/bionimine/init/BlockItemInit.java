@@ -17,6 +17,9 @@ public class BlockItemInit {
 	public static final RegistryObject<Item> kanohi_pedestal = BLOCK_ITEMS.register("kanohi_pedestal", () -> 
 		new BlockItem(BlockInit.kanohi_pedestal.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
 	
+//	public static final RegistryObject<Item> flag = BLOCK_ITEMS.register("flag", () -> 
+//		new BlockItem(BlockInit.kanohi_pedestal.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
+	
 	//Building Blocks
 	public static final RegistryObject<Item> protosteel_plating = BLOCK_ITEMS.register("protosteel_plating", () -> 
 		new BlockItem(BlockInit.protosteel_plating.get(), new Item.Properties().group(BioniMineItemGroup.instance)));

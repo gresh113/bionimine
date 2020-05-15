@@ -251,6 +251,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/food/cooked_rabbit_from_smoking": {
+    "criteria": {
+      "has_rabbit": "2020-05-14 23:45:19 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/combat/iron_leggings": {
     "criteria": {
       "has_iron_ingot": "2020-03-02 16:03:14 -0500"
@@ -359,6 +365,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/food/cooked_rabbit": {
+    "criteria": {
+      "has_rabbit": "2020-05-14 23:45:19 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/glass": {
     "criteria": {
       "has_sand": "2020-03-01 22:44:28 -0500"
@@ -445,6 +457,7 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:snowy_mountains": "2020-05-14 23:46:45 -0400",
       "minecraft:mountains": "2020-03-01 22:25:31 -0500",
       "minecraft:forest": "2020-03-02 21:41:08 -0500",
       "minecraft:taiga": "2020-05-06 14:01:51 -0400",
@@ -468,6 +481,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/misc/book": {
+    "criteria": {
+      "has_paper": "2020-05-14 23:48:39 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/orange_wool": {
     "criteria": {
       "has_white_wool": "2020-05-14 20:49:37 -0400"
@@ -477,6 +496,12 @@
   "minecraft:recipes/tools/iron_hoe": {
     "criteria": {
       "has_iron_ingot": "2020-03-02 16:03:14 -0500"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/cooked_rabbit_from_campfire_cooking": {
+    "criteria": {
+      "has_rabbit": "2020-05-14 23:45:19 -0400"
     },
     "done": true
   },

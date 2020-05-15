@@ -68,6 +68,12 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity playerIn) {
 		
+		// Double-checks that the current item on the player's head is a Kanohi
+		ItemStack currentHeadStack = playerIn.getItemStackFromSlot(EquipmentSlotType.HEAD);
+		if (KanohiFunctions.isKanohi(currentHeadStack)) {
+			CurrentKanohiStack = currentHeadStack;
+		}
+		
 		// Checks for kanohiTrigger key press, toggles Kanohi's active state if key press occurs
 		if(KeyHandler.kanohiTrigger.isPressed()) {kanohiActive = !kanohiActive;}
 		if (!(CurrentKanohiStack == ItemStack.EMPTY || CurrentKanohiStack == null)) {
@@ -130,10 +136,10 @@ public class KanohiItem extends ArmorItem implements IForgeItem {
 		KanohiMaterial(String name, int durability, int[] damageReduction, int enchantability, SoundEvent sound,
 				float toughness, Ingredient empty) {
 			this.name = name;
-			this.equipSound = sound;
 			this.durability = durability;
-			this.enchantability = enchantability;
 			this.damageReductionAmountArray = damageReduction;
+			this.enchantability = enchantability;
+			this.equipSound = sound;
 			this.toughness = toughness;
 		}
 
