@@ -407,3 +407,13 @@ com.google.gson.JsonSyntaxException: Expected name to be an item, was unknown st
 [15May2020 20:57:24.574] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'Biocraft'/minecraft:overworld
 [15May2020 20:57:24.885] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 139 advancements
 [15May2020 20:57:26.188] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2689ms or 53 ticks behind
+[15May2020 20:58:32.730] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[15May2020 20:58:32.780] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Dev lost connection: Disconnected
+[15May2020 20:58:32.781] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[15May2020 20:58:32.804] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Stopping singleplayer server as player logged out
+[15May2020 20:58:32.951] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[15May2020 20:58:32.952] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[15May2020 20:58:32.952] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[15May2020 20:58:32.952] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'Biocraft'/minecraft:overworld
+[15May2020 20:58:34.153] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (biocraft): All chunks are saved
+[15May2020 20:58:34.189] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (biocraft): All chunks are saved
