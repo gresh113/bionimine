@@ -40,6 +40,7 @@ public class KanohiInit {
 				Kanohi iteratedKanohi = new Kanohi(level, ability, KanohiShape.HAU_GREAT, KanohiType.STANDARD, DyeColor.RED);;
 				String name = iteratedKanohi.getName().toLowerCase();
 				event.getRegistry().register(new NewKanohiItem(iteratedKanohi).setRegistryName(name));
+				BioniMine.LOGGER.info("item.bionimine." + name +" : |" + iteratedKanohi.getFormattedName() + "|,");
 			}
 		}
 		// Register legendary masks separately

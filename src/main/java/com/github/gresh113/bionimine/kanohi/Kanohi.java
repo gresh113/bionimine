@@ -54,6 +54,11 @@ public class Kanohi {
 		return this.name;
 	}
 	
+	public String getFormattedName() {
+		String name = this.power.getPowerLevelString() + " " + this.ability.getName();
+		return name;
+	}
+	
 	public String getDescriptionText() {
 		//String powerString = this.power.toString();
 		//String capitalizedPowerString= powerString.substring(0, 1).toUpperCase() + powerString.substring(1);
