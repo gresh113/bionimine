@@ -1,5 +1,7 @@
 package com.github.gresh113.bionimine.objects.items;
 
+import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,6 +15,10 @@ public class AirBladderItem extends Item {
 
 	public AirBladderItem(Properties properties) {
 		super(properties);
+	}
+	
+	public AirBladderItem() {
+		super(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance));
 	}
 
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
