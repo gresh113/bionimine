@@ -1,21 +1,21 @@
 package com.github.gresh113.bionimine.kanohi;
 
-import net.minecraft.item.DyeColor;
+
 
 public class Kanohi {
 
-	public static Kanohi TAHUS_HAU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.HAU, KanohiShape.HAU_GREAT, KanohiType.STANDARD,  DyeColor.RED);
-	public static Kanohi LEWAS_MIRU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.MIRU, KanohiShape.MIRU_GREAT, KanohiType.STANDARD, DyeColor.GREEN);
+	public static Kanohi TAHUS_HAU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.HAU, KanohiShape.HAU_GREAT, KanohiType.STANDARD,  KanohiColor.RED);
+	public static Kanohi LEWAS_MIRU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.MIRU, KanohiShape.MIRU_GREAT, KanohiType.STANDARD, KanohiColor.GREEN);
 	
 	private final KanohiPowerLevel power;
 	private final KanohiAbility ability;
-	private final KanohiShape shape;
 	private final KanohiType type;
-	//private final Element element;
-	private final DyeColor color;
 	private final String name;
+	//private final Element element;
+	private KanohiShape shape;
+	private KanohiColor color;
 	
-	public Kanohi(KanohiPowerLevel powerIn, KanohiAbility abilityIn, KanohiShape shapeIn, KanohiType typeIn, DyeColor colorIn) {
+	public Kanohi(KanohiPowerLevel powerIn, KanohiAbility abilityIn, KanohiShape shapeIn, KanohiType typeIn, KanohiColor colorIn) {
 	      this.power = powerIn;
 	      this.ability = abilityIn;	
 	      this.shape = shapeIn;
@@ -37,6 +37,13 @@ public class Kanohi {
 	public KanohiShape getShape() {
 		return this.shape;
 	}
+	public Boolean hasShape() {
+		return this.shape != null ? true : false;
+	}
+	
+	public void setShape(KanohiShape shapeIn) {
+		this.shape = shapeIn;
+	}
 
 	public KanohiType getType() {
 		return this.type;
@@ -46,8 +53,11 @@ public class Kanohi {
 //		return this.element;
 //	}
 	
-	public DyeColor getColor() {
+	public KanohiColor getColor() {
 		return this.color;
+	}
+	public void setColor(KanohiColor colorIn) {
+		this.color = colorIn;
 	}
 
 	public String getName() {

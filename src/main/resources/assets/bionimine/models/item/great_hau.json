@@ -1,0 +1,16 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "__comment": "Default",
+    "layer0": "bionimine:item/hau"
+  },
+  "overrides": [
+    {
+      "__comment": "power >= .75",
+      "predicate": {
+        "bionimine:shape": 0.02
+      },
+      "model": "bionimine:item/miru"
+    }
+  ]
+}

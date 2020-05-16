@@ -7,13 +7,14 @@ import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.init.BlockItemInit;
 import com.github.gresh113.bionimine.init.ItemInit;
-import com.github.gresh113.bionimine.init.KanohiInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -52,7 +53,6 @@ public class BioniMine {
 		BionimineContainerTypes.CONTAINER_TYPES.register(modEventBus);
 		BlockInit.BLOCKS.register(modEventBus);
 		BlockItemInit.BLOCK_ITEMS.register(modEventBus);
-		
 		//KanohiInit.KANOHI.register(modEventBus);
 
 		instance = this;

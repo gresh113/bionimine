@@ -1,35 +1,39 @@
 package com.github.gresh113.bionimine.kanohi;
 
-import net.minecraft.block.material.MaterialColor;
+import java.awt.Color;
+import java.util.Optional;
+
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.IStringSerializable;
 
-public enum KanohiColor implements IStringSerializable{
-		WHITE("white", 16383998, MaterialColor.SNOW),
-	   BLUE("blue", 3949738, MaterialColor.BLUE),
-	   BROWN("brown", 8606770, MaterialColor.BROWN),
-	   GREEN("green", 6192150, MaterialColor.GREEN),
-	   RED("red", 11546150, MaterialColor.RED),
-	   BLACK("black", 1908001, MaterialColor.BLACK);
+public enum KanohiColor implements IStringSerializable {
+	RED(0,"red", Color.RED),
+	ORANGE(1,"orange", Color.ORANGE),
+	GREEN(2,"green", Color.GREEN),
+	BLUE(3, "blue", Color.BLUE),
+	BROWN(4, "brown", Color.GRAY),
+	BLACK(5, "black", Color.BLACK),
+	WHITE(6, "white", Color.WHITE);
 	
 	private final String name;
-	private final int colorValue;
-	private final MaterialColor material;
+	private final int NBTTag;
+	private final Color color;
 
-	KanohiColor(String nameIn, int colorValueIn, MaterialColor materialIn) {
-		this.name = nameIn;
-		this.colorValue = colorValueIn;
-		this.material = materialIn;
-	}
-
+	@Override
 	public String getName() {
 		return name;
 	}
-	public int getColor() {
-		return colorValue;
+	public Color getColor() {
+		return color;
 	}
-	public MaterialColor getMaterialColor() {
-		return material;
+	
+	KanohiColor(int NBTtagIn, String nameIn, Color colorIn) {
+		this.name = nameIn;
+		this.NBTTag = NBTtagIn;
+		this.color = colorIn;
+		
 	}
-	   
 
 }
