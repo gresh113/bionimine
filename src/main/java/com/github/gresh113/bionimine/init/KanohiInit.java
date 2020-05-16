@@ -43,8 +43,8 @@ public class KanohiInit {
 			}
 		}
 		// Register legendary masks separately
-		event.getRegistry().register(new NewKanohiItem(VAHI).setRegistryName(VAHI.getName()));
-		event.getRegistry().register(new NewKanohiItem(IGNIKA).setRegistryName(VAHI.getName()));
-		event.getRegistry().register(new NewKanohiItem(MASK_OF_CREATION).setRegistryName(VAHI.getName()));
+		event.getRegistry().register(new NewKanohiItem(VAHI).setRegistryName(VAHI.getName().toLowerCase()));
+		event.getRegistry().register(new NewKanohiItem(IGNIKA).setRegistryName(IGNIKA.getName().toLowerCase()));
+		event.getRegistry().register(new NewKanohiItem(MASK_OF_CREATION).setRegistryName(MASK_OF_CREATION.getName().toLowerCase()));
 	}
 }
