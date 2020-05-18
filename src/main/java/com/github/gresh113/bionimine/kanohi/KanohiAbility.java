@@ -3,6 +3,7 @@ package com.github.gresh113.bionimine.kanohi;
 
 // Huge props to BS01 for all this info
 public enum KanohiAbility {
+	NONE("Powerless","",true),
 	HAU("Hau","Shielding",true),
 	MIRU("Miru","Levitaion",true),
 	AKAKU("Akaku", "X-Ray Vision",true),

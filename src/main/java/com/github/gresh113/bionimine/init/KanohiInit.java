@@ -6,7 +6,7 @@ import java.util.List;
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.kanohi.Kanohi;
 import com.github.gresh113.bionimine.kanohi.KanohiAbility;
-import com.github.gresh113.bionimine.kanohi.KanohiColor;
+import com.github.gresh113.bionimine.kanohi.KanohiPalette;
 import com.github.gresh113.bionimine.kanohi.KanohiPowerLevel;
 import com.github.gresh113.bionimine.kanohi.KanohiShape;
 import com.github.gresh113.bionimine.kanohi.KanohiType;
@@ -30,23 +30,34 @@ public class KanohiInit {
 		//new NewKanohiItem(test));
 	
 	// Instantiate legendary Kanohi separately
-	private final static Kanohi VAHI = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.VAHI, KanohiShape.VAHI, KanohiType.STANDARD, KanohiColor.RED);
-	private final static Kanohi IGNIKA = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.IGNIKA, KanohiShape.IGNIKA, KanohiType.STANDARD, KanohiColor.RED);
-	private final static Kanohi MASK_OF_CREATION = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.CREATION, KanohiShape.CREATION, KanohiType.STANDARD, KanohiColor.RED);
+	private final static Kanohi VAHI = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.VAHI, KanohiShape.VAHI, KanohiType.STANDARD, KanohiPalette.RED);
+	private final static Kanohi IGNIKA = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.IGNIKA, KanohiShape.IGNIKA, KanohiType.STANDARD, KanohiPalette.RED);
+	private final static Kanohi MASK_OF_CREATION = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.CREATION, KanohiShape.CREATION, KanohiType.STANDARD, KanohiPalette.RED);
+	private final static Kanohi POWERLESS_MASK = new Kanohi(KanohiPowerLevel.POWERLESS, KanohiAbility.NONE, KanohiShape.HAU_GREAT, KanohiType.STANDARD, KanohiPalette.RED);
+	public final static Item PowerlessMaskItem = new NewKanohiItem(POWERLESS_MASK).setRegistryName(POWERLESS_MASK.getName().toLowerCase());
 	public static List<NewKanohiItem> itemArray = new ArrayList<NewKanohiItem>();
+	
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
+		
+		// Iterate through Kanohi Abilities
 		for (KanohiAbility ability : KanohiAbility.values()) {
-			// Don't register masks of legendary ability
-			if (ability == KanohiAbility.VAHI || ability == KanohiAbility.IGNIKA || ability == KanohiAbility.CREATION){continue;}
+			
+			// Don't register masks of legendary ability or masks without a power
+			if (ability == KanohiAbility.VAHI || ability == KanohiAbility.IGNIKA || ability == KanohiAbility.CREATION || ability == KanohiAbility.NONE){continue;}
+			
+			// Iterate through power levels
 			for (KanohiPowerLevel level : KanohiPowerLevel.values()) {
-				// Doesn't register any legendary-level masks of legendary-level
-				if (level == KanohiPowerLevel.LEGENDARY) {continue;}
-				Kanohi iteratedKanohi = new Kanohi(level, ability, KanohiShape.HAU_GREAT, KanohiType.STANDARD, KanohiColor.RED);;
+				
+				// Doesn't register any legendary-level masks or powerless masks
+				if (level == KanohiPowerLevel.LEGENDARY || level == KanohiPowerLevel.POWERLESS) {continue;}
+				
+				Kanohi iteratedKanohi = new Kanohi(level, ability, KanohiShape.MIRU_GREAT, KanohiType.STANDARD, KanohiPalette.GREEN);;
 				String name = iteratedKanohi.getName().toLowerCase();
 				NewKanohiItem itemtoRegister = new NewKanohiItem(iteratedKanohi);
 				itemArray.add(itemtoRegister);
 				event.getRegistry().register(itemtoRegister.setRegistryName(name));
+				
 				//BioniMine.LOGGER.info("item.bionimine." + name +" : |" + iteratedKanohi.getFormattedName() + "|,");
 			}
 			
@@ -55,10 +66,11 @@ public class KanohiInit {
 		event.getRegistry().register(new NewKanohiItem(VAHI).setRegistryName(VAHI.getName().toLowerCase()));
 		event.getRegistry().register(new NewKanohiItem(IGNIKA).setRegistryName(IGNIKA.getName().toLowerCase()));
 		event.getRegistry().register(new NewKanohiItem(MASK_OF_CREATION).setRegistryName(MASK_OF_CREATION.getName().toLowerCase()));
-		BioniMine.LOGGER.info("Array includes:");
-		for (NewKanohiItem index : itemArray) {
-			BioniMine.LOGGER.info("-" + index.getName());
-		}
+		event.getRegistry().register(PowerlessMaskItem);
+		//BioniMine.LOGGER.info("Array includes:");
+		//for (NewKanohiItem index : itemArray) {BioniMine.LOGGER.info("-" + index.getName());}
+		//BioniMine.LOGGER.info(itemArray.toString());
+		
 		
 	}
 	

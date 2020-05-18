@@ -7,6 +7,7 @@ import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.init.BlockItemInit;
 import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.KanohiInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
@@ -122,7 +123,7 @@ public class BioniMine {
 
 			@Override
 			public ItemStack createIcon() {
-				return new ItemStack(ItemInit.hau);
+				return new ItemStack(KanohiInit.PowerlessMaskItem);
 			}
 		}
 

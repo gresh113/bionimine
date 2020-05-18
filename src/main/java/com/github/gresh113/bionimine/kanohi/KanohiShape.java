@@ -1,92 +1,102 @@
 package com.github.gresh113.bionimine.kanohi;
 
+
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.IStringSerializable;
 
 public enum KanohiShape implements IStringSerializable {
 	
-	HAU_GREAT("great_hau",0.00F),
-	MIRU_GREAT("great_miru",0.02F),
-	AKAKU_GREAT("great_akaku",0.03F),
-	KAUKAU_GREAT("great_kaukau",0.04F),
-	PAKARI_GREAT("great_pakari",0.05F),
-	KAKAMA_GREAT("great_kakama",0.06F),
+	HAU_GREAT("great_hau",0.00f),
+	SHAPELESS("shapeless",0.01f), // Hopefully not accessible in ordinary gameplay
+	MIRU_GREAT("great_miru",0.02f),
+	AKAKU_GREAT("great_akaku",0.03f),
+	KAUKAU_GREAT("great_kaukau",0.04f),
+	PAKARI_GREAT("great_pakari",0.05f),
+	KAKAMA_GREAT("great_kakama",0.06f),
 	
-	HAU_NUVA("nuva_hau",0.07F),
-	MIRU_NUVA("nuva_miru",0.08F),
-	AKAKU_NUVA("nuva_akaku",0.09F),
-	KAUKAU_NUVA("nuva_kaukau",0.10F),
-	PAKARI_NUVA("nuva_pakari",0.11F),
-	KAKAMA_NUVA("nuva_kakama",0.12F),
+	HAU_NUVA("nuva_hau",0.07f),
+	MIRU_NUVA("nuva_miru",0.08f),
+	AKAKU_NUVA("nuva_akaku",0.09f),
+	KAUKAU_NUVA("nuva_kaukau",0.10f),
+	PAKARI_NUVA("nuva_pakari",0.11f),
+	KAKAMA_NUVA("nuva_kakama",0.12f),
 	
-	HAU_NOBLE("",0.13F),
-	MIRU_NOBLE("",0.14F),
-	AKAKU_NOBLE("",0.15F),
-	KAKAMA_NOBLE("",0.16F),
+	HAU_NOBLE("noble_hau",0.13f),
+	MIRU_NOBLE("noble_miru",0.14f),
+	AKAKU_NOBLE("noble_akaku",0.15f),
+	KAKAMA_NOBLE("noble_kakama",0.16f),
 	
-	HUNA_GREAT("",0.17F),
-	RAU_GREAT("",0.18F),
-	MAHIKI_GREAT("",0.19F),
-	KOMAU_GREAT("",0.20F),
-	RURU_GREAT("",0.21F),
-	MATATU_GREAT("",0.22F),
+	HUNA_GREAT("great_huna",0.17f),
+	RAU_GREAT("great_rau",0.18f),
+	MAHIKI_GREAT("great_mahiki",0.19f),
+	KOMAU_GREAT("great_komau",0.20f),
+	RURU_GREAT("great_ruru",0.21f),
+	MATATU_GREAT("great_matatu",0.22f),
 	
-	HUNA_NOBLE("",0.23F),
-	RAU_NOBLE("",0.24F),
-	MAHIKI_NOBLE("",0.25F),
-	KOMAU_NOBLE("",0.26F),
-	RURU_NOBLE("",0.27F),
-	MATATU_NOBLE("",0.28F),
+	HUNA_NOBLE("noble_huna",0.23f),
+	RAU_NOBLE("noble_rau",0.24f),
+	MAHIKI_NOBLE("noble_mahiki",0.25f),
+	KOMAU_NOBLE("noble_komau",0.26f),
+	RURU_NOBLE("noble_ruru",0.27f),
+	MATATU_NOBLE("noble_matatu",0.28f),
 	
-	KIRIL_NOBLE("",0.29F),
+	KIRIL_NOBLE("noble_kiril",0.29f),
 	
-	CALIX_ORGANIC("",0.30F),
-	ELDA_ORGANIC("",0.31F),
-	SULETU_ORGANIC("",0.32F),
-	SANOK_ORGANIC("",0.33F),
-	KADIN_ORGANIC("",0.34F),
-	IDEN_ORGANIC("",0.35F),
+	CALIX_ORGANIC("organic_calix",0.30f),
+	ELDA_ORGANIC("organic_elda",0.31f),
+	SULETU_ORGANIC("organic_suletu",0.32f),
+	SANOK_ORGANIC("organic_sanok",0.33f),
+	KADIN_ORGANIC("organic",0.34f),
+	IDEN_ORGANIC("organic_iden",0.35f),
 	
-	ARTHRON("",0.36F),
-	FAXON("",0.37F),
-	ZATTH("",0.38F),
-	GARAI("",0.39F),
-	VOLITAK("",0.40F),
-	TRYNA("",0.41F),
+	ARTHRON("arthron",0.36f),
+	FAXON("faxon",0.37f),
+	ZATTH("zatth",0.38f),
+	GARAI("garai",0.39f),
+	VOLITAK("volitak",0.40f),
+	TRYNA("tryna",0.41f),
 	
-	JUTLIN_MAKUTA("",0.41F),
-	AVSA_MAKUTA("",0.43F),
-	FELNAS_MAKUTA("",0.44F),
-	MOHTREK_MAKUTA("",0.45F),
-	SHELEK_MAKUTA("",0.46F),
-	CRAST_MAKUTA("",0.47F),
+	JUTLIN_MAKUTA("makuta_jutlin",0.41f),
+	AVSA_MAKUTA("makuta_avsa",0.43f),
+	FELNAS_MAKUTA("makuta_felnas",0.44f),
+	MOHTREK_MAKUTA("makuta_mohtrek",0.45f),
+	SHELEK_MAKUTA("makuta_shelek",0.46f),
+	CRAST_MAKUTA("makuta_crast",0.47f),
 	
-	JUTLIN_NOBLE("",0.48F),
-	AVSA_NOBLE("",0.49F),
-	SHELEK_NOBLE("",0.50F),
+	JUTLIN_NOBLE("noble_jutlin",0.48f),
+	AVSA_NOBLE("noble_avsa",0.49f),
+	SHELEK_NOBLE("",0.50f),
 
-	KUALSI("",0.51F),
-	EMULATION("",0.52F),
+	KUALSI("kualsi",0.51f),
+	EMULATION("emulation",0.52f),
 	
-	AVOHKII("",0.53F),
-	KRAAHKAN("",0.54F),
-	LIGHT_AND_SHADOW("",0.55F),
+	AVOHKII("avohkii",0.53f),
+	KRAAHKAN("kraahkan",0.54f),
+	LIGHT_AND_SHADOW("light_and_shadow",0.55f),
 	
-	RODE("",0.56F),
-	OLMAK("",0.57F),
-	OLISI("",0.58F),
+	RODE("rode",0.56f),
+	OLMAK("olmak",0.57f),
+	OLISI("olisi",0.58f),
 	
-	POSSIBILITIES("",0.59F),
-	ELEMENTAL_ENERGY("",0.60F),
-	MUTATION("",0.61F),
-	SCAVENNING("",0.62F),
+	POSSIBILITIES("possibilities",0.59f),
+	ELEMENTAL_ENERGY("elemental_energy",0.60f),
+	MUTATION("mutation",0.61f),
+	SCAVENGING("sacavenging",0.62f),
 	
-	VAHI("",0.63F),
-	IGNIKA("",0.64F),
-	CREATION("",0.65F);
+	VAHI("vahi",0.63f),
+	IGNIKA("ignika",0.64f),
+	CREATION("creation",0.65f),
+	
+	MIRU_SKY("sky_miru",0.67f),
+	AKAKU_SKY("sky_akaku",0.68f),
+	KAKAMA_SKY("sky_kakama",0.69f),
+	HAU_SWAMP("swamp_hau",0.70f),
+	KAUKAU_SWAMP("swamp_kaukau",0.71f),
+	PAKARI_SWAMP("swamp_pakari",0.72f);
 
 	
 	private final String name;
-	private Float predicateValue;
+	private final float predicateValue;
 	
 	KanohiShape(String nameIn, float predicateValueIn) {
 		this.name = nameIn;
@@ -97,8 +107,35 @@ public enum KanohiShape implements IStringSerializable {
 	public String getName() {
 		return name;
 	}
-	public Float getPredicate() {
+	public float getPredicate() {
 		return predicateValue;
 	}
+	public float getPropertyOverrideValue() {return predicateValue;}
 	
+	public static KanohiShape getShapeFromPredicate(float predicate) {
+	      for (KanohiShape shape : KanohiShape.values()) {
+	        if (shape.predicateValue == predicate) {return shape;}
+	      }
+	      return KanohiShape.HAU_GREAT;
+	    }
+	
+	public static KanohiShape fromNBT(CompoundNBT compoundNBT, String tagname)
+    {
+      float shapePredicate = 0.01F;  // default in case of error
+      if (compoundNBT != null && compoundNBT.contains(tagname)) {
+        shapePredicate = compoundNBT.getFloat(tagname);
+      }
+      KanohiShape shape = getShapeFromPredicate(shapePredicate);
+      return shape;
+    }
+
+    /**
+     * Write this enum to NBT
+     * @param compoundNBT
+     * @param tagname
+     */
+    public void putIntoNBT(CompoundNBT compoundNBT, String tagname)
+    {
+      compoundNBT.putFloat(tagname, predicateValue);
+    }
 }

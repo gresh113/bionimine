@@ -1,0 +1,251 @@
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>cd "C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest\" 
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(for %a in (noble_hau great_hau noble_miru great_miru noble_akaku great_akaku noble_kaukau great_kaukau noble_pakari great_pakari noble_kakama great_kakama noble_huna great_huna noble_rau great_rau noble_mahiki great_mahiki noble_komau great_komau noble_ruru great_ruru noble_matatu great_matatu noble_calix great_calix noble_elda great_elda noble_suletu great_suletu noble_sanok great_sanok noble_kadin great_kadin noble_iden great_iden noble_arthron great_arthron noble_faxon great_faxon noble_zatth great_zatth noble_garai great_garai noble_volitak great_volitak noble_tryna great_tryna noble_jutlin great_jutlin noble_avsa great_avsa noble_felnas great_felnas noble_mohtrek great_mohtrek noble_shelek great_shelek noble_crast great_crast noble_pehkui great_pehkui noble_kualsi great_kualsi noble_kiril great_kiril noble_avohkii great_avohkii noble_kraahkan great_kraahkan noble_avohkan great_avohkan noble_rua great_rua noble_aki great_aki noble_rode great_rode noble_olmak great_olmak noble_olisi great_olisi) do (copy great_hau.json %a.json ) ) 
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_hau.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_hau.json ) 
+The file cannot be copied onto itself.
+        0 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_miru.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_miru.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_akaku.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_akaku.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_kaukau.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_kaukau.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_pakari.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_pakari.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_kakama.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_kakama.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_huna.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_huna.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_rau.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_rau.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_mahiki.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_mahiki.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_komau.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_komau.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_ruru.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_ruru.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_matatu.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_matatu.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_calix.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_calix.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_elda.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_elda.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_suletu.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_suletu.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_sanok.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_sanok.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_kadin.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_kadin.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_iden.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_iden.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_arthron.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_arthron.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_faxon.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_faxon.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_zatth.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_zatth.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_garai.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_garai.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_volitak.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_volitak.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_tryna.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_tryna.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_jutlin.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_jutlin.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_avsa.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_avsa.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_felnas.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_felnas.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_mohtrek.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_mohtrek.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_shelek.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_shelek.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_crast.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_crast.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_pehkui.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_pehkui.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_kualsi.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_kualsi.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_kiril.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_kiril.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_avohkii.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_avohkii.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_kraahkan.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_kraahkan.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_avohkan.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_avohkan.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_rua.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_rua.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_aki.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_aki.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_rode.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_rode.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_olmak.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_olmak.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json noble_olisi.json ) 
+        1 file(s) copied.
+
+C:\Users\Public\Documents\My Documents\Modding\bioinimine\src\main\resources\assets\bionimine\models\item\masks-batchtest>(copy great_hau.json great_olisi.json ) 
+        1 file(s) copied.

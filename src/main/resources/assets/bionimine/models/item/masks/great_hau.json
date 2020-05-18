@@ -1,0 +1,10 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "bionimine:item/masks/great_hau/great_hau_0",
+		"layer1": "bionimine:item/masks/great_hau/great_hau_1",
+		"layer2": "bionimine:item/masks/great_hau/great_hau_2",
+		"layer3": "bionimine:item/masks/great_hau/great_hau_3",
+		"layer4": "bionimine:item/masks/great_hau/great_hau_4"
+	}
+}
