@@ -2,9 +2,9 @@ package com.github.gresh113.bionimine.init;
 
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.kanohi.OldKanohiItem;
 import com.github.gresh113.bionimine.kanohi.KanohiItem;
-import com.github.gresh113.bionimine.kanohi.NewKanohiItem;
-import com.github.gresh113.bionimine.kanohi.KanohiItem.KanohiMaterial;
+import com.github.gresh113.bionimine.kanohi.OldKanohiItem.KanohiMaterial;
 import com.github.gresh113.bionimine.objects.items.AirBladderItem;
 
 import net.minecraft.item.FlintAndSteelItem;
@@ -108,12 +108,12 @@ public class ItemInit {
 				new Item(defaultItemProperties).setRegistryName("protodermis"));
 
 		// Kanohi
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.hau).setRegistryName("hau"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.miru).setRegistryName("miru"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.akaku).setRegistryName("akaku"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.kaukau).setRegistryName("kaukau"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.pakari).setRegistryName("pakari"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.kakama).setRegistryName("kakama"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.hau).setRegistryName("hau"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.miru).setRegistryName("miru"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.akaku).setRegistryName("akaku"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.kaukau).setRegistryName("kaukau"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.pakari).setRegistryName("pakari"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.kakama).setRegistryName("kakama"));
 		
 		//event.getRegistry().register(new NewKanohiItem().setRegistryName("avokhii"));
 	}

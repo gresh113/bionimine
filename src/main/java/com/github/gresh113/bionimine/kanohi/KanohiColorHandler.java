@@ -22,7 +22,7 @@ public class KanohiColorHandler implements IItemColor {
 	@Override
 	public int getColor(ItemStack stack, int tintIndex) {
 		{
-			KanohiPalette kanohiColor = NewKanohiItem.getPalette(stack);
+			KanohiPalette kanohiColor = KanohiItem.getPalette(stack);
 			switch (tintIndex) {
 			case 0:
 				return kanohiColor.getColorLayer1().getRGB();

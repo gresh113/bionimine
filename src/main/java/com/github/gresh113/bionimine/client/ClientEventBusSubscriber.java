@@ -7,7 +7,7 @@ import com.github.gresh113.bionimine.client.gui.KanohiPedestalScreen;
 import com.github.gresh113.bionimine.init.KanohiInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.kanohi.KanohiColorHandler;
-import com.github.gresh113.bionimine.kanohi.NewKanohiItem;
+import com.github.gresh113.bionimine.kanohi.KanohiItem;
 
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.api.distmarker.Dist;
@@ -28,8 +28,8 @@ public class ClientEventBusSubscriber {
 	
 	@SubscribeEvent
 	public static void onColorHandlerEvent(ColorHandlerEvent.Item event) {
-		List<NewKanohiItem> array = KanohiInit.itemArray;
-		for (NewKanohiItem index : array) {
+		List<KanohiItem> array = KanohiInit.itemArray;
+		for (KanohiItem index : array) {
 			event.getItemColors().register(new KanohiColorHandler(), index);
 		}
 	}
