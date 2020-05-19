@@ -9,7 +9,7 @@ import net.minecraft.nbt.CompoundNBT;
 
 public class KanokaItem extends Item {
 	private static final Item.Properties defaultProperties = new Item.Properties().group(BioniMineItemGroup.instance)
-			.maxStackSize(1);
+			.maxStackSize(16);
 
 	// Constructors
 	public KanokaItem(Properties properties) {super(properties);}
@@ -33,7 +33,7 @@ public class KanokaItem extends Item {
 		int num = 1; // Default
 		if (compoundNBT != null && compoundNBT.contains(tag)) {
 			num = compoundNBT.getInt(tag);
-		}
+			}
 		return num;
 		}
 

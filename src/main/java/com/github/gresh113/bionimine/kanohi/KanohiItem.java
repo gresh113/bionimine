@@ -31,7 +31,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 //@Mod.EventBusSubscriber(modid = BioniMine.MODID, bus = Bus.FORGE)
 public class KanohiItem extends ArmorItem {
 
-	protected final EquipmentSlotType slot = EquipmentSlotType.HEAD;
 
 	private Kanohi kanohiID;
 	private static final Item.Properties defaultProperties = new Item.Properties().group(KanohiItemGroup.instance)
