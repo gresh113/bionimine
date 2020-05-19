@@ -112,20 +112,20 @@ public enum KanohiShape implements IStringSerializable {
 	}
 	public float getPropertyOverrideValue() {return predicateValue;}
 	
-	public static KanohiShape getShapeFromPredicate(float predicate) {
+	public static KanohiShape getShapeFromName(String nameIn) {
 	      for (KanohiShape shape : KanohiShape.values()) {
-	        if (shape.predicateValue == predicate) {return shape;}
+	        if (shape.name.equals(nameIn)) {return shape;}
 	      }
 	      return KanohiShape.HAU_GREAT;
 	    }
 	
 	public static KanohiShape fromNBT(CompoundNBT compoundNBT, String tagname)
     {
-      float shapePredicate = 0.01F;  // default in case of error
+      String shapeName = "great_hau";  // default in case of error
       if (compoundNBT != null && compoundNBT.contains(tagname)) {
-        shapePredicate = compoundNBT.getFloat(tagname);
+        shapeName = compoundNBT.getString(tagname);
       }
-      KanohiShape shape = getShapeFromPredicate(shapePredicate);
+      KanohiShape shape = getShapeFromName(shapeName);
       return shape;
     }
 
@@ -136,6 +136,6 @@ public enum KanohiShape implements IStringSerializable {
      */
     public void putIntoNBT(CompoundNBT compoundNBT, String tagname)
     {
-      compoundNBT.putFloat(tagname, predicateValue);
+      compoundNBT.putString(tagname, name);
     }
 }

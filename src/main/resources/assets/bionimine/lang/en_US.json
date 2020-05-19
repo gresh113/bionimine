@@ -2,12 +2,15 @@
 	"itemGroup.bionimine": "BioniMine",
 	"itemGroup.kanohi": "BioniMine Kanohi",
 	"key.bionimine.kanohiTrigger": "Trigger Kanohi",
+	
 	"container.kanohi_pedestal": "Kanohi Pedestal",
+	"container.toa_chest": "Toa Chest",
 	
 	"block.bionimine.protosteel_plating": "Protosteel Plating",
 	"block.bionimine.lightstone_ore": "Lightstone Ore",
 	"block.bionimine.protodermis_ore": "Protodermis Ore",
 	"block.bionimine.kanohi_pedestal": "Kanohi Pedestal",
+	"block.bionimine.toa_chest": "Toa Chest",
 	"block.bionimine.flag": "Flag",
 	
 	"item.bionimine.protosteel": "Protosteel",
@@ -30,7 +33,10 @@
 	"item.bionimine.lightstone_ore": "Lightstone Ore",
 	"item.bionimine.protosteel_plating": "Protosteel Plating",
 	"item.bionimine.kanohi_pedestal": "Kanohi Pedestal",
+	"item.bionimine.toa_chest": "Toa Chest",
 	"item.bionimine.protosteel_plating": "Protosteel Plating",
+	
+	
 	
 	"item.bionimine.legendary_vahi": "Kanohi Vahi",
 	"item.bionimine.legendary_ignika": "Kanohi Ignika",

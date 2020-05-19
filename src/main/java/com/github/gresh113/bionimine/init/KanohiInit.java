@@ -30,12 +30,15 @@ public class KanohiInit {
 		//new NewKanohiItem(test));
 	
 	// Instantiate legendary Kanohi separately
-	private final static Kanohi VAHI = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.VAHI, KanohiShape.VAHI, KanohiType.STANDARD, KanohiPalette.RED);
-	private final static Kanohi IGNIKA = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.IGNIKA, KanohiShape.IGNIKA, KanohiType.STANDARD, KanohiPalette.RED);
-	private final static Kanohi MASK_OF_CREATION = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.CREATION, KanohiShape.CREATION, KanohiType.STANDARD, KanohiPalette.RED);
-	private final static Kanohi POWERLESS_MASK = new Kanohi(KanohiPowerLevel.POWERLESS, KanohiAbility.NONE, KanohiShape.HAU_GREAT, KanohiType.STANDARD, KanohiPalette.RED);
-	public final static Item PowerlessMaskItem = new KanohiItem(POWERLESS_MASK).setRegistryName(POWERLESS_MASK.getName().toLowerCase());
 	public static List<KanohiItem> itemArray = new ArrayList<KanohiItem>();
+	private final static Kanohi VAHI = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.VAHI, KanohiShape.VAHI, KanohiType.STANDARD);
+	private final static Kanohi IGNIKA = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.IGNIKA, KanohiShape.IGNIKA, KanohiType.STANDARD);
+	private final static Kanohi MASK_OF_CREATION = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.CREATION, KanohiShape.CREATION, KanohiType.STANDARD);
+	private final static Kanohi POWERLESS_MASK = new Kanohi(KanohiPowerLevel.POWERLESS, KanohiAbility.NONE, KanohiShape.HAU_GREAT, KanohiType.STANDARD);
+	public final static KanohiItem PowerlessMaskItem = new KanohiItem(POWERLESS_MASK);
+	
+	
+	
 	
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
@@ -52,7 +55,7 @@ public class KanohiInit {
 				// Doesn't register any legendary-level masks or powerless masks
 				if (level == KanohiPowerLevel.LEGENDARY || level == KanohiPowerLevel.POWERLESS) {continue;}
 				
-				Kanohi iteratedKanohi = new Kanohi(level, ability, KanohiShape.MIRU_GREAT, KanohiType.STANDARD, KanohiPalette.GREEN);;
+				Kanohi iteratedKanohi = new Kanohi(level, ability, KanohiShape.HAU_GREAT, KanohiType.STANDARD);;
 				String name = iteratedKanohi.getName().toLowerCase();
 				KanohiItem itemtoRegister = new KanohiItem(iteratedKanohi);
 				itemArray.add(itemtoRegister);
@@ -62,11 +65,13 @@ public class KanohiInit {
 			}
 			
 		}
+		itemArray.add(PowerlessMaskItem);
+		
 		// Register legendary masks separately
 		event.getRegistry().register(new KanohiItem(VAHI).setRegistryName(VAHI.getName().toLowerCase()));
 		event.getRegistry().register(new KanohiItem(IGNIKA).setRegistryName(IGNIKA.getName().toLowerCase()));
 		event.getRegistry().register(new KanohiItem(MASK_OF_CREATION).setRegistryName(MASK_OF_CREATION.getName().toLowerCase()));
-		event.getRegistry().register(PowerlessMaskItem);
+		event.getRegistry().register(PowerlessMaskItem.setRegistryName(POWERLESS_MASK.getName().toLowerCase()));
 		//BioniMine.LOGGER.info("Array includes:");
 		//for (NewKanohiItem index : itemArray) {BioniMine.LOGGER.info("-" + index.getName());}
 		//BioniMine.LOGGER.info(itemArray.toString());

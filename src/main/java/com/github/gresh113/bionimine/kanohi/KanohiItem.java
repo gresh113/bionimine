@@ -48,9 +48,10 @@ public class KanohiItem extends ArmorItem {
 			CompoundNBT compoundNBT = stackIn.getOrCreateTag();
 			String tag = "shape";
 			KanohiShape stackShape;
-			if (compoundNBT.contains(tag)){ stackShape = KanohiShape.fromNBT(compoundNBT, tag);}
+			if (compoundNBT.contains(tag)){stackShape = KanohiShape.fromNBT(compoundNBT, tag);}
 			else {
-		    stackShape = KanohiShape.HAU_GREAT;
+			KanohiItem kanohiItem = (KanohiItem) stackIn.getItem();
+		    stackShape = kanohiItem.getDefaultShape();
 		    stackShape.putIntoNBT(compoundNBT, tag);
 			}
 			return stackShape.getPropertyOverrideValue();
@@ -81,8 +82,10 @@ public class KanohiItem extends ArmorItem {
 		return this.kanohiID;
 	}
 	
-	public void setKanohiShape(KanohiShape shapeIn) {
-		this.kanohiID.setShape(shapeIn);
+	public KanohiShape getDefaultShape() {
+		Kanohi kanohi = this.kanohiID;
+		if (kanohi.hasDefaultShape()) {return kanohi.getDefaultShape();}
+		else {return KanohiShape.HAU_GREAT;}
 	}
 	
 	
@@ -97,9 +100,17 @@ public class KanohiItem extends ArmorItem {
 	    shapeIn.putIntoNBT(compoundNBT, "shape");
 	  }
 	 
-	 public static KanohiPalette getPalette(ItemStack stack)
+	 public static KanohiPalette getPalette(ItemStack stackIn)
 	  {
-		 return ((KanohiItem) stack.getItem()).getKanohi().getPalette();
+			CompoundNBT compoundNBT = stackIn.getOrCreateTag();
+			String tag = "color";
+			KanohiPalette stackPalette;
+			if (compoundNBT.contains(tag)){stackPalette = KanohiPalette.fromNBT(compoundNBT, tag);}
+			else {
+			    stackPalette = KanohiPalette.GRAY;
+			    stackPalette.putIntoNBT(compoundNBT, tag);
+				}
+			return stackPalette;
 	    //CompoundNBT compoundNBT = stack.getOrCreateTag();
 	    //return KanohiPalette.fromNBT(compoundNBT, "color");
 	    //BioniMine.LOGGER.info("Beep boop" + );
@@ -152,24 +163,13 @@ public class KanohiItem extends ArmorItem {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack stackIn = playerIn.getHeldItemMainhand();
 		CompoundNBT compoundNBT = stackIn.getOrCreateTag();
-		String tag = "shape";
-		KanohiShape stackShape;
-		if (compoundNBT.contains(tag)){
-			stackShape = KanohiShape.fromNBT(compoundNBT, tag);
-			if (worldIn.isRemote) {  
-		        final boolean PRINT_IN_CHAT_WINDOW = true;
-		        playerIn.sendStatusMessage(new StringTextComponent("Tested predicate:" + compoundNBT.getFloat(tag)),
-		                PRINT_IN_CHAT_WINDOW);
-		      }
-		}
+		String tag = "color";
+		KanohiPalette stackPalette;
+		if (compoundNBT.contains(tag)){stackPalette = KanohiPalette.fromNBT(compoundNBT, tag);}
 		else {
-	    stackShape = KanohiShape.HAU_GREAT;
-	    stackShape.putIntoNBT(compoundNBT, tag);
-	  
-		}
-		float numIn = stackShape.getPredicate();
-		float numOut = numIn + ((float) 0.01f);
-		compoundNBT.putFloat(tag, numOut);
+		    stackPalette = KanohiPalette.ORANGE;
+		    stackPalette.putIntoNBT(compoundNBT, tag);
+			}
 		
 		// if (worldIn.isRemote) {final boolean PRINT_IN_CHAT_WINDOW = true; playerIn.sendStatusMessage(new StringTextComponent(numOut.toString()), PRINT_IN_CHAT_WINDOW);  }
 	    

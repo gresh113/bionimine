@@ -1,25 +1,24 @@
 package com.github.gresh113.bionimine.kanohi;
 
 import java.awt.Color;
-import java.util.Optional;
-
 
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.IStringSerializable;
 
 public enum KanohiPalette implements IStringSerializable {
-	GRAY(0,"red", Color.GRAY, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
-	RED(1,"red", new Color(255,95,105), new Color(255,28,43), new Color(221,23,37), new Color(180,19,30), new Color(120,13,20)),
-	ORANGE(2,"orange", Color.ORANGE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
-	GREEN(3,"green", new Color(58,185,124), new Color(0,173,87), new Color(3,149,81), new Color(11,113,68), new Color(0,98,60)),
-	BLUE(4, "blue", Color.BLUE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
-	BROWN(5, "brown", Color.GRAY, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
-	BLACK(6, "black", Color.BLACK, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
-	WHITE(7, "white", Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE);
+	GRAY("gray", new Color(143,143,143), new Color(97,97,97), new Color(83,83,83), new Color(68,68,68),new Color(45,45,45)),
+	RED("red", new Color(255,95,105), new Color(255,28,43), new Color(221,23,37), new Color(180,19,30), new Color(120,13,20)),
+	GREEN("green", new Color(58,185,124), new Color(0,173,87), new Color(3,149,81), new Color(11,113,68), new Color(0,98,60)),
+	BLACK("black", new Color(45,45,47), new Color(41,41,43), new Color(30,30,31), new Color(17,17,17), new Color(0,0,0)),
+	
+	ORANGE("orange", Color.ORANGE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
+	BLUE("blue", Color.BLUE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
+	BROWN("brown", Color.GRAY, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
+	WHITE ("white", Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE);
 	
 	//new Color(,,)
 	private final String name;
-	private final int NBTTag;
+	//private final int NBTTag;
 	private final Color color1;
 	private final Color color2;
 	private final Color color3;
@@ -48,9 +47,9 @@ public enum KanohiPalette implements IStringSerializable {
 	
 	//public Color getRenderColor() {return color;}
 	
-	KanohiPalette(int NBTtagIn, String nameIn, Color colorIn_1, Color colorIn_2, Color colorIn_3, Color colorIn_4, Color colorIn_5) {
+	KanohiPalette(String nameIn, Color colorIn_1, Color colorIn_2, Color colorIn_3, Color colorIn_4, Color colorIn_5) {
 		this.name = nameIn;
-		this.NBTTag = NBTtagIn;
+		//this.NBTTag = NBTtagIn;
 		this.color1 = colorIn_1;
 		this.color2 = colorIn_2;
 		this.color3 = colorIn_3;
@@ -59,26 +58,26 @@ public enum KanohiPalette implements IStringSerializable {
 		
 	}
 	
+	public static KanohiPalette getPaletteFromName(String nameIn) {
+	      for (KanohiPalette palette : KanohiPalette.values()) {
+	        if (palette.name.equals(nameIn)) {return palette;}
+	      }
+	      return KanohiPalette.GRAY;
+	    }
+	
 	public static KanohiPalette fromNBT(CompoundNBT compoundNBT, String tagname)
     {
-      byte colorID = 0;  // default in case of error
+      String paletteName = "gray";  // Default
       if (compoundNBT != null && compoundNBT.contains(tagname)) {
-        colorID = compoundNBT.getByte(tagname);
+        paletteName = compoundNBT.getString(tagname);
       }
-      Optional<KanohiPalette> color = getColorFromID(colorID);
-      return color.orElse(GRAY); // default is gray
-    }
-	
-	public void putIntoNBT(CompoundNBT compoundNBT, String tagname)
+      KanohiPalette palette = getPaletteFromName(paletteName);
+      return palette;
+    }   
+    
+    public void putIntoNBT(CompoundNBT compoundNBT, String tagname)
     {
-      compoundNBT.putByte(tagname, (byte) NBTTag);
-    }
-
-    private static Optional<KanohiPalette> getColorFromID(byte ID) {
-      for (KanohiPalette flavour : KanohiPalette.values()) {
-        if (flavour.NBTTag == ID) return Optional.of(flavour);
-      }
-      return Optional.empty();
+      compoundNBT.putString(tagname, name);
     }
 
   }

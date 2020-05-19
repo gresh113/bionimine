@@ -5,6 +5,7 @@
   },
   "overrides": [
 	{"predicate": {"bionimine:shape": 0.0}, "model": "bionimine:item/masks/great_hau"},
+	{"predicate": {"bionimine:shape": 0.01}, "model": "bionimine:item/masks/shapeless_mask"},
 	{"predicate": {"bionimine:shape": 0.02}, "model": "bionimine:item/masks/great_miru"},
 	{"predicate": {"bionimine:shape": 0.03}, "model": "bionimine:item/masks/great_akaku"},
 	{"predicate": {"bionimine:shape": 0.04}, "model": "bionimine:item/masks/great_kaukau"},
