@@ -51,7 +51,7 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 	}
 
 	public KanohiPedestalTileEntity() {
-		this(BionimineTileEntityTypes.kanohi_pedestal.get());
+		this(BionimineTileEntityTypes.KANOHI_PEDESTAL.get());
 	}
 
 	@Override

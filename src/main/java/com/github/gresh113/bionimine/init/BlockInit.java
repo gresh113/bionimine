@@ -3,6 +3,7 @@ package com.github.gresh113.bionimine.init;
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.objects.blocks.FlagBlock;
 import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
+import com.github.gresh113.bionimine.objects.blocks.ToaChestBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.OreBlock;
@@ -19,6 +20,9 @@ public class BlockInit {
 	//Functional BLocks
 	public static final RegistryObject<Block> kanohi_pedestal = BLOCKS.register("kanohi_pedestal", () ->
 		new KanohiPedestalBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));
+	
+	public static final RegistryObject<Block> toa_chest = BLOCKS.register("toa_chest", () ->
+	new ToaChestBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(5, 30).sound(SoundType.METAL)));
 	
 //	public static final RegistryObject<Block> flag = BLOCKS.register("flag", () ->
 //		new FlagBlock(Block.Properties.create(Material.BAMBOO).hardnessAndResistance(3.0F, 3.0F)));

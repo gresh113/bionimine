@@ -2,9 +2,10 @@ package com.github.gresh113.bionimine.init;
 
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.kanohi.OldKanohiItem;
+import com.github.gresh113.bionimine.kanohi.KanohiItem;
+import com.github.gresh113.bionimine.kanohi.OldKanohiItem.KanohiMaterial;
 import com.github.gresh113.bionimine.objects.items.AirBladderItem;
-import com.github.gresh113.bionimine.objects.items.KanohiItem;
-import com.github.gresh113.bionimine.objects.items.KanohiItem.KanohiMaterial;
 
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.Item;
@@ -67,7 +68,7 @@ public class ItemInit {
 
 	// Kanohi
 	public static final Item akaku = null;
-	public static final Item avohkii = null;
+	//public static final Item avohkii = null;
 	public static final Item hau = null;
 	public static final Item kakama = null;
 	public static final Item kaukau = null;
@@ -81,6 +82,8 @@ public class ItemInit {
 
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
+		
+		Item.Properties defaultItemProperties = new Item.Properties().group(BioniMineItemGroup.instance);
 
 		// Tools
 		event.getRegistry().register(
@@ -91,27 +94,28 @@ public class ItemInit {
 						.setRegistryName("fire_sword"));
 
 		// Materials
-		event.getRegistry()
-				.register(new AirBladderItem(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance))
-						.setRegistryName("air_bladder"));
 		event.getRegistry().register(
-				new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("bamboo_pole"));
+				new AirBladderItem().setRegistryName("air_bladder"));
 		event.getRegistry().register(
-				new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("flag"));
+				new Item(defaultItemProperties).setRegistryName("bamboo_pole"));
 		event.getRegistry().register(
-				new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("lightstone"));
+				new Item(defaultItemProperties).setRegistryName("flag"));
 		event.getRegistry().register(
-				new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("protosteel"));
+				new Item(defaultItemProperties).setRegistryName("lightstone"));
 		event.getRegistry().register(
-				new Item(new Item.Properties().group(BioniMineItemGroup.instance)).setRegistryName("protodermis"));
+				new Item(defaultItemProperties).setRegistryName("protosteel"));
+		event.getRegistry().register(
+				new Item(defaultItemProperties).setRegistryName("protodermis"));
 
 		// Kanohi
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.hau).setRegistryName("hau"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.miru).setRegistryName("miru"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.akaku).setRegistryName("akaku"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.kaukau).setRegistryName("kaukau"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.pakari).setRegistryName("pakari"));
-		event.getRegistry().register(new KanohiItem(KanohiMaterial.kakama).setRegistryName("kakama"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.hau).setRegistryName("hau"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.miru).setRegistryName("miru"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.akaku).setRegistryName("akaku"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.kaukau).setRegistryName("kaukau"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.pakari).setRegistryName("pakari"));
+		event.getRegistry().register(new OldKanohiItem(KanohiMaterial.kakama).setRegistryName("kakama"));
+		
+		//event.getRegistry().register(new NewKanohiItem().setRegistryName("avokhii"));
 	}
 
 }

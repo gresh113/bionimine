@@ -39,7 +39,7 @@ public class KanohiPedestalContainer extends Container {
 		int startY = 20;
 		int slotSizePlus2 = 18;
 		for (int column = 0; column < 6; ++column) {
-			this.addSlot(new PedestalSlot(tileEntity, column, startX + (column * slotSizePlus2), startY));
+			this.addSlot(new MaskSlot(tileEntity, column, startX + (column * slotSizePlus2), startY));
 		}
 
 		// Player Inventory
@@ -105,30 +105,4 @@ public class KanohiPedestalContainer extends Container {
 		return itemstack;
 	}
 
-	class PedestalSlot extends Slot {
-		private Tag<Item> maskTag = new ItemTags.Wrapper(new ResourceLocation(BioniMine.MODID, "masks"));
-		
-
-		public PedestalSlot(IInventory inventoryIn, int index, int xIn, int yIn) {
-			super(inventoryIn, index, xIn, yIn);
-		}
-
-		/**
-		 * Check if the stack is allowed to be placed in this slot, used for armor slots
-		 * as well as furnace fuel.
-		 */
-		public boolean isItemValid(ItemStack stack) {
-			final Item item = stack.getItem();
-			final boolean itemIsMask = item.isIn(maskTag);
-			return itemIsMask;
-		}
-
-		/**
-		 * Returns the maximum stack size for a given slot (usually the same as
-		 * getInventoryStackLimit(), but 1 in the case of armor slots)
-		 */
-		public int getSlotStackLimit() {
-			return 1;
-		}
-	}
 }

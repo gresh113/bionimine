@@ -53,7 +53,7 @@ public class KanohiPedestalBlock extends Block {
 
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		return BionimineTileEntityTypes.kanohi_pedestal.get().create();
+		return BionimineTileEntityTypes.KANOHI_PEDESTAL.get().create();
 	}
 
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

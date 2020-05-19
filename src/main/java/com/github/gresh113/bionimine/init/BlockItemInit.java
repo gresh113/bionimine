@@ -16,6 +16,8 @@ public class BlockItemInit {
 	//Special Blocks
 	public static final RegistryObject<Item> kanohi_pedestal = BLOCK_ITEMS.register("kanohi_pedestal", () -> 
 		new BlockItem(BlockInit.kanohi_pedestal.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
+	public static final RegistryObject<Item> toa_chest = BLOCK_ITEMS.register("toa_chest", () -> 
+	new BlockItem(BlockInit.toa_chest.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
 	
 //	public static final RegistryObject<Item> flag = BLOCK_ITEMS.register("flag", () -> 
 //		new BlockItem(BlockInit.kanohi_pedestal.get(), new Item.Properties().group(BioniMineItemGroup.instance)));

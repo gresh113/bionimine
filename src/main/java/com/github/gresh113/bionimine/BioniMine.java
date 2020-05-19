@@ -7,12 +7,15 @@ import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.init.BlockItemInit;
 import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.KanohiInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -51,6 +54,7 @@ public class BioniMine {
 		BionimineContainerTypes.CONTAINER_TYPES.register(modEventBus);
 		BlockInit.BLOCKS.register(modEventBus);
 		BlockItemInit.BLOCK_ITEMS.register(modEventBus);
+		//KanohiInit.KANOHI.register(modEventBus);
 
 		instance = this;
 
@@ -105,9 +109,23 @@ public class BioniMine {
 
 		@Override
 		public ItemStack createIcon() {
-			return new ItemStack(ItemInit.hau);
+			return new ItemStack(ItemInit.lightstone);
 		}
 	}
+	
+	// Creative Inventory tab for Kanohi Items
+		public static class KanohiItemGroup extends ItemGroup {
+			public static final KanohiItemGroup instance = new KanohiItemGroup(ItemGroup.GROUPS.length, "kanohi");
+
+			private KanohiItemGroup(int index, String label) {
+				super(index, label);
+			}
+
+			@Override
+			public ItemStack createIcon() {
+				return new ItemStack(KanohiInit.PowerlessMaskItem);
+			}
+		}
 
 	// You can use EventBusSubscriber to automatically subscribe events on the
 	// contained class (this is subscribing to the MOD
@@ -117,7 +135,7 @@ public class BioniMine {
 		@SubscribeEvent
 		public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
 			// register a new block here
-			LOGGER.info("HELLO from Register Block");
+			//LOGGER.info("HELLO from Register Block");
 		}
 	}
 }
