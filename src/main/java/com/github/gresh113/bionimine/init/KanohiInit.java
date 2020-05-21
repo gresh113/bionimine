@@ -31,10 +31,10 @@ public class KanohiInit {
 	
 	// Instantiate legendary Kanohi separately
 	public static List<KanohiItem> itemArray = new ArrayList<KanohiItem>();
-	private final static Kanohi VAHI = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.VAHI, KanohiShape.VAHI, KanohiType.STANDARD);
-	private final static Kanohi IGNIKA = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.IGNIKA, KanohiShape.IGNIKA, KanohiType.STANDARD);
-	private final static Kanohi MASK_OF_CREATION = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.CREATION, KanohiShape.CREATION, KanohiType.STANDARD);
-	private final static Kanohi POWERLESS_MASK = new Kanohi(KanohiPowerLevel.POWERLESS, KanohiAbility.NONE, KanohiShape.HAU_GREAT, KanohiType.STANDARD);
+	private final static Kanohi VAHI = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.VAHI, KanohiType.STANDARD);
+	private final static Kanohi IGNIKA = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.IGNIKA, KanohiType.STANDARD);
+	private final static Kanohi MASK_OF_CREATION = new Kanohi(KanohiPowerLevel.LEGENDARY, KanohiAbility.CREATION, KanohiType.STANDARD);
+	private final static Kanohi POWERLESS_MASK = new Kanohi(KanohiPowerLevel.POWERLESS, KanohiAbility.NONE, KanohiType.STANDARD);
 	public final static KanohiItem PowerlessMaskItem = new KanohiItem(POWERLESS_MASK);
 	
 	
@@ -55,7 +55,7 @@ public class KanohiInit {
 				// Doesn't register any legendary-level masks or powerless masks
 				if (level == KanohiPowerLevel.LEGENDARY || level == KanohiPowerLevel.POWERLESS) {continue;}
 				
-				Kanohi iteratedKanohi = new Kanohi(level, ability, KanohiShape.HAU_GREAT, KanohiType.STANDARD);;
+				Kanohi iteratedKanohi = new Kanohi(level, ability, KanohiType.STANDARD);;
 				String name = iteratedKanohi.getName().toLowerCase();
 				KanohiItem itemtoRegister = new KanohiItem(iteratedKanohi);
 				itemArray.add(itemtoRegister);

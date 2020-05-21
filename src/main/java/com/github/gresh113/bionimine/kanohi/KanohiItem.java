@@ -7,7 +7,9 @@ import javax.annotation.Nullable;
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.BioniMine.KanohiItemGroup;
 
+import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -101,12 +103,14 @@ public class KanohiItem extends ArmorItem {
 	 
 	 public static KanohiPalette getPalette(ItemStack stackIn)
 	  {
+			KanohiPalette defaultPalette = ((KanohiItem) stackIn.getItem()).getKanohi().getDefaultPalette();
+			
 			CompoundNBT compoundNBT = stackIn.getOrCreateTag();
 			String tag = "color";
-			KanohiPalette stackPalette;
+			KanohiPalette stackPalette;			
 			if (compoundNBT.contains(tag)){stackPalette = KanohiPalette.fromNBT(compoundNBT, tag);}
 			else {
-			    stackPalette = KanohiPalette.GRAY;
+			    stackPalette = defaultPalette;
 			    stackPalette.putIntoNBT(compoundNBT, tag);
 				}
 			return stackPalette;
@@ -134,6 +138,17 @@ public class KanohiItem extends ArmorItem {
 	@Override
 	public int getItemEnchantability() {
 		return 0;
+	}
+	
+//	@Override
+//	public <A extends BipedModel<?>> A getArmorModel(LivingEntity entityLiving, ItemStack itemStack,
+//			EquipmentSlotType armorSlot, A _default) {
+//		return super.getArmorModel(entityLiving, itemStack, armorSlot, _default);
+//	}
+	
+	@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
+		return (BioniMine.MODID + ":textures/models/kanohi/" + this.getShape(stack).getName() + "/" + this.getPalette(stack).getName() + ".png");
 	}
 
 	@OnlyIn(Dist.CLIENT)

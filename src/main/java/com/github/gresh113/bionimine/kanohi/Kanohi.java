@@ -4,21 +4,19 @@ package com.github.gresh113.bionimine.kanohi;
 
 public class Kanohi {
 
-	public static Kanohi TAHUS_HAU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.HAU, KanohiShape.HAU_GREAT, KanohiType.STANDARD);
-	//public static Kanohi LEWAS_MIRU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.MIRU, KanohiShape.MIRU_GREAT, KanohiType.STANDARD);
+	public static Kanohi TAHUS_HAU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.HAU, KanohiType.STANDARD);
+	//public static Kanohi LEWAS_MIRU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.MIRU, KanohiType.STANDARD);
 	
 	private final KanohiPowerLevel power;
 	private final KanohiAbility ability;
 	private final KanohiType type;
 	private final String name;
 	//private final Element element;
-	private KanohiShape defaultShape;
 	//private KanohiPalette palette;
 	
-	public Kanohi(KanohiPowerLevel powerIn, KanohiAbility abilityIn, KanohiShape shapeIn, KanohiType typeIn) {
+	public Kanohi(KanohiPowerLevel powerIn, KanohiAbility abilityIn, KanohiType typeIn) {
 	      this.power = powerIn;
 	      this.ability = abilityIn;	
-	      this.defaultShape = shapeIn;
 	      this.type = typeIn;
 	      //this.element = elementIn;
 	      //this.palette = paletteIn;
@@ -27,23 +25,29 @@ public class Kanohi {
 
 	public KanohiPowerLevel getPowerLevel() {
 		return this.power;
-
-	}
+		}
 
 	public KanohiAbility getAbility() {
 		return this.ability;
-	}
+		}
 
 	public KanohiShape getDefaultShape() {
-		return this.defaultShape;
-	}
+		return this.ability.getDefaultShape();
+		}
 	public Boolean hasDefaultShape() {
-		return this.defaultShape != null ? true : false;
-	}
+		return this.ability.getDefaultShape() != null ? true : false;
+		}
+	
+	public KanohiPalette getDefaultPalette() {
+		return this.ability.getDefaultPalette();
+		}
+	public Boolean hasDefaultPalette() {
+		return this.ability.getDefaultPalette() != null ? true : false;
+		}
 
 	public KanohiType getType() {
 		return this.type;
-	}
+		}
 	
 	//public KanohiPalette getPalette() {return this.palette;}
 	//public void setPalette(KanohiPalette paletteIn) {this.palette = paletteIn;}
