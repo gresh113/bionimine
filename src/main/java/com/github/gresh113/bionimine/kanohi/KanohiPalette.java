@@ -14,8 +14,10 @@ public enum KanohiPalette implements IStringSerializable {
 	BLUE("blue", new Color(80,130,217), new Color(24,94,217), new Color(20,82,188), new Color(16,66,153), new Color(11,44,102)),
 	BROWN("brown", new Color(96,64,40), new Color(89,42,9), new Color(75,34,5), new Color(58,26,2), new Color(33,12,0)),
 	GOLD("gold", new Color(195,122,3), new Color(158,99,12), new Color(113,68,0), new Color(89,55,0), new Color(36,18,0)),
+	ORANGE("orange", new Color(255,172,94), new Color(255,138,28), new Color(221,118,23), new Color(180,97,19), new Color(120,65,13)),
+	YELLOW("yellow", new Color(255,217,94), new Color(255,202,28), new Color(221,174,23), new Color(180,142,19), new Color(120,95,13)),
+	LIGHT_BLUE("light_blue", new Color(131,194,255), new Color(77,165,255), new Color(73,152,236), new Color(69,133,202), new Color(64,107,152)),
 	
-	ORANGE("orange", Color.ORANGE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE),
 	;
 	
 	//new Color(,,)

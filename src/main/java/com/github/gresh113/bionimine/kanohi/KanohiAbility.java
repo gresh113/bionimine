@@ -3,6 +3,9 @@ package com.github.gresh113.bionimine.kanohi;
 
 // Huge props to BS01 for all this info
 public enum KanohiAbility {
+	
+	// Rename "MasksOfPower"????? - Colapse in KanohiPowerLevel
+	
 	NONE("Powerless","", true, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
 	
 	HAU("Hau","Shielding", true, KanohiShape.HAU_GREAT, KanohiPalette.RED),
@@ -12,8 +15,8 @@ public enum KanohiAbility {
 	PAKARI("Pakari", "Strength", true, KanohiShape.PAKARI_GREAT, KanohiPalette.BLACK),
 	KAKAMA("Kakama","Speed", true, KanohiShape.KAKAMA_GREAT, KanohiPalette.BROWN),
 	
-	HUNA("Huna","Concealment", true, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
-	RAU("Rau","Translation", true, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
+	HUNA("Huna","Concealment", true, KanohiShape.HUNA_NOBLE, KanohiPalette.ORANGE),
+	RAU("Rau","Translation", true, KanohiShape.RAU_NOBLE, KanohiPalette.LIGHT_BLUE),
 	MAHIKI("Mahiki","Illusion", true, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
 	KOMAU("Komau","Mind Control", true, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
 	RURU("Ruru","Night Vision", true, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
@@ -49,8 +52,8 @@ public enum KanohiAbility {
 	KRAAHKAN("Kraahkan","Shadow", false, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
 	LIGHT_AND_SHADOW("Avohkan","Light and Shadow", false, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
 	
-	RUA("Rua","Wisdom", false, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
-	AKI("Aki","Valor", false, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
+	RUA("Rua","Wisdom", false, KanohiShape.MIRU_GREAT, KanohiPalette.GOLD),
+	AKI("Aki","Valor", false, KanohiShape.HAU_GREAT, KanohiPalette.GRAY),
 	
 	RODE("Rode","Truth", false, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
 	OLMAK("Olmak","Olmak", false, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
