@@ -46,7 +46,7 @@ public enum KanohiShape implements IStringSerializable {
 	ELDA_ORGANIC("organic_elda",0.31f),
 	SULETU_ORGANIC("organic_suletu",0.32f),
 	SANOK_ORGANIC("organic_sanok",0.33f),
-	KADIN_ORGANIC("organic",0.34f),
+	KADIN_ORGANIC("organic_kadin",0.34f),
 	IDEN_ORGANIC("organic_iden",0.35f),
 	
 	ARTHRON("arthron",0.36f),
