@@ -28,7 +28,7 @@ public class ClientEventBusSubscriber {
 	public static void clientSetup(FMLClientSetupEvent event) {
 		ScreenManager.registerFactory(BionimineContainerTypes.PEDESTAL.get(), KanohiPedestalScreen::new);
 		RenderingRegistry.registerEntityRenderingHandler(BionimineEntityTypes.FIKOU_SPIDER.get(), FikouSpiderRender::new);
-		for (KanohiShape shape : KanohiShape.values()) {BioniMine.LOGGER.info("{|predicate|: {|bionimine:shape|: " + shape.getPredicate() + "}, |model|: |bionimine:item/masks/"+shape.getName()+"|},");}
+		//for (KanohiShape shape : KanohiShape.values()) {BioniMine.LOGGER.info("{|predicate|: {|bionimine:shape|: " + shape.getPredicate() + "}, |model|: |bionimine:item/masks/"+shape.getName()+"|},");}
 	}
 	
 	@SubscribeEvent

@@ -65,41 +65,41 @@ public class KanohiItem extends ArmorItem {
 		super(material, defaultSlot, properties);
 		kanohiID = kanohiIn;
 		this.addPropertyOverride(resourceLocation, shapeGetter);
-	}
+		}
 
 	public KanohiItem(Kanohi kanohiIn) {
 		super(material, defaultSlot, defaultProperties);
 		kanohiID = kanohiIn;
 		this.addPropertyOverride(resourceLocation, shapeGetter);
-	}
+		}
 
 	public KanohiItem() {
 		super(material, defaultSlot, defaultProperties);
 		kanohiID = Kanohi.TAHUS_HAU;
 		this.addPropertyOverride(resourceLocation, shapeGetter);
-	}
+		}
 
 	public Kanohi getKanohi() {
 		return this.kanohiID;
-	}
+		}
 	
 	public KanohiShape getDefaultShape() {
 		Kanohi kanohi = this.kanohiID;
 		if (kanohi.hasDefaultShape()) {return kanohi.getDefaultShape();}
 		else {return KanohiShape.HAU_GREAT;}
-	}
+		}
 	
 	
 	public static KanohiShape getShape(ItemStack stack)
 	  {
 	    CompoundNBT compoundNBT = stack.getOrCreateTag();
 	    return KanohiShape.fromNBT(compoundNBT, "shape");
-	  }
+	  	}
 	
 	 public void setShape(ItemStack stack, KanohiShape shapeIn)	  {
 	    CompoundNBT compoundNBT = stack.getOrCreateTag();
 	    shapeIn.putIntoNBT(compoundNBT, "shape");
-	  }
+	  	}
 	 
 	 public static KanohiPalette getPalette(ItemStack stackIn)
 	  {
@@ -117,7 +117,7 @@ public class KanohiItem extends ArmorItem {
 	    //CompoundNBT compoundNBT = stack.getOrCreateTag();
 	    //return KanohiPalette.fromNBT(compoundNBT, "color");
 	    //BioniMine.LOGGER.info("Beep boop" + );
-	  }
+	  		}
 	
 //	 public void setPalette(ItemStack stack, KanohiPalette shapeIn)
 //	  {
@@ -133,23 +133,17 @@ public class KanohiItem extends ArmorItem {
 	@Override
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
 		return false;
-	}
+		}
 
 	@Override
 	public int getItemEnchantability() {
 		return 0;
-	}
-	
-//	@Override
-//	public <A extends BipedModel<?>> A getArmorModel(LivingEntity entityLiving, ItemStack itemStack,
-//			EquipmentSlotType armorSlot, A _default) {
-//		return super.getArmorModel(entityLiving, itemStack, armorSlot, _default);
-//	}
+		}
 	
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
 		return (BioniMine.MODID + ":textures/models/kanohi/" + this.getShape(stack).getName() + "/" + this.getPalette(stack).getName() + ".png");
-	}
+		}
 
 	@OnlyIn(Dist.CLIENT)
 	@Override
@@ -162,7 +156,7 @@ public class KanohiItem extends ArmorItem {
 		//tooltip.add(new StringTextComponent("| Shape: " + kanohiIn.getShape().getPredicate()));
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
-	}
+		}
 	
 	
 	  @OnlyIn(Dist.CLIENT)

@@ -10,7 +10,7 @@ public enum KanohiAbility {
 	AKAKU("Akaku", "X-Ray Vision", true, KanohiShape.AKAKU_GREAT, KanohiPalette.WHITE),
 	KAUKAU("Kaukau", "Water Breathing", true, KanohiShape.KAUKAU_GREAT, KanohiPalette.BLUE),
 	PAKARI("Pakari", "Strength", true, KanohiShape.PAKARI_GREAT, KanohiPalette.BLACK),
-	KAKAMA("Kakama","Speed", true, KanohiShape.SHAPELESS, KanohiPalette.BROWN),
+	KAKAMA("Kakama","Speed", true, KanohiShape.KAKAMA_GREAT, KanohiPalette.BROWN),
 	
 	HUNA("Huna","Concealment", true, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
 	RAU("Rau","Translation", true, KanohiShape.SHAPELESS, KanohiPalette.GRAY),
