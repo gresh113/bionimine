@@ -5,9 +5,9 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.world.World;
 
-public class FikouSpider extends SpiderEntity {
+public class FikouSpiderEntity extends SpiderEntity {
 
-	public FikouSpider(EntityType<? extends SpiderEntity> type, World worldIn) {
+	public FikouSpiderEntity(EntityType<? extends SpiderEntity> type, World worldIn) {
 		super(type, worldIn);
 	}
 	

@@ -2,10 +2,12 @@ package com.github.gresh113.bionimine.kanohi;
 
 import java.awt.Color;
 
+import com.github.gresh113.bionimine.objects.items.ToaArmorItem;
+
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
 
-public class KanohiColorHandler implements IItemColor {
+public class ArmorColorHandler implements IItemColor {
 
 	/**
 	 * Returns the color for rendering, based on 1) the itemstack 2) the "tintindex"
@@ -22,7 +24,8 @@ public class KanohiColorHandler implements IItemColor {
 	@Override
 	public int getColor(ItemStack stack, int tintIndex) {
 		{
-			KanohiPalette kanohiColor = KanohiItem.getPalette(stack);
+			ArmorPalette kanohiColor = KanohiItem.getPalette(stack);
+			
 			switch (tintIndex) {
 			case 0:
 				return kanohiColor.getColorLayer1().getRGB();

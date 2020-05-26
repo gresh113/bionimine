@@ -6,16 +6,16 @@ import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class FikouSpiderRender extends MobRenderer<FikouSpider, FikouSpiderModel<FikouSpider>>{
+public class FikouSpiderRender extends MobRenderer<FikouSpiderEntity, FikouSpiderModel<FikouSpiderEntity>>{
 
 	protected final ResourceLocation TEXTURE = new ResourceLocation(BioniMine.MODID, "textures/entity/fikou_spider.png");
 	
 	public FikouSpiderRender(EntityRendererManager renderManagerIn) {
-		super(renderManagerIn, new FikouSpiderModel<FikouSpider>(), 0.5f	);
+		super(renderManagerIn, new FikouSpiderModel<FikouSpiderEntity>(), 0.5f);
 		}
 	
 	@Override
-	public ResourceLocation getEntityTexture(FikouSpider entity) {
+	public ResourceLocation getEntityTexture(FikouSpiderEntity entity) {
 		return TEXTURE;
 		}
 }

@@ -3,6 +3,7 @@ package com.github.gresh113.bionimine.init;
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.objects.blocks.FlagBlock;
 import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
+import com.github.gresh113.bionimine.objects.blocks.MataNuiBlock;
 import com.github.gresh113.bionimine.objects.blocks.ToaChestBlock;
 
 import net.minecraft.block.Block;
@@ -30,6 +31,9 @@ public class BlockInit {
 	//Building BLocks
 	public static final RegistryObject<Block> protosteel_plating = BLOCKS.register("protosteel_plating", () ->
 		new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(5, 30).sound(SoundType.METAL)));
+	
+	public static final RegistryObject<Block> matanui_stone = BLOCKS.register("matanui_stone", () ->
+	new MataNuiBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(5, 30).sound(SoundType.STONE)));
 	
 	//Ores
 	public static final RegistryObject<Block> lightstone_ore = BLOCKS.register("lightstone_ore", () ->

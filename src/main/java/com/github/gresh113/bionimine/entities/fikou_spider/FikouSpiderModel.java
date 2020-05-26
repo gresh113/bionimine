@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 // Paste this class into your mod and generate all required imports
 
 
-public class FikouSpiderModel<T extends FikouSpider> extends EntityModel<T> {
+public class FikouSpiderModel<T extends FikouSpiderEntity> extends EntityModel<T> {
 	private final ModelRenderer Body;
 	private final ModelRenderer Shell;
 	private final ModelRenderer Head;

@@ -8,6 +8,7 @@ import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.init.BlockItemInit;
 import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.OldItemInit;
 import com.github.gresh113.bionimine.init.KanohiInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
@@ -56,6 +57,7 @@ public class BioniMine {
 		BionimineEntityTypes.ENTITY_TYPES.register(modEventBus);
 		BlockInit.BLOCKS.register(modEventBus);
 		BlockItemInit.BLOCK_ITEMS.register(modEventBus);
+		ItemInit.ITEMS.register(modEventBus);
 		//KanohiInit.KANOHI.register(modEventBus);
 
 		instance = this;
@@ -111,7 +113,7 @@ public class BioniMine {
 
 		@Override
 		public ItemStack createIcon() {
-			return new ItemStack(ItemInit.lightstone);
+			return new ItemStack(OldItemInit.lightstone);
 		}
 	}
 	

@@ -5,10 +5,11 @@ import java.util.List;
 import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.client.gui.KanohiPedestalScreen;
 import com.github.gresh113.bionimine.entities.fikou_spider.FikouSpiderRender;
+import com.github.gresh113.bionimine.entities.matoran.MatoranRender;
 import com.github.gresh113.bionimine.init.BionimineEntityTypes;
 import com.github.gresh113.bionimine.init.KanohiInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
-import com.github.gresh113.bionimine.kanohi.KanohiColorHandler;
+import com.github.gresh113.bionimine.kanohi.ArmorColorHandler;
 import com.github.gresh113.bionimine.kanohi.KanohiItem;
 import com.github.gresh113.bionimine.kanohi.KanohiShape;
 
@@ -28,6 +29,7 @@ public class ClientEventBusSubscriber {
 	public static void clientSetup(FMLClientSetupEvent event) {
 		ScreenManager.registerFactory(BionimineContainerTypes.PEDESTAL.get(), KanohiPedestalScreen::new);
 		RenderingRegistry.registerEntityRenderingHandler(BionimineEntityTypes.FIKOU_SPIDER.get(), FikouSpiderRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(BionimineEntityTypes.MATORAN.get(), MatoranRender::new);
 		//for (KanohiShape shape : KanohiShape.values()) {BioniMine.LOGGER.info("{|predicate|: {|bionimine:shape|: " + shape.getPredicate() + "}, |model|: |bionimine:item/masks/"+shape.getName()+"|},");}
 	}
 	
@@ -35,7 +37,7 @@ public class ClientEventBusSubscriber {
 	public static void onColorHandlerEvent(ColorHandlerEvent.Item event) {
 		List<KanohiItem> array = KanohiInit.itemArray;
 		for (KanohiItem index : array) {
-			event.getItemColors().register(new KanohiColorHandler(), index);
+			event.getItemColors().register(new ArmorColorHandler(), index);
 		}
 	}
 

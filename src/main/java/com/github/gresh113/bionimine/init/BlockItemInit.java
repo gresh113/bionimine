@@ -25,6 +25,8 @@ public class BlockItemInit {
 	//Building Blocks
 	public static final RegistryObject<Item> protosteel_plating = BLOCK_ITEMS.register("protosteel_plating", () -> 
 		new BlockItem(BlockInit.protosteel_plating.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
+	public static final RegistryObject<Item> matanui_stone = BLOCK_ITEMS.register("matanui_stone", () -> 
+	new BlockItem(BlockInit.matanui_stone.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
 	
 	//Ores
 	public static final RegistryObject<Item> lightstone_ore = BLOCK_ITEMS.register("lightstone_ore", () -> 

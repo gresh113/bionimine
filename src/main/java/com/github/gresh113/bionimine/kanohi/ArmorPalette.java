@@ -5,7 +5,7 @@ import java.awt.Color;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.IStringSerializable;
 
-public enum KanohiPalette implements IStringSerializable {
+public enum ArmorPalette implements IStringSerializable {
 	GRAY("gray", new Color(143,143,143), new Color(97,97,97), new Color(83,83,83), new Color(68,68,68),new Color(45,45,45)),
 	RED("red", new Color(255,95,105), new Color(255,28,43), new Color(221,23,37), new Color(180,19,30), new Color(120,13,20)),
 	GREEN("green", new Color(58,185,124), new Color(0,173,87), new Color(3,149,81), new Color(11,113,68), new Color(0,98,60)),
@@ -17,6 +17,10 @@ public enum KanohiPalette implements IStringSerializable {
 	ORANGE("orange", new Color(255,172,94), new Color(255,138,28), new Color(221,118,23), new Color(180,97,19), new Color(120,65,13)),
 	YELLOW("yellow", new Color(255,217,94), new Color(255,202,28), new Color(221,174,23), new Color(180,142,19), new Color(120,95,13)),
 	LIGHT_BLUE("light_blue", new Color(131,194,255), new Color(77,165,255), new Color(73,152,236), new Color(69,133,202), new Color(64,107,152)),
+	PRUPLE("purple", new Color(62,42,115), new Color(41,13,113), new Color(36,10,99), new Color(29,9,81), new Color(19,6,54)),
+	TEAL("teal", new Color(14,149,138), Color.decode("#009166"), Color.decode("#007C5E"), Color.decode("#005E4D"), Color.decode("#005145")),
+	LIME_GREEN("lime_green", Color.decode("#37CA5F"), Color.decode("#17C435"), Color.decode("#17AB38"), Color.decode("#178736"), Color.decode("#177834")),
+	SAND_BLUE("sand_blue", Color.decode("#70A4C3"), Color.decode("#478EB9"), Color.decode("#4282A5"), Color.decode("#3C6F8E"), Color.decode("#335569")),
 	
 	;
 	
@@ -51,7 +55,7 @@ public enum KanohiPalette implements IStringSerializable {
 	
 	//public Color getRenderColor() {return color;}
 	
-	KanohiPalette(String nameIn, Color colorIn_1, Color colorIn_2, Color colorIn_3, Color colorIn_4, Color colorIn_5) {
+	ArmorPalette(String nameIn, Color colorIn_1, Color colorIn_2, Color colorIn_3, Color colorIn_4, Color colorIn_5) {
 		this.name = nameIn;
 		//this.NBTTag = NBTtagIn;
 		this.color1 = colorIn_1;
@@ -62,20 +66,20 @@ public enum KanohiPalette implements IStringSerializable {
 		
 	}
 	
-	public static KanohiPalette getPaletteFromName(String nameIn) {
-	      for (KanohiPalette palette : KanohiPalette.values()) {
+	public static ArmorPalette getPaletteFromName(String nameIn) {
+	      for (ArmorPalette palette : ArmorPalette.values()) {
 	        if (palette.name.equals(nameIn)) {return palette;}
 	      }
-	      return KanohiPalette.GRAY;
+	      return ArmorPalette.GRAY;
 	    }
 	
-	public static KanohiPalette fromNBT(CompoundNBT compoundNBT, String tagname)
+	public static ArmorPalette fromNBT(CompoundNBT compoundNBT, String tagname)
     {
       String paletteName = "gray";  // Default
       if (compoundNBT != null && compoundNBT.contains(tagname)) {
         paletteName = compoundNBT.getString(tagname);
       }
-      KanohiPalette palette = getPaletteFromName(paletteName);
+      ArmorPalette palette = getPaletteFromName(paletteName);
       return palette;
     }   
     

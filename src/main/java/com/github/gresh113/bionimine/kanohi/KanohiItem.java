@@ -8,6 +8,7 @@ import com.github.gresh113.bionimine.BioniMine;
 import com.github.gresh113.bionimine.KeyHandler;
 import com.github.gresh113.bionimine.BioniMine.KanohiItemGroup;
 import com.github.gresh113.bionimine.kanohi.OldKanohiItem.KanohiMaterial;
+import com.github.gresh113.bionimine.objects.items.ToaArmorItem;
 import com.github.gresh113.bionimine.util.KanohiFunctions;
 
 import net.minecraft.client.renderer.entity.model.BipedModel;
@@ -34,8 +35,9 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-//@Mod.EventBusSubscriber(modid = BioniMine.MODID, bus = Bus.FORGE)
 public class KanohiItem extends ArmorItem {
 
 	private Kanohi kanohiID;
@@ -44,9 +46,8 @@ public class KanohiItem extends ArmorItem {
 	private static EquipmentSlotType defaultSlot = EquipmentSlotType.HEAD;
 	private static ArmorMaterial material = ArmorMaterial.IRON;
 
-	// private CompoundNBT nbt;
-
 	private static ResourceLocation resourceLocation = new ResourceLocation(BioniMine.MODID, "shape");
+	
 	private IItemPropertyGetter shapeGetter = new IItemPropertyGetter() {
 		@OnlyIn(Dist.CLIENT)
 		public float call(ItemStack stackIn, @Nullable World worldIn, @Nullable LivingEntity entityIn) {
@@ -87,8 +88,8 @@ public class KanohiItem extends ArmorItem {
 		return this.kanohiID;
 	}
 
-	public KanohiAbility getKanohiAbility() {
-		return this.kanohiID.getAbility();
+	public KanohiPower getKanohiPower() {
+		return this.kanohiID.getPower();
 	}
 
 	public KanohiShape getDefaultShape() {
@@ -110,29 +111,26 @@ public class KanohiItem extends ArmorItem {
 		shapeIn.putIntoNBT(compoundNBT, "shape");
 	}
 
-	public static KanohiPalette getPalette(ItemStack stackIn) {
-		KanohiPalette defaultPalette = ((KanohiItem) stackIn.getItem()).getKanohi().getDefaultPalette();
+	public static ArmorPalette getPalette(ItemStack stackIn) {
+		ArmorPalette defaultPalette = ((KanohiItem) stackIn.getItem()).getKanohi().getDefaultPalette();
 
 		CompoundNBT compoundNBT = stackIn.getOrCreateTag();
 		String tag = "color";
-		KanohiPalette stackPalette;
+		ArmorPalette stackPalette;
 		if (compoundNBT.contains(tag)) {
-			stackPalette = KanohiPalette.fromNBT(compoundNBT, tag);
+			stackPalette = ArmorPalette.fromNBT(compoundNBT, tag);
 		} else {
 			stackPalette = defaultPalette;
 			stackPalette.putIntoNBT(compoundNBT, tag);
 		}
 		return stackPalette;
-		// CompoundNBT compoundNBT = stack.getOrCreateTag();
-		// return KanohiPalette.fromNBT(compoundNBT, "color");
-		// BioniMine.LOGGER.info("Beep boop" + );
-	}
 
-//	 public void setPalette(ItemStack stack, KanohiPalette shapeIn)
-//	  {
-//	    CompoundNBT compoundNBT = stack.getOrCreateTag();
-//	    shapeIn.putIntoNBT(compoundNBT, "color");
-//	  }
+	}
+	
+	public void setPalette(ItemStack stack, ArmorPalette paletteIn) {
+		CompoundNBT compoundNBT = stack.getOrCreateTag();
+		paletteIn.putIntoNBT(compoundNBT, "color");
+	}
 
 	/**
 	 * Return whether this item is repairable in an anvil.
@@ -158,11 +156,10 @@ public class KanohiItem extends ArmorItem {
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		KanohiItem kanohiItemIn = (KanohiItem) stack.getItem();
 		// kanohiItemIn.getPropertyGetter(resourceLocation).toString();
+
 		Kanohi kanohiIn = kanohiItemIn.getKanohi();
 		String infoString = kanohiIn.getDescriptionText();
 		tooltip.add(new StringTextComponent(infoString));
-		// tooltip.add(new StringTextComponent("| Shape: " +
-		// kanohiIn.getShape().getPredicate()));
 
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
@@ -174,67 +171,77 @@ public class KanohiItem extends ArmorItem {
 		return shape.getPropertyOverrideValue();
 	}
 
+	
+	boolean kanohiActive;
+	
 	@Override
 	public void onArmorTick(ItemStack stackIn, World world, PlayerEntity playerIn) {
-		boolean kanohiActive;
-		CompoundNBT compoundNBT = stackIn.getOrCreateTag();
-		String tag = "active";
-
-		if (compoundNBT != null && compoundNBT.contains(tag)) {
-			kanohiActive = compoundNBT.getBoolean(tag);
-		} else {
-			kanohiActive = false;
+		
+		if (playerIn.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof ToaArmorItem && (this.getPalette(stackIn) == ArmorPalette.GRAY || this.getPalette(stackIn) == null)) {
+			ToaArmorItem toaArmorIn = (ToaArmorItem) playerIn.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem();
+			this.setPalette(stackIn, toaArmorIn.getPalette());
 		}
-		if (KeyHandler.kanohiTrigger.isPressed()) {
-			kanohiActive = !kanohiActive;
+		
+		// Checks for kanohiTrigger key press, toggles Kanohi's active state if key press occurs
+		if(KeyHandler.kanohiTrigger.isPressed()) {kanohiActive = !kanohiActive;}
+		
+		if (!(stackIn == ItemStack.EMPTY || stackIn == null)) {
+			
+			KanohiItem currentKanohi = (KanohiItem) stackIn.getItem();
+			KanohiPower power = currentKanohi.getKanohiPower();
+			
+			// Activates mask power based on "material" type
+			if (kanohiActive) {
+			if (power == KanohiPower.GREAT_KAUKAU) {
+				playerIn.setAir(playerIn.getMaxAir());
+			}
+			if (power == KanohiPower.GREAT_KAKAMA) {
+				playerIn.addPotionEffect(new EffectInstance(Effects.SPEED, 1, 3));
+			}
+			if (power == KanohiPower.GREAT_MIRU) {
+				playerIn.addPotionEffect(new EffectInstance(Effects.LEVITATION, 1, -1));
+			}
+			if (power == KanohiPower.GREAT_PAKARI) {
+				playerIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 1, 3));
+				playerIn.addPotionEffect(new EffectInstance(Effects.HASTE, 1, 5));
+			}
+			if (power == KanohiPower.GREAT_HAU) {
+				playerIn.addPotionEffect(new EffectInstance(Effects.ABSORPTION, 1, 1));
+				playerIn.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 1, 1));
+				playerIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 1, 2));
+			}
+			if (power == KanohiPower.GREAT_HUNA) {
+				playerIn.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, 1, 1));
+			}
+			if (power == KanohiPower.GREAT_RURU) {
+				playerIn.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 1, 1));
+				playerIn.addPotionEffect(new EffectInstance(Effects.GLOWING, 1, 1));
+			}
+			if (power == KanohiPower.NOBLE_RURU) {
+				playerIn.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 1, 1));
+			}
+			}
 		}
-
-		KanohiAbility ability = ((KanohiItem) stackIn.getItem()).getKanohiAbility();
-
-		// Activates mask power based on "material" type
-		if (ability == KanohiAbility.KAUKAU && kanohiActive) {
-			playerIn.setAir(playerIn.getMaxAir());
-		}
-		if (ability == KanohiAbility.KAKAMA && kanohiActive) {
-			playerIn.addPotionEffect(new EffectInstance(Effects.SPEED, 1, 3));
-		}
-		if (ability == KanohiAbility.MIRU && kanohiActive) {
-			playerIn.addPotionEffect(new EffectInstance(Effects.LEVITATION, 1, -1));
-		}
-		if (ability == KanohiAbility.PAKARI && kanohiActive) {
-			playerIn.addPotionEffect(new EffectInstance(Effects.STRENGTH, 1, 3));
-			playerIn.addPotionEffect(new EffectInstance(Effects.HASTE, 1, 5));
-		}
-		if (ability == KanohiAbility.HAU && kanohiActive) {
-			playerIn.addPotionEffect(new EffectInstance(Effects.ABSORPTION, 1, 1));
-			playerIn.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 1, 1));
-			playerIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 1, 2));
-		}
-
-		compoundNBT.putBoolean(tag, kanohiActive);
-		super.onArmorTick(stackIn, world, playerIn);
+	}
+	
+	@SubscribeEvent
+	public void equipmentChange(LivingEquipmentChangeEvent event) {
+		if (event.getSlot() == EquipmentSlotType.HEAD){kanohiActive = false;}
 	}
 
-	
-	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack stackIn = playerIn.getHeldItemMainhand();
 		CompoundNBT compoundNBT = stackIn.getOrCreateTag();
 		String tag = "color";
-		KanohiPalette stackPalette;
+		ArmorPalette stackPalette;
 		if (compoundNBT.contains(tag)) {
-			stackPalette = KanohiPalette.fromNBT(compoundNBT, tag);
+			stackPalette = ArmorPalette.fromNBT(compoundNBT, tag);
 		} else {
-			stackPalette = KanohiPalette.ORANGE;
+			stackPalette = ArmorPalette.ORANGE;
 			stackPalette.putIntoNBT(compoundNBT, tag);
 		}
 
-		// if (worldIn.isRemote) {final boolean PRINT_IN_CHAT_WINDOW = true;
-		// playerIn.sendStatusMessage(new StringTextComponent(numOut.toString()),
-		// PRINT_IN_CHAT_WINDOW); }
-
 		return new ActionResult<ItemStack>(ActionResultType.SUCCESS, stackIn);
 	}
-
 }

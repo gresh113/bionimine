@@ -4,45 +4,39 @@ package com.github.gresh113.bionimine.kanohi;
 
 public class Kanohi {
 
-	public static Kanohi TAHUS_HAU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.HAU, KanohiType.STANDARD);
-	//public static Kanohi LEWAS_MIRU = new Kanohi(KanohiPowerLevel.GREAT, KanohiAbility.MIRU, KanohiType.STANDARD);
+	public static Kanohi TAHUS_HAU = new Kanohi(KanohiPower.GREAT_HAU, KanohiType.STANDARD);
 	
-	private final KanohiPowerLevel power;
-	private final KanohiAbility ability;
+	private final KanohiPower power;
 	private final KanohiType type;
 	private final String name;
 	//private final Element element;
 	//private KanohiPalette palette;
 	
-	public Kanohi(KanohiPowerLevel powerIn, KanohiAbility abilityIn, KanohiType typeIn) {
-	      this.power = powerIn;
-	      this.ability = abilityIn;	
+	public Kanohi(KanohiPower powerIn, KanohiType typeIn) {
+	     // this.power = powerIn;
+	      this.power = powerIn;	
 	      this.type = typeIn;
 	      //this.element = elementIn;
 	      //this.palette = paletteIn;
-	      this.name = power.getPowerLevelString() + "_" + ability.getName();
+	      this.name = power.getUppercaseName();
 	   }
 
-	public KanohiPowerLevel getPowerLevel() {
+	public KanohiPower getPower() {
 		return this.power;
 		}
 
-	public KanohiAbility getAbility() {
-		return this.ability;
-		}
-
 	public KanohiShape getDefaultShape() {
-		return this.ability.getDefaultShape();
+		return this.power.getDefaultShape();
 		}
 	public Boolean hasDefaultShape() {
-		return this.ability.getDefaultShape() != null ? true : false;
+		return this.power.getDefaultShape() != null ? true : false;
 		}
 	
-	public KanohiPalette getDefaultPalette() {
-		return this.ability.getDefaultPalette();
+	public ArmorPalette getDefaultPalette() {
+		return this.power.getDefaultPalette();
 		}
 	public Boolean hasDefaultPalette() {
-		return this.ability.getDefaultPalette() != null ? true : false;
+		return this.power.getDefaultPalette() != null ? true : false;
 		}
 
 	public KanohiType getType() {
@@ -53,22 +47,14 @@ public class Kanohi {
 	//public void setPalette(KanohiPalette paletteIn) {this.palette = paletteIn;}
 
 	public String getName() {
-		return (this.power == KanohiPowerLevel.POWERLESS) ? "powerless_kanohi" : this.name;
+		return this.power.getLowercaseName();
 	}
 	
 	public String getFormattedName() {
-		String name = this.power.getPowerLevelString() + " " + this.ability.getName();
-		return (this.power == KanohiPowerLevel.POWERLESS) ? "powerless_kanohi" : name;
+		return name;
 	}
 	
 	public String getDescriptionText() {
-		//String powerString = this.power.toString();
-		//String capitalizedPowerString= powerString.substring(0, 1).toUpperCase() + powerString.substring(1);
-		String name = this.power.toString();
-		String laterText = 
-				(this.power != KanohiPowerLevel.POWERLESS) ? 
-						(" Mask of " + this.ability.getDescriptor()) : 
-						(" Mask");
-		return name + laterText;
+		return this.power.getDescriptor();
 	}
 }
