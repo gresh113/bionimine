@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class MatoranRender extends MobRenderer<MatoranEntity, MatoranModel<MatoranEntity>>{
 	
-	protected final ResourceLocation TEXTURE = new ResourceLocation(BioniMine.MODID, "textures/entity/matoran.png");
+	protected final ResourceLocation TEXTURE = new ResourceLocation(BioniMine.MODID, "textures/entity/matoran/matoran.png");
 
 	public MatoranRender(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new MatoranModel<MatoranEntity>(), 0.5f);
@@ -16,7 +16,7 @@ public class MatoranRender extends MobRenderer<MatoranEntity, MatoranModel<Mator
 
 	@Override
 	public ResourceLocation getEntityTexture(MatoranEntity entity) {
-		return new ResourceLocation(BioniMine.MODID, "textures/entity/" +  entity.getTexture() + ".png");
+		return new ResourceLocation(BioniMine.MODID, "textures/entity/matoran/" +  entity.getTexture() + ".png");
 	}
 
 }

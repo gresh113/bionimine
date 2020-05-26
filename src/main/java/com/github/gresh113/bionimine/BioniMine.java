@@ -113,7 +113,7 @@ public class BioniMine {
 
 		@Override
 		public ItemStack createIcon() {
-			return new ItemStack(OldItemInit.lightstone);
+			return new ItemStack(ItemInit.lightstone_item);
 		}
 	}
 	

@@ -41,8 +41,9 @@ public class ItemInit {
 			() -> new AirBladderItem());
 	public static final RegistryObject<Item> bamboo_pole = ITEMS.register("bamboo_pole",
 			() -> new Item(defaultItemProperties));
+	public static Item lightstone_item = new Item(defaultItemProperties);
 	public static final RegistryObject<Item> lightstone = ITEMS.register("lightstone",
-			() -> new Item(defaultItemProperties));
+			() -> lightstone_item);
 	public static final RegistryObject<Item> protosteel = ITEMS.register("protosteel",
 			() -> new Item(defaultItemProperties));
 	public static final RegistryObject<Item> protodermis = ITEMS.register("protodermis",
