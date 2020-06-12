@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.util;
 
-import com.github.gresh113.bionimine.BioniMine;
+import com.github.gresh113.bionimine.Bionimine;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,7 @@ import net.minecraft.util.SoundEvents;
 
 public class KanohiFunctions {
 	public static boolean isKanohi(ItemStack stackIn) {
-		final Tag<Item> maskTag = new ItemTags.Wrapper(new ResourceLocation(BioniMine.MODID, "masks"));
+		final Tag<Item> maskTag = new ItemTags.Wrapper(new ResourceLocation(Bionimine.MODID, "masks"));
 		final Item item = stackIn.getItem();
 		final boolean itemIsMask = item.isIn(maskTag);
 		return itemIsMask;

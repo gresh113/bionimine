@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.client.gui;
 
-import com.github.gresh113.bionimine.BioniMine;
+import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.inventory.container.KanohiPedestalContainer;
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -13,7 +13,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class KanohiPedestalScreen extends ContainerScreen<KanohiPedestalContainer> {
-	private static final ResourceLocation background_texture = new ResourceLocation(BioniMine.MODID,
+	private static final ResourceLocation background_texture = new ResourceLocation(Bionimine.MODID,
 			"textures/gui/container/kanohi_pedestal.png");
 
 	public KanohiPedestalScreen(KanohiPedestalContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {

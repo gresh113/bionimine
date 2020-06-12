@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.init;
 
-import com.github.gresh113.bionimine.BioniMine;
+import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.objects.blocks.FlagBlock;
 import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
 import com.github.gresh113.bionimine.objects.blocks.MataNuiBlock;
@@ -16,7 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockInit {
 	//Blocks Registry
-	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, BioniMine.MODID);
+	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Bionimine.MODID);
 	
 	//Functional BLocks
 	public static final RegistryObject<Block> kanohi_pedestal = BLOCKS.register("kanohi_pedestal", () ->

@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.inventory.container;
 
-import com.github.gresh113.bionimine.BioniMine;
+import com.github.gresh113.bionimine.Bionimine;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Slot;
@@ -11,7 +11,7 @@ import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 
 class MaskSlot extends Slot {
-	private Tag<Item> maskTag = new ItemTags.Wrapper(new ResourceLocation(BioniMine.MODID, "masks"));
+	private Tag<Item> maskTag = new ItemTags.Wrapper(new ResourceLocation(Bionimine.MODID, "masks"));
 	
 
 	public MaskSlot(IInventory inventoryIn, int index, int xIn, int yIn) {

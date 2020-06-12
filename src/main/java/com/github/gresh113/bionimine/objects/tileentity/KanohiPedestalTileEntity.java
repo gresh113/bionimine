@@ -3,8 +3,7 @@ package com.github.gresh113.bionimine.objects.tileentity;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.github.gresh113.bionimine.BioniMine;
-import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
+import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.inventory.container.KanohiPedestalContainer;
 import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
 import com.github.gresh113.bionimine.state.properties.Mask_Type;

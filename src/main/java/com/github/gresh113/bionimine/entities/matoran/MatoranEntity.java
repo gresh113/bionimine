@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.entities.matoran;
 
-import com.github.gresh113.bionimine.init.KanohiInit;
+import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiInit;
 
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
@@ -21,6 +21,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.DifficultyInstance;
@@ -38,6 +39,7 @@ public class MatoranEntity extends CreatureEntity {
 
 	public MatoranEntity(EntityType<? extends MatoranEntity> type, World worldIn) {
 		super(type, worldIn);
+		this.setPathPriority(PathNodeType.WATER, 0.0F);
 	}
 
 	protected void registerGoals() {

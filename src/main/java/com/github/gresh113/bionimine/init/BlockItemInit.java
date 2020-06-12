@@ -1,7 +1,7 @@
 package com.github.gresh113.bionimine.init;
 
-import com.github.gresh113.bionimine.BioniMine;
-import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.Bionimine;
+import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockItemInit {
 	//Block item Registry
-	public static final DeferredRegister<Item> BLOCK_ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, BioniMine.MODID);
+	public static final DeferredRegister<Item> BLOCK_ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Bionimine.MODID);
 	
 	//Special Blocks
 	public static final RegistryObject<Item> kanohi_pedestal = BLOCK_ITEMS.register("kanohi_pedestal", () -> 

@@ -1,11 +1,8 @@
 package com.github.gresh113.bionimine.init;
 
-import com.github.gresh113.bionimine.BioniMine;
-import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
-import com.github.gresh113.bionimine.kanohi.OldKanohiItem;
-import com.github.gresh113.bionimine.kanohi.KanohiItem;
-import com.github.gresh113.bionimine.kanohi.OldKanohiItem.KanohiMaterial;
-import com.github.gresh113.bionimine.objects.items.AirBladderItem;
+import com.github.gresh113.bionimine.Bionimine;
+import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiItem;
 
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.Item;
@@ -15,11 +12,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.ObjectHolder;
 
-@Mod.EventBusSubscriber(modid = BioniMine.MODID, bus = Bus.MOD)
-@ObjectHolder(BioniMine.MODID) // Makes this class an ObjectHolder for items of the bionimine mod
+@Mod.EventBusSubscriber(modid = Bionimine.MODID, bus = Bus.MOD)
+@ObjectHolder(Bionimine.MODID) // Makes this class an ObjectHolder for items of the bionimine mod
 public class OldItemInit {
-	public static final Item bamboo_disk = null;
-	public static final Item fire_sword = null;
 	public static final Item chroniclers_staff = null;
 	// public static final Item digger = null;
 	public static final Item disk_launcher = null;

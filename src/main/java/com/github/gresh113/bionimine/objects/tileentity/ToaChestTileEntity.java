@@ -1,7 +1,6 @@
 package com.github.gresh113.bionimine.objects.tileentity;
 
 
-import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.inventory.container.ToaChestContainer;
 import com.github.gresh113.bionimine.objects.blocks.ToaChestBlock;

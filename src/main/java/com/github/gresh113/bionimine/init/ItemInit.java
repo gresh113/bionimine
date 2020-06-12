@@ -1,10 +1,16 @@
 package com.github.gresh113.bionimine.init;
 
-import com.github.gresh113.bionimine.BioniMine;
-import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
-import com.github.gresh113.bionimine.kanohi.ArmorPalette;
+import com.github.gresh113.bionimine.Bionimine;
+import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.entities.BionimineEntityTypes;
+import com.github.gresh113.bionimine.entities.ModdedSpawnEggItem;
 import com.github.gresh113.bionimine.objects.items.AirBladderItem;
-import com.github.gresh113.bionimine.objects.items.ToaArmorItem;
+import com.github.gresh113.bionimine.objects.items.BambooDiskItem;
+import com.github.gresh113.bionimine.objects.items.TelescopeItem;
+import com.github.gresh113.bionimine.toa_gear.Elements;
+import com.github.gresh113.bionimine.toa_gear.ToaArmorItem;
+import com.github.gresh113.bionimine.toa_gear.ToaTool;
+import com.github.gresh113.bionimine.toa_gear.kanohi.ArmorPalette;
 
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.Item;
@@ -14,28 +20,37 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
 
-	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, BioniMine.MODID);
+	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Bionimine.MODID);
 	
 	static Item.Properties defaultItemProperties = new Item.Properties().group(BioniMineItemGroup.instance);
 
 	public static final RegistryObject<Item> toa_armor_fire = ITEMS.register("toa_armor_fire",
-			() -> new ToaArmorItem(ArmorPalette.RED));
+			() -> new ToaArmorItem(ArmorPalette.RED, Elements.FIRE));
 	public static final RegistryObject<Item> toa_armor_water = ITEMS.register("toa_armor_water",
-			() -> new ToaArmorItem(ArmorPalette.BLUE));
+			() -> new ToaArmorItem(ArmorPalette.BLUE, Elements.WATER));
 	public static final RegistryObject<Item> toa_armor_air = ITEMS.register("toa_armor_air",
-			() -> new ToaArmorItem(ArmorPalette.GREEN));
+			() -> new ToaArmorItem(ArmorPalette.GREEN, Elements.AIR));
 	public static final RegistryObject<Item> toa_armor_earth = ITEMS.register("toa_armor_earth",
-			() -> new ToaArmorItem(ArmorPalette.BLACK));
+			() -> new ToaArmorItem(ArmorPalette.BLACK, Elements.EARTH));
 	public static final RegistryObject<Item> toa_armor_stone = ITEMS.register("toa_armor_stone",
-			() -> new ToaArmorItem(ArmorPalette.BROWN));
+			() -> new ToaArmorItem(ArmorPalette.BROWN, Elements.STONE));
 	public static final RegistryObject<Item> toa_armor_ice = ITEMS.register("toa_armor_ice",
-			() -> new ToaArmorItem(ArmorPalette.WHITE));
+			() -> new ToaArmorItem(ArmorPalette.WHITE, Elements.ICE));
+	
+	public static final RegistryObject<Item> ice_sword = ITEMS.register("ice_sword", () -> new ToaTool(Elements.ICE));
+	public static final RegistryObject<Item> fire_sword = ITEMS.register("fire_sword", () -> new ToaTool(Elements.FIRE));
 
 	public static final RegistryObject<Item> heatstone = ITEMS.register("heatstone",
 			() -> new FlintAndSteelItem(new Item.Properties().maxStackSize(1).group(BioniMineItemGroup.instance)));
 	
+	public static final RegistryObject<Item> husi_spawn_egg = ITEMS.register("husi_spawn_egg",
+			() -> new ModdedSpawnEggItem(BionimineEntityTypes.HUSI, 16220436, 8790020, defaultItemProperties));
+	
 	public static final RegistryObject<Item> flag = ITEMS.register("flag",
 			() -> new Item(defaultItemProperties));
+	
+	public static final RegistryObject<Item> telescope = ITEMS.register("telescope",
+			() -> new TelescopeItem(defaultItemProperties));
 	
 	public static final RegistryObject<Item> air_bladder = ITEMS.register("air_bladder",
 			() -> new AirBladderItem());
@@ -48,5 +63,8 @@ public class ItemInit {
 			() -> new Item(defaultItemProperties));
 	public static final RegistryObject<Item> protodermis = ITEMS.register("protodermis",
 			() -> new Item(defaultItemProperties));
+	
+	public static final RegistryObject<Item> bamboo_disk = ITEMS.register("bamboo_disk",
+			() -> new BambooDiskItem(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance)));
 
 }

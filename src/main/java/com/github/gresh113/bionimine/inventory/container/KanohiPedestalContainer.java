@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import javax.annotation.Nullable;
 
-import com.github.gresh113.bionimine.BioniMine;
+import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.objects.tileentity.KanohiPedestalTileEntity;
 

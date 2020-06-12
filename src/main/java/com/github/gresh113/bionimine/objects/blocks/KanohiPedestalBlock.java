@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.github.gresh113.bionimine.init.BionimineTileEntityTypes;
+import com.github.gresh113.bionimine.objects.tileentity.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.objects.tileentity.KanohiPedestalTileEntity;
 import com.github.gresh113.bionimine.state.properties.Mask_Type;
 

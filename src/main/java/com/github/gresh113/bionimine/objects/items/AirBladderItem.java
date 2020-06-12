@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.objects.items;
 
-import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

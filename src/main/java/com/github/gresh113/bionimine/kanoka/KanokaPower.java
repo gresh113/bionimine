@@ -1,6 +1,7 @@
 package com.github.gresh113.bionimine.kanoka;
 
 public enum KanokaPower {
+	BAMBOO_DISK(0,"bamboo_disk"),
 	RECONSTITUTE(1,"reconstitute_at_random"),
 	FREEZE(2,"freeze"),
 	WEAKEN(3,"weaken"),

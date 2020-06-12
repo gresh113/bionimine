@@ -1,7 +1,7 @@
 package com.github.gresh113.bionimine.kanoka;
 
-import com.github.gresh113.bionimine.BioniMine.BioniMineItemGroup;
-import com.github.gresh113.bionimine.BioniMine.KanohiItemGroup;
+import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.Bionimine.KanohiItemGroup;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
