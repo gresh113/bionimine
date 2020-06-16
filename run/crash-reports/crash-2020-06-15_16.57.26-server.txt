@@ -1,0 +1,119 @@
+---- Minecraft Crash Report ----
+// Don't be sad, have a hug! <3
+
+Time: 6/15/20 4:57 PM
+Description: Ticking memory connection
+
+java.lang.NullPointerException: Ticking memory connection
+	at com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity.writeSpawnData(ElementalProjectileEntity.java:101) ~[?:?] {re:classloading}
+	at net.minecraftforge.fml.network.FMLPlayMessages$SpawnEntity.encode(FMLPlayMessages.java:128) ~[?:?] {re:classloading}
+	at net.minecraftforge.fml.network.simple.IndexedMessageCodec.lambda$tryEncode$4(IndexedMessageCodec.java:130) ~[?:?] {re:classloading}
+	at java.util.Optional.ifPresent(Optional.java:159) ~[?:1.8.0_242] {}
+	at net.minecraftforge.fml.network.simple.IndexedMessageCodec.tryEncode(IndexedMessageCodec.java:128) ~[?:?] {re:classloading}
+	at net.minecraftforge.fml.network.simple.IndexedMessageCodec.build(IndexedMessageCodec.java:143) ~[?:?] {re:classloading}
+	at net.minecraftforge.fml.network.simple.SimpleChannel.encodeMessage(SimpleChannel.java:84) ~[?:?] {re:classloading}
+	at net.minecraftforge.fml.network.simple.SimpleChannel.toBuffer(SimpleChannel.java:92) ~[?:?] {re:classloading}
+	at net.minecraftforge.fml.network.simple.SimpleChannel.toVanillaPacket(SimpleChannel.java:123) ~[?:?] {re:classloading}
+	at net.minecraftforge.fml.network.NetworkHooks.getEntitySpawningPacket(NetworkHooks.java:69) ~[?:?] {re:classloading}
+	at com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity.createSpawnPacket(ElementalProjectileEntity.java:62) ~[?:?] {re:classloading}
+	at net.minecraft.world.TrackedEntity.sendSpawnPackets(TrackedEntity.java:203) ~[?:?] {re:classloading}
+	at net.minecraft.world.TrackedEntity.track(TrackedEntity.java:192) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager$EntityTracker.updateTrackingState(ChunkManager.java:1162) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager.sendChunkData(ChunkManager.java:1056) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager.setChunkLoadedAtClient(ChunkManager.java:744) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager.setPlayerTracking(ChunkManager.java:847) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager.track(ChunkManager.java:967) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ServerChunkProvider.track(ServerChunkProvider.java:454) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerWorld.onEntityAdded(ServerWorld.java:1020) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ServerWorld.addPlayer(ServerWorld.java:916) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ServerWorld.addNewPlayer(ServerWorld.java:893) ~[?:?] {re:classloading}
+	at net.minecraft.server.management.PlayerList.initializeConnectionToPlayer(PlayerList.java:168) ~[?:?] {re:classloading}
+	at net.minecraft.network.login.ServerLoginNetHandler.tryAcceptPlayer(ServerLoginNetHandler.java:120) ~[?:?] {re:classloading}
+	at net.minecraft.network.login.ServerLoginNetHandler.tick(ServerLoginNetHandler.java:64) ~[?:?] {re:classloading}
+	at net.minecraft.network.NetworkManager.tick(NetworkManager.java:246) ~[?:?] {re:classloading}
+	at net.minecraft.network.NetworkSystem.tick(NetworkSystem.java:152) ~[?:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:901) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:819) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:120) ~[?:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:660) [?:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_242] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity.writeSpawnData(ElementalProjectileEntity.java:101)
+	at net.minecraftforge.fml.network.FMLPlayMessages$SpawnEntity.encode(FMLPlayMessages.java:128)
+	at net.minecraftforge.fml.network.simple.IndexedMessageCodec.lambda$tryEncode$4(IndexedMessageCodec.java:130)
+	at java.util.Optional.ifPresent(Optional.java:159)
+	at net.minecraftforge.fml.network.simple.IndexedMessageCodec.tryEncode(IndexedMessageCodec.java:128)
+	at net.minecraftforge.fml.network.simple.IndexedMessageCodec.build(IndexedMessageCodec.java:143)
+	at net.minecraftforge.fml.network.simple.SimpleChannel.encodeMessage(SimpleChannel.java:84)
+	at net.minecraftforge.fml.network.simple.SimpleChannel.toBuffer(SimpleChannel.java:92)
+	at net.minecraftforge.fml.network.simple.SimpleChannel.toVanillaPacket(SimpleChannel.java:123)
+	at net.minecraftforge.fml.network.NetworkHooks.getEntitySpawningPacket(NetworkHooks.java:69)
+	at com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity.createSpawnPacket(ElementalProjectileEntity.java:62)
+	at net.minecraft.world.TrackedEntity.sendSpawnPackets(TrackedEntity.java:203)
+	at net.minecraft.world.TrackedEntity.track(TrackedEntity.java:192)
+	at net.minecraft.world.server.ChunkManager$EntityTracker.updateTrackingState(ChunkManager.java:1162)
+	at net.minecraft.world.server.ChunkManager.sendChunkData(ChunkManager.java:1056)
+	at net.minecraft.world.server.ChunkManager.setChunkLoadedAtClient(ChunkManager.java:744)
+	at net.minecraft.world.server.ChunkManager.setPlayerTracking(ChunkManager.java:847)
+	at net.minecraft.world.server.ChunkManager.track(ChunkManager.java:967)
+	at net.minecraft.world.server.ServerChunkProvider.track(ServerChunkProvider.java:454)
+	at net.minecraft.world.server.ServerWorld.onEntityAdded(ServerWorld.java:1020)
+	at net.minecraft.world.server.ServerWorld.addPlayer(ServerWorld.java:916)
+	at net.minecraft.world.server.ServerWorld.addNewPlayer(ServerWorld.java:893)
+	at net.minecraft.server.management.PlayerList.initializeConnectionToPlayer(PlayerList.java:168)
+	at net.minecraft.network.login.ServerLoginNetHandler.tryAcceptPlayer(ServerLoginNetHandler.java:120)
+	at net.minecraft.network.login.ServerLoginNetHandler.tick(ServerLoginNetHandler.java:64)
+	at net.minecraft.network.NetworkManager.tick(NetworkManager.java:246)
+
+-- Ticking connection --
+Details:
+	Connection: net.minecraft.network.NetworkManager@451584cd
+Stacktrace:
+	at net.minecraft.network.NetworkSystem.tick(NetworkSystem.java:152)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:901)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:819)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:120)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:660)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.15.2
+	Minecraft Version ID: 1.15.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_242, AdoptOpenJDK
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), 
+	Memory: 235978224 bytes (225 MB) / 1147666432 bytes (1094 MB) up to 1879048192 bytes (1792 MB)
+	CPUs: 4
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	ModLauncher: 5.0.0-milestone.4+67+b1a340b
+	ModLauncher launch target: fmluserdevclient
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		/eventbus-2.0.0-milestone.1-service.jar eventbus PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar object_holder_definalize PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar runtime_enum_extender PLUGINSERVICE 
+		/accesstransformers-2.0.0-milestone.1-shadowed.jar accesstransformer PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar capability_inject_definalize PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar runtimedistcleaner PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar fml TRANSFORMATIONSERVICE 
+	FML: 31.1
+	Forge: net.minecraftforge:31.1.0
+	FML Language Providers: 
+		javafml@31.1
+		minecraft@1
+	Mod List: 
+		client-extra.jar Minecraft {minecraft@1.15.2 DONE}
+		forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-recomp.jar Forge {forge@31.1.0 DONE}
+		main BioniMine {bionimine@1.15.2-0.1.0 DONE}
+	Player Count: 1 / 8; [ServerPlayerEntity['Dev'/977, l='Biocraft', x=-101.80, y=94.00, z=82.52]]
+	Data Packs: vanilla, mod:bionimine, mod:forge (incompatible)
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'

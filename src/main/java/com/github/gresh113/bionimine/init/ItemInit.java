@@ -7,10 +7,10 @@ import com.github.gresh113.bionimine.entities.ModdedSpawnEggItem;
 import com.github.gresh113.bionimine.objects.items.AirBladderItem;
 import com.github.gresh113.bionimine.objects.items.BambooDiskItem;
 import com.github.gresh113.bionimine.objects.items.TelescopeItem;
-import com.github.gresh113.bionimine.toa_gear.Elements;
+import com.github.gresh113.bionimine.toa_gear.ArmorPalette;
 import com.github.gresh113.bionimine.toa_gear.ToaArmorItem;
 import com.github.gresh113.bionimine.toa_gear.ToaTool;
-import com.github.gresh113.bionimine.toa_gear.kanohi.ArmorPalette;
+import com.github.gresh113.bionimine.toa_gear.elemental_abilities.Elements;
 
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.Item;
@@ -39,6 +39,7 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> ice_sword = ITEMS.register("ice_sword", () -> new ToaTool(Elements.ICE));
 	public static final RegistryObject<Item> fire_sword = ITEMS.register("fire_sword", () -> new ToaTool(Elements.FIRE));
+	public static final RegistryObject<Item> air_axe = ITEMS.register("air_axe", () -> new ToaTool(Elements.AIR));
 
 	public static final RegistryObject<Item> heatstone = ITEMS.register("heatstone",
 			() -> new FlintAndSteelItem(new Item.Properties().maxStackSize(1).group(BioniMineItemGroup.instance)));

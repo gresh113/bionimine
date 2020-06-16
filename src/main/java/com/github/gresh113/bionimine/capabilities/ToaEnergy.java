@@ -3,7 +3,9 @@ package com.github.gresh113.bionimine.capabilities;
 public class ToaEnergy implements IToaEnergy{
 	
 	private int kanohiEnergy;
-	private byte elementalEnergy;
+	private int elementalEnergy;
+	public static int maxKanohiEnergy = 12000;
+	public static int maxElementalEnergy = 6000;
 
 	@Override
 	public int getKanohiEnergy() {
@@ -11,7 +13,7 @@ public class ToaEnergy implements IToaEnergy{
 	}
 
 	@Override
-	public byte getElementalEnergy() {
+	public int getElementalEnergy() {
 		return elementalEnergy;
 	}
 
@@ -22,7 +24,7 @@ public class ToaEnergy implements IToaEnergy{
 	}
 
 	@Override
-	public void setElementalEnergy(byte energy) {
+	public void setElementalEnergy(int energy) {
 		elementalEnergy = energy;
 		
 	}

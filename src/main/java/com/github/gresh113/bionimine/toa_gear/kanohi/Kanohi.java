@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.toa_gear.kanohi;
 
-
+import com.github.gresh113.bionimine.toa_gear.ArmorPalette;
 
 public class Kanohi {
 

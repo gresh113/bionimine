@@ -8,7 +8,9 @@ import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.KeyHandler;
 import com.github.gresh113.bionimine.Bionimine.KanohiItemGroup;
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
+import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
+import com.github.gresh113.bionimine.toa_gear.ArmorPalette;
 import com.github.gresh113.bionimine.toa_gear.ToaArmorItem;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -142,7 +144,7 @@ public class KanohiItem extends ArmorItem {
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-		return (Bionimine.MODID + ":textures/models/kanohi/" + this.getShape(stack).getName() + "/" + this.getPalette(stack).getName() + ".png");
+		return (Bionimine.MODID + ":textures/models/kanohi/" + KanohiItem.getShape(stack).getName() + "/" + KanohiItem.getPalette(stack).getName() + ".png");
 	}
 
 	@OnlyIn(Dist.CLIENT)
@@ -173,9 +175,8 @@ public class KanohiItem extends ArmorItem {
 			energy = 0;
 
 		ItemStack chestStack = playerIn.getItemStackFromSlot(EquipmentSlotType.CHEST);
-		if (chestStack.getItem() instanceof ToaArmorItem && (this.getPalette(stackIn) == ArmorPalette.GRAY || this.getPalette(stackIn) == null)) {
-			ToaArmorItem toaArmorIn = (ToaArmorItem) chestStack.getItem();
-			this.setPalette(stackIn, toaArmorIn.getPalette(chestStack));
+		if (chestStack.getItem() instanceof ToaArmorItem && (KanohiItem.getPalette(stackIn) == ArmorPalette.GRAY || KanohiItem.getPalette(stackIn) == null)) {
+			this.setPalette(stackIn, ToaArmorItem.getPalette(chestStack));
 		}
 
 		// Increments kanohiPowerLevel, resets after level 3
@@ -279,8 +280,8 @@ public class KanohiItem extends ArmorItem {
 				}
 			} else {
 				energy += 10;
-				if (energy > 12000)
-					energy = 12000;
+				if (energy > ToaEnergy.maxKanohiEnergy)
+					energy = ToaEnergy.maxKanohiEnergy;
 			}
 		}
 

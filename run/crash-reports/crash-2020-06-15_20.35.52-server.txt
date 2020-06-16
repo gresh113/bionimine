@@ -1,0 +1,98 @@
+---- Minecraft Crash Report ----
+// There are four lights!
+
+Time: 6/15/20 8:35 PM
+Description: Ticking entity
+
+java.lang.NullPointerException: Ticking entity
+	at com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity.tick(ElementalProjectileEntity.java:78) ~[?:?] {re:classloading}
+	at net.minecraft.world.server.ServerWorld.updateEntity(ServerWorld.java:615) ~[?:?] {re:classloading}
+	at net.minecraft.world.World.guardEntityTick(World.java:586) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerWorld.tick(ServerWorld.java:404) ~[?:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:884) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:819) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:120) ~[?:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:660) [?:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_242] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity.tick(ElementalProjectileEntity.java:78)
+	at net.minecraft.world.server.ServerWorld.updateEntity(ServerWorld.java:615)
+
+-- Entity being ticked --
+Details:
+	Entity Type: bionimine:elemental_projectile (com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity)
+	Entity ID: 57
+	Entity Name: entity.bionimine.elemental_projectile
+	Entity's Exact location: -118.03, 89.06, 124.95
+	Entity's Block location: World: (-119,89,124), Chunk: (at 9,5,12 in -8,7; contains blocks -128,0,112 to -113,255,127), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Entity's Momentum: -0.11, -0.19, 0.62
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.guardEntityTick(World.java:586)
+	at net.minecraft.world.server.ServerWorld.tick(ServerWorld.java:404)
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayerEntity['Dev'/71, l='Biocraft', x=-112.14, y=91.00, z=90.90]]
+	Chunk stats: ServerChunkCache: 2083
+	Level dimension: DimensionType{minecraft:overworld}
+	Level name: Biocraft
+	Level seed: -5414262742288996854
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: {}
+	Level spawn location: World: (-64,68,-48), Chunk: (at 0,4,0 in -4,-3; contains blocks -64,0,-48 to -49,255,-33), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Level time: 783856 game time, 1124 day time
+	Known server brands: forge
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 1 (now: false), thunder time: 1 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:884)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:819)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:120)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:660)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.15.2
+	Minecraft Version ID: 1.15.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_242, AdoptOpenJDK
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), 
+	Memory: 216654392 bytes (206 MB) / 1001390080 bytes (955 MB) up to 1879048192 bytes (1792 MB)
+	CPUs: 4
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	ModLauncher: 5.0.0-milestone.4+67+b1a340b
+	ModLauncher launch target: fmluserdevclient
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		/eventbus-2.0.0-milestone.1-service.jar eventbus PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar object_holder_definalize PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar runtime_enum_extender PLUGINSERVICE 
+		/accesstransformers-2.0.0-milestone.1-shadowed.jar accesstransformer PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar capability_inject_definalize PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar runtimedistcleaner PLUGINSERVICE 
+		/forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-launcher.jar fml TRANSFORMATIONSERVICE 
+	FML: 31.1
+	Forge: net.minecraftforge:31.1.0
+	FML Language Providers: 
+		javafml@31.1
+		minecraft@1
+	Mod List: 
+		client-extra.jar Minecraft {minecraft@1.15.2 DONE}
+		forge-1.15.2-31.1.0_mapped_snapshot_20200610-1.15.1-recomp.jar Forge {forge@31.1.0 DONE}
+		main BioniMine {bionimine@1.15.2-0.1.0 DONE}
+	Player Count: 1 / 8; [ServerPlayerEntity['Dev'/71, l='Biocraft', x=-112.14, y=91.00, z=90.90]]
+	Data Packs: vanilla, mod:bionimine, mod:forge (incompatible)
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'

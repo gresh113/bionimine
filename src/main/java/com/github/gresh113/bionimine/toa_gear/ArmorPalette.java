@@ -1,4 +1,4 @@
-package com.github.gresh113.bionimine.toa_gear.kanohi;
+package com.github.gresh113.bionimine.toa_gear;
 
 import java.awt.Color;
 
@@ -50,7 +50,7 @@ public enum ArmorPalette implements IStringSerializable {
 	public Color getColorLayer4() {
 		return color4;
 	}
-	Color getColorLayer5() {
+	public Color getColorLayer5() {
 		return color5;
 	}
 	

@@ -9,25 +9,19 @@ import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.network.NetworkDirection;
 import net.minecraftforge.fml.network.NetworkEvent;
 
 public class ToaEnergyMessage {
 	private int kEnergy;
-	private byte eEnergy;
+	private int eEnergy;
 
 	private boolean failed;
 
-	public ToaEnergyMessage(int kEnergyIn, byte eEnergyIn) {
+	public ToaEnergyMessage(int kEnergyIn, int eEnergyIn) {
 		this.kEnergy = kEnergyIn;
 		this.eEnergy = eEnergyIn;
 		this.failed = false;
@@ -40,7 +34,7 @@ public class ToaEnergyMessage {
 	public static ToaEnergyMessage decode(ByteBuf buf) {
 		try {
 			int k = buf.readInt();
-			byte e = buf.readByte();
+			int e = buf.readByte();
 			return new ToaEnergyMessage(k, e);
 		} catch (IndexOutOfBoundsException e) {
 			Bionimine.LOGGER.error("CountUpdateMessage: Unexpected end of packet.\nMessage: " + ByteBufUtil.hexDump(buf, 0, buf.writerIndex()), e);

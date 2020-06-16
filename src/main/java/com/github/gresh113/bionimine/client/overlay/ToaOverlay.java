@@ -4,9 +4,10 @@ import java.awt.Color;
 
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
+import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
+import com.github.gresh113.bionimine.toa_gear.ArmorPalette;
 import com.github.gresh113.bionimine.toa_gear.ToaArmorItem;
-import com.github.gresh113.bionimine.toa_gear.kanohi.ArmorPalette;
 import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiItem;
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -54,7 +55,7 @@ public class ToaOverlay extends ForgeIngameGui {
 		boolean armorFlag = false;
 		int kanohiLevel = 0;
 		int kanohiEnergy = 0;
-		byte elementEnergy = 0;
+		int elementEnergy = 0;
 		ArmorPalette kanohiPalette = ArmorPalette.GRAY;
 		ArmorPalette armorPalette = ArmorPalette.GRAY;
 
@@ -92,6 +93,8 @@ public class ToaOverlay extends ForgeIngameGui {
 				if (armorFlag) {
 					renderElementBar(elementEnergy, armorPalette);
 				}
+				
+				bind(GUI_ICONS_LOCATION);
 				pre(ElementType.HOTBAR);
 			}
 		}
@@ -116,8 +119,9 @@ public class ToaOverlay extends ForgeIngameGui {
 		RenderSystem.color4f(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
 		RenderSystem.enableBlend();
 
-		// int j = 182;
-		int length = (int) (energyIn * 0.01525F);
+		Float j = 183F;
+		int max = ToaEnergy.maxKanohiEnergy;
+		int length = (int) (energyIn * (j/max));
 		int l = 19;
 		this.blit(3, (l - 2 - 11), kanohiLevel * 11, 0, 11, 11);
 		if (length > 0) {
@@ -128,14 +132,15 @@ public class ToaOverlay extends ForgeIngameGui {
 		this.mc.getProfiler().endSection();
 	}
 
-	protected void renderElementBar(byte energyIn, ArmorPalette armorPalette) {
+	protected void renderElementBar(int energyIn, ArmorPalette armorPalette) {
 		bind(OVERLAY_TEXTURE);
 		this.mc.getProfiler().startSection("elementBar");
 		Color color = armorPalette.getColorLayer2();
 		RenderSystem.color4f(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
 		RenderSystem.enableBlend();
-		// int j = 182;
-		int length = (int) (energyIn * 1.46F);
+		Float j = 183F;
+		int max = ToaEnergy.maxElementalEnergy;
+		int length = (int) (energyIn * (j/max));
 		int l = 19;
 		if (length > 0) {
 			this.blit(9, l, 10, 15, 3, length);

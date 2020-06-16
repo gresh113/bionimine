@@ -1,8 +1,10 @@
-package com.github.gresh113.bionimine.capabilities;
+package com.github.gresh113.bionimine;
 
-import com.github.gresh113.bionimine.Bionimine;
+import com.github.gresh113.bionimine.capabilities.IToaEnergy;
+import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
+import com.github.gresh113.bionimine.network.BionimineCommands;
+import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.network.ToaEnergyMessage;
-import com.github.gresh113.bionimine.toa_gear.kanohi.BioniminePacketHandler;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,6 +14,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.network.NetworkDirection;
 
 @EventBusSubscriber(modid = Bionimine.MODID)
@@ -34,7 +37,11 @@ public class ForgeEventBusSub {
 			ToaEnergyMessage kanohiMessage = new ToaEnergyMessage(capability.getKanohiEnergy(), capability.getElementalEnergy());
 			BioniminePacketHandler.INSTANCE.sendTo(kanohiMessage, player.connection.getNetworkManager(), NetworkDirection.PLAY_TO_CLIENT);
 		}
+	}
 
+	@SubscribeEvent
+	public void serverLoad(FMLServerStartingEvent event) {
+		BionimineCommands.register(event.getCommandDispatcher());
 	}
 
 }

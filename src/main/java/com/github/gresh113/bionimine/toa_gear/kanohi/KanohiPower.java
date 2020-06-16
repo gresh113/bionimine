@@ -1,5 +1,7 @@
 package com.github.gresh113.bionimine.toa_gear.kanohi;
 
+import com.github.gresh113.bionimine.toa_gear.ArmorPalette;
+
 // Huge props to BS01 for all this info
 public enum KanohiPower {
 
@@ -140,6 +142,10 @@ public enum KanohiPower {
 
 	public ArmorPalette getDefaultPalette() {
 		return this.defaultColor;
+	}
+	
+	public boolean isCraftable() {
+		return craftable;
 	}
 
 }

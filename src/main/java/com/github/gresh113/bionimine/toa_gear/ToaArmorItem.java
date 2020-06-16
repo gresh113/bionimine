@@ -2,8 +2,9 @@ package com.github.gresh113.bionimine.toa_gear;
 
 import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
+import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
-import com.github.gresh113.bionimine.toa_gear.kanohi.ArmorPalette;
+import com.github.gresh113.bionimine.toa_gear.elemental_abilities.Elements;
 import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiItem;
 
 import net.minecraft.entity.player.PlayerEntity;
@@ -84,23 +85,23 @@ public class ToaArmorItem extends ArmorItem {
 	
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity playerIn) {
-		byte energy = getElementalEnergy(playerIn);
+		int energy = getElementalEnergy(playerIn);
 		if (this.element == Elements.FIRE) playerIn.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 0, 1, false, false, false));
 		if (energy < 0)
 			energy = 0;
 		energy += 1;
-		if (energy > 124)
-			energy = 124;
+		if (energy > ToaEnergy.maxElementalEnergy)
+			energy = ToaEnergy.maxElementalEnergy;
 		setElementalEnergy(playerIn, energy);
 	}
 	
 	// Uses capability system to check a given player's current element energy
-	public byte getElementalEnergy(PlayerEntity playerIn) {
+	public int getElementalEnergy(PlayerEntity playerIn) {
 		IToaEnergy playerCapability = playerIn.getCapability(ToaEnergyProvider.TOA_ENERGY).orElseThrow(() -> new IllegalArgumentException("LazyOptional must not be empty!"));
 		return playerCapability.getElementalEnergy();
 	}
 
-	public void setElementalEnergy(PlayerEntity playerIn, byte energyIn) {
+	public void setElementalEnergy(PlayerEntity playerIn, int energyIn) {
 		IToaEnergy playerCapability = playerIn.getCapability(ToaEnergyProvider.TOA_ENERGY).orElseThrow(() -> new IllegalArgumentException("LazyOptional must not be empty!"));
 		playerCapability.setElementalEnergy(energyIn);
 	}

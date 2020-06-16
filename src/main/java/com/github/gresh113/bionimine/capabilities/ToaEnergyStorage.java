@@ -11,14 +11,14 @@ public class ToaEnergyStorage implements IStorage<IToaEnergy>{
 	public INBT writeNBT(Capability<IToaEnergy> capability, IToaEnergy instance, Direction side) {
 		CompoundNBT tag = new CompoundNBT();
 		tag.putInt("KanohiEnergy", instance.getKanohiEnergy());
-		tag.putByte("ElementalEnergy", instance.getElementalEnergy());
+		tag.putInt("ElementalEnergy", instance.getElementalEnergy());
 		return tag;
 	}
 
 	@Override
 	public void readNBT(Capability<IToaEnergy> capability, IToaEnergy instance, Direction side, INBT nbt) {
 		CompoundNBT tag = (CompoundNBT) nbt;
-		byte eEnergy = tag.getByte("ElementalEnergy");
+		int eEnergy = tag.getInt("ElementalEnergy");
 		int kEnergy = tag.getInt("KanohiEnergy");
 		instance.setElementalEnergy(eEnergy);
 		instance.setKanohiEnergy(kEnergy);

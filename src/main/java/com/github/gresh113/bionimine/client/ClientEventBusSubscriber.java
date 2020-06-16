@@ -5,7 +5,7 @@ import java.util.List;
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.client.gui.KanohiPedestalScreen;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
-import com.github.gresh113.bionimine.toa_gear.kanohi.ArmorColorHandler;
+import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiColorHandler;
 import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiInit;
 import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiItem;
 
@@ -33,7 +33,7 @@ public class ClientEventBusSubscriber {
 	public static void onColorHandlerEvent(ColorHandlerEvent.Item event) {
 		List<KanohiItem> array = KanohiInit.itemArray;
 		for (KanohiItem index : array) {
-			event.getItemColors().register(new ArmorColorHandler(), index);
+			event.getItemColors().register(new KanohiColorHandler(), index);
 		}
 	}
 
