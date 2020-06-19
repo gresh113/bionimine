@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.entities.matoran;
 
-import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiInit;
+import com.github.gresh113.bionimine.toagear.kanohi.KanohiInit;
 
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;

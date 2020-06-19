@@ -1,13 +1,7 @@
 package com.github.gresh113.bionimine.init;
 
 import com.github.gresh113.bionimine.Bionimine;
-import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
-import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiItem;
-
-import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.Item;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.ObjectHolder;

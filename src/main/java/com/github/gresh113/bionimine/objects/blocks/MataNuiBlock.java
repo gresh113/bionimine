@@ -2,8 +2,6 @@ package com.github.gresh113.bionimine.objects.blocks;
 
 import javax.annotation.Nullable;
 
-import com.github.gresh113.bionimine.state.properties.Mask_Type;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -38,35 +36,26 @@ public class MataNuiBlock extends Block {
 
 	public MataNuiBlock(Properties properties) {
 		super(properties);
-		this.setDefaultState(
-				this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(FACING, Direction.NORTH));
+		this.setDefaultState(this.stateContainer.getBaseState().with(HALF, DoubleBlockHalf.LOWER).with(FACING, Direction.NORTH));
 	}
 
-	
 	// This still places like a door - fix plz
-	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn,
-			BlockPos currentPos, BlockPos facingPos) {
+	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		DoubleBlockHalf doubleblockhalf = stateIn.get(HALF);
-		if (facing.getAxis() == Direction.Axis.Y
-				&& doubleblockhalf == DoubleBlockHalf.LOWER == (facing == Direction.UP)) {
-			return facingState.getBlock() == this && facingState.get(HALF) != doubleblockhalf
-					? stateIn.with(FACING, facingState.get(FACING))
-					: Blocks.AIR.getDefaultState();
+		if (facing.getAxis() == Direction.Axis.Y && doubleblockhalf == DoubleBlockHalf.LOWER == (facing == Direction.UP)) {
+			return facingState.getBlock() == this && facingState.get(HALF) != doubleblockhalf ? stateIn.with(FACING, facingState.get(FACING)) : Blocks.AIR.getDefaultState();
 		} else {
-			return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN
-					&& !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState()
-							: super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+			return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 		}
 	}
 
-	public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state,
-			@Nullable TileEntity te, ItemStack stack) {
+	public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
 		super.harvestBlock(worldIn, player, pos, Blocks.AIR.getDefaultState(), te, stack);
 	}
 
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		DoubleBlockHalf doubleblockhalf = state.get(HALF);   
+		DoubleBlockHalf doubleblockhalf = state.get(HALF);
 		switch (doubleblockhalf) {
 		default:
 			return SHAPE_BOTTOM;
@@ -95,12 +84,11 @@ public class MataNuiBlock extends Block {
 
 	@Nullable
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite()).with(HALF,
-				DoubleBlockHalf.LOWER);
+		return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite()).with(HALF, DoubleBlockHalf.LOWER);
 	}
 
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-		worldIn.setBlockState(pos.up(), state.with(HALF, DoubleBlockHalf.UPPER), 3);
+		worldIn.setBlockState(pos.up(), state.with(HALF, DoubleBlockHalf.UPPER));
 	}
 
 	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
@@ -115,8 +103,7 @@ public class MataNuiBlock extends Block {
 
 	@OnlyIn(Dist.CLIENT)
 	public long getPositionRandom(BlockState state, BlockPos pos) {
-		return MathHelper.getCoordinateRandom(pos.getX(),
-				pos.down(state.get(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(), pos.getZ());
+		return MathHelper.getCoordinateRandom(pos.getX(), pos.down(state.get(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(), pos.getZ());
 	}
 
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

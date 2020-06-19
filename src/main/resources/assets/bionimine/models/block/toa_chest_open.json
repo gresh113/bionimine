@@ -2,7 +2,8 @@
     "parent": "block/cube_bottom_top",
     "textures": {
         "top": "bionimine:block/toa_chest_top_open",
-        "side": "bionimine:block/toa_chest_side",
-        "bottom": "bionimine:block/toa_chest_bottom"
+        "side": "bionimine:blocks/toa_chest_side",
+		"front": "bionimine:blocks/toa_chest_front",
+        "bottom": "bionimine:blocks/toa_chest_bottom"
     }
 }

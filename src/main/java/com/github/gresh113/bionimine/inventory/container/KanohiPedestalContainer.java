@@ -2,25 +2,17 @@ package com.github.gresh113.bionimine.inventory.container;
 
 import java.util.Objects;
 
-import javax.annotation.Nullable;
-
-import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.objects.tileentity.KanohiPedestalTileEntity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
-import net.minecraft.util.ResourceLocation;
 
 public class KanohiPedestalContainer extends Container {
 

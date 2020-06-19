@@ -6,15 +6,16 @@ import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
-import com.github.gresh113.bionimine.toa_gear.ArmorPalette;
-import com.github.gresh113.bionimine.toa_gear.ToaArmorItem;
-import com.github.gresh113.bionimine.toa_gear.kanohi.KanohiItem;
+import com.github.gresh113.bionimine.toagear.ArmorPalette;
+import com.github.gresh113.bionimine.toagear.ToaArmorItem;
+import com.github.gresh113.bionimine.toagear.kanohi.KanohiItem;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -56,6 +57,7 @@ public class ToaOverlay extends ForgeIngameGui {
 		int kanohiLevel = 0;
 		int kanohiEnergy = 0;
 		int elementEnergy = 0;
+		ItemStack kanohiStack = ItemStack.EMPTY;
 		ArmorPalette kanohiPalette = ArmorPalette.GRAY;
 		ArmorPalette armorPalette = ArmorPalette.GRAY;
 
@@ -64,17 +66,19 @@ public class ToaOverlay extends ForgeIngameGui {
 		// ArmorPalette palette = kanohiItem.getPalette(stack);
 		if (headItem instanceof KanohiItem) {
 			KanohiItem kanohiItem = (KanohiItem) headItem;
+			// kanohiStack = new ItemStack(kanohiItem);
+			kanohiStack = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
 			kanohiFlag = true;
 			kanohiLevel = kanohiItem.getPowerLevel();
 			kanohiEnergy = playerCapability.getKanohiEnergy();
-			kanohiPalette = kanohiItem.getPalette(player.getItemStackFromSlot(EquipmentSlotType.HEAD));
+			kanohiPalette = KanohiItem.getPalette(player.getItemStackFromSlot(EquipmentSlotType.HEAD));
 		}
 
 		if (chestItem instanceof ToaArmorItem) {
-			ToaArmorItem armorItem = (ToaArmorItem) chestItem;
+			// ToaArmorItem armorItem = (ToaArmorItem) chestItem;
 			armorFlag = true;
 			elementEnergy = playerCapability.getElementalEnergy();
-			armorPalette = armorItem.getPalette(player.getItemStackFromSlot(EquipmentSlotType.CHEST));
+			armorPalette = ToaArmorItem.getPalette(player.getItemStackFromSlot(EquipmentSlotType.CHEST));
 		}
 
 		if (kanohiFlag || armorFlag) {
@@ -84,16 +88,17 @@ public class ToaOverlay extends ForgeIngameGui {
 				bind(OVERLAY_TEXTURE);
 				RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 				RenderSystem.disableBlend();
-				this.blit(6, 19, 0, 15, 6, 182);
+				this.blit(4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
+				this.blit(14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
 				RenderSystem.enableBlend();
 				RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 				if (kanohiFlag) {
-					renderKanohiBar(kanohiEnergy, kanohiLevel, kanohiPalette);
+					renderKanohiBar(kanohiEnergy, kanohiLevel, kanohiPalette, kanohiStack);
 				}
 				if (armorFlag) {
 					renderElementBar(elementEnergy, armorPalette);
 				}
-				
+
 				bind(GUI_ICONS_LOCATION);
 				pre(ElementType.HOTBAR);
 			}
@@ -112,20 +117,35 @@ public class ToaOverlay extends ForgeIngameGui {
 	// height, float textureX, float textureY, int textureWidth, int textureHeight);
 
 	// blit(int x, int y, int textureX, int textureY, int width, int height);
-	protected void renderKanohiBar(int energyIn, int kanohiLevel, ArmorPalette kanohiPalette) {
+	protected void renderKanohiBar(int energyIn, int kanohiLevel, ArmorPalette kanohiPalette, ItemStack kanohiStackIn) {
 		bind(OVERLAY_TEXTURE);
 		this.mc.getProfiler().startSection("kanohiBar");
 		Color color = kanohiPalette.getColorLayer2();
 		RenderSystem.color4f(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
 		RenderSystem.enableBlend();
 
-		Float j = 183F;
+		Float barLength = 60F;
 		int max = ToaEnergy.maxKanohiEnergy;
-		int length = (int) (energyIn * (j/max));
-		int l = 19;
-		this.blit(3, (l - 2 - 11), kanohiLevel * 11, 0, 11, 11);
+		int length = (int) (energyIn * (barLength / max));
+		// int l = 19;
+		if (!((kanohiStackIn == ItemStack.EMPTY) || (kanohiStackIn == null))) {
+			mc.getItemRenderer().renderItemIntoGUI(kanohiStackIn, 9, (scaledHeight / 2) - 8);
+			bind(OVERLAY_TEXTURE);
+		}
+		if (kanohiLevel == 1) {
+			this.blit(25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+		} else if (kanohiLevel == 2) {
+			this.blit(25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.blit(27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
+		} else if (kanohiLevel == 3) {
+			this.blit(25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.blit(27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
+			this.blit(25, (scaledHeight / 2) + 5, 45, 87, 4, 2);
+		}
+
 		if (length > 0) {
-			this.blit(6, l, 6, 15, 3, length);
+			this.blit(14, (int) (((scaledHeight / 2) - 13) - length), 27, (int) (15 + (barLength - length)), 6, length);
+			// this.blit(6, l, 6, 15, 3, length);
 		}
 		RenderSystem.enableBlend();
 		RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -138,12 +158,13 @@ public class ToaOverlay extends ForgeIngameGui {
 		Color color = armorPalette.getColorLayer2();
 		RenderSystem.color4f(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
 		RenderSystem.enableBlend();
-		Float j = 183F;
+		Float barLength = 60F;
 		int max = ToaEnergy.maxElementalEnergy;
-		int length = (int) (energyIn * (j/max));
-		int l = 19;
+		int length = (int) (energyIn * (barLength / max));
+		// int l = 19;
 		if (length > 0) {
-			this.blit(9, l, 10, 15, 3, length);
+			this.blit(14, (scaledHeight / 2) + 13, 27, 101, 6, length);
+			// this.blit(9, l, 10, 15, 3, length);
 		}
 		RenderSystem.enableBlend();
 		RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);

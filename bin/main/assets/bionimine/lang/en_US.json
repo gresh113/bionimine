@@ -13,8 +13,17 @@
 	"block.bionimine.toa_chest": "Toa Chest",
 	"block.bionimine.flag": "Flag",
 	
+	"block.bionimine.toa_crate_red": "Red Toa Crate",
+	"block.bionimine.toa_crate_blue": "Blue Toa Crate",
+	"block.bionimine.toa_crate_green": "Green Toa Crate",
+	"block.bionimine.toa_crate_white": "White Toa Crate",
+	"block.bionimine.toa_crate_black": "Black Toa Crate",
+	"block.bionimine.toa_crate_brown": "Brown Toa Crate",
+	
 	"item.bionimine.protosteel": "Protosteel",
 	"item.bionimine.protodermis": "Protodermis",
+	"item.bionimine.protodermis_ingot": "Protodermis Ingot",
+	"item.bionimine.protodermis_rod": "Protodermis Rod",
 	"item.bionimine.air_bladder": "Air Bladder",
 	"item.bionimine.bamboo_pole": "Bamboo Pole",
 	"item.bionimine.bamboo_disk": "Bamboo Disk",
@@ -25,6 +34,8 @@
 	
 	"item.bionimine.fire_sword": "Fire Sword",
 	"item.bionimine.ice_sword": "Ice Sword",
+	"item.bionimine.air_axe": "Air Axe",
+	"item.bionimine.hooks": "Hooks",
 	
 	"item.bionimine.hau": "Kanohi Hau",
 	"item.bionimine.miru": "Kanohi Miru",
@@ -36,7 +47,7 @@
 	"item.bionimine.lightstone_ore": "Lightstone Ore",
 	"item.bionimine.protosteel_plating": "Protosteel Plating",
 	"item.bionimine.kanohi_pedestal": "Kanohi Pedestal",
-	"item.bionimine.toa_chest": "Toa Chest",
+	"item.bionimine.toa_crate_red": "Red Toa Crate",
 	"item.bionimine.protosteel_plating": "Protosteel Plating",
 	
 	

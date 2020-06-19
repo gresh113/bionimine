@@ -3,10 +3,9 @@ package com.github.gresh113.bionimine.objects.tileentity;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.inventory.container.KanohiPedestalContainer;
 import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
-import com.github.gresh113.bionimine.state.properties.Mask_Type;
+import com.github.gresh113.bionimine.state.properties.MaskType;
 import com.github.gresh113.bionimine.util.KanohiFunctions;
 
 import net.minecraft.block.Block;
@@ -17,18 +16,14 @@ import net.minecraft.inventory.IClearable;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -98,25 +93,25 @@ public class KanohiPedestalTileEntity extends LockableLootTileEntity implements 
 		return displayItem;
 	}
 	@Nullable
-	public Mask_Type getDisplayMask()
+	public MaskType getDisplayMask()
 	{
 		ItemStack displayMaskItem = this.getDisplayItem();
 		if (this.isMask(displayMaskItem)) {
-		Mask_Type displayMask = Mask_Type.valueOf(displayMaskItem.getItem().toString());
+		MaskType displayMask = MaskType.valueOf(displayMaskItem.getItem().toString());
 		return displayMask;
 		}
-		else {return Mask_Type.NONE;}
+		else {return MaskType.NONE;}
 		
 	}
 	
 	public boolean hasMask() {
-		return !(this.getDisplayMask() == Mask_Type.NONE || this.getDisplayMask() == null) ? true : false;
+		return !(this.getDisplayMask() == MaskType.NONE || this.getDisplayMask() == null) ? true : false;
 	}
 	
 	@Override
 	public void tick() {
 		BlockState state = this.getBlockState();
-		Mask_Type mask = Mask_Type.NONE;
+		MaskType mask = MaskType.NONE;
 		if (this.hasMask()) {
 			mask = this.getDisplayMask();
 		}	

@@ -1,7 +1,7 @@
 package com.github.gresh113.bionimine.entities.elemental_projectiles;
 
 import com.github.gresh113.bionimine.Bionimine;
-import com.github.gresh113.bionimine.toa_gear.elemental_abilities.Elements;
+import com.github.gresh113.bionimine.toagear.elementalabilities.Elements;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 

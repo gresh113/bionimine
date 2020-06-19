@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bionimine:protodermis"
+  },
+  "result": "bionimine:protodermis_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}

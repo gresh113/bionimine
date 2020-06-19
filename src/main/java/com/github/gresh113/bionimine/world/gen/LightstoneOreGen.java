@@ -20,7 +20,7 @@ public class LightstoneOreGen {
 		final FillerBlockType fillerBlock = OreFeatureConfig.FillerBlockType.NATURAL_STONE;
 		
 		for (Biome biome : ForgeRegistries.BIOMES) {
-			ConfiguredPlacement config = Placement.COUNT_RANGE
+			ConfiguredPlacement<CountRangeConfig> config = Placement.COUNT_RANGE
 					.configure(new CountRangeConfig(rarity, min_height, 0, max_height));
 			
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,

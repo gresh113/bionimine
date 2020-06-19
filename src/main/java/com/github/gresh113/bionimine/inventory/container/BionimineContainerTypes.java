@@ -14,7 +14,5 @@ public class BionimineContainerTypes {
 	
 	public static final RegistryObject<ContainerType<KanohiPedestalContainer>> PEDESTAL = CONTAINER_TYPES
 			.register("kanohi_pedestal", () -> IForgeContainerType.create(KanohiPedestalContainer::new));
-	public static final RegistryObject<ContainerType<ToaChestContainer>> TOA_CHEST = CONTAINER_TYPES
-			.register("toa_chest", () -> IForgeContainerType.create(ToaChestContainer::new));
 
 }
