@@ -30,6 +30,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -271,6 +274,25 @@ public class KanohiItem extends ArmorItem {
 					}
 					if (power == KanohiPower.NOBLE_RURU) {
 						playerIn.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 0, 1, false, false, false));
+						energy -= 10;
+					}
+					
+					if (power == KanohiPower.GREAT_AKAKU) {
+						if (!(world == null)) {
+							int distance = kanohiPowerLevel*7;
+							BlockPos pos = playerIn.getPosition();
+							//Vec3d vector = new Vec3d(kanohiPowerLevel*7, kanohiPowerLevel*7, kanohiPowerLevel*7);
+							AxisAlignedBB bb = new AxisAlignedBB(pos);
+							bb = bb.expand(distance, distance, distance);
+							List<Entity> entityList= world.getEntitiesWithinAABBExcludingEntity(playerIn, bb);
+							for (Entity entity : entityList) {
+								if (entity instanceof LivingEntity) {
+									LivingEntity livingEntity = (LivingEntity) entity;
+									livingEntity.addPotionEffect(new EffectInstance(Effects.GLOWING, 60, 1, false, true));
+									
+								}
+							}
+						}
 						energy -= 10;
 					}
 					if (energy < 0 || energy == 0) {
