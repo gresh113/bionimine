@@ -2,16 +2,22 @@ package com.github.gresh113.bionimine;
 
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
+import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.network.BionimineCommands;
 import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.network.ToaEnergyMessage;
+import com.github.gresh113.bionimine.objects.blocks.HauShieldBlock;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;

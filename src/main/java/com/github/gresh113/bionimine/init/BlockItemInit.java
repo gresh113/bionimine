@@ -23,11 +23,11 @@ public class BlockItemInit {
 	public static final RegistryObject<Item> toa_crate_green = BLOCK_ITEMS.register("toa_crate_green", () -> 
 		new BlockItem(BlockInit.toa_crate_green.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
 	public static final RegistryObject<Item> toa_crate_black = BLOCK_ITEMS.register("toa_crate_black", () -> 
-	new BlockItem(BlockInit.toa_crate_black.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
+		new BlockItem(BlockInit.toa_crate_black.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
 	public static final RegistryObject<Item> toa_crate_white = BLOCK_ITEMS.register("toa_crate_white", () -> 
-	new BlockItem(BlockInit.toa_crate_white.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
+		new BlockItem(BlockInit.toa_crate_white.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
 	public static final RegistryObject<Item> toa_crate_brown = BLOCK_ITEMS.register("toa_crate_brown", () -> 
-	new BlockItem(BlockInit.toa_crate_brown.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
+		new BlockItem(BlockInit.toa_crate_brown.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
 	//@formatter:on
 
 //	public static final RegistryObject<Item> flag = BLOCK_ITEMS.register("flag", () -> 

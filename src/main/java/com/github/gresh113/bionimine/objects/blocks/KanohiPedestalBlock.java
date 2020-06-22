@@ -1,6 +1,5 @@
 package com.github.gresh113.bionimine.objects.blocks;
 
-import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.objects.tileentity.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.objects.tileentity.KanohiPedestalTileEntity;
 import com.github.gresh113.bionimine.state.properties.MaskType;

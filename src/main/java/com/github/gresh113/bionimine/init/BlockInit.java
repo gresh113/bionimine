@@ -1,6 +1,9 @@
 package com.github.gresh113.bionimine.init;
 
+import java.util.function.Supplier;
+
 import com.github.gresh113.bionimine.Bionimine;
+import com.github.gresh113.bionimine.objects.blocks.HauShieldBlock;
 import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
 import com.github.gresh113.bionimine.objects.blocks.MataNuiBlock;
 import com.github.gresh113.bionimine.objects.blocks.ToaCrateBlock;
@@ -18,6 +21,8 @@ public class BlockInit {
 
 	// Blocks Registry
 	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, Bionimine.MODID);
+	
+	public static final RegistryObject<Block> hau_shield = BLOCKS.register("hau_shield", () -> new HauShieldBlock(Block.Properties.create(Material.GLASS).hardnessAndResistance(10.0F, 10.0F).notSolid()));
 
 	// Functional BLocks
 	public static final RegistryObject<Block> kanohi_pedestal = BLOCKS.register("kanohi_pedestal", () -> new KanohiPedestalBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));

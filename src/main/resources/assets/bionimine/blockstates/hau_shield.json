@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "facing=north":{"model":"bionimine:block/hau_shield"},
+		"facing=east":{"model":"bionimine:block/hau_shield","y":270},
+		"facing=south":{"model":"bionimine:block/hau_shield","y":180},
+		"facing=west":{"model":"bionimine:block/hau_shield","y":90}
+		
+    }
+}

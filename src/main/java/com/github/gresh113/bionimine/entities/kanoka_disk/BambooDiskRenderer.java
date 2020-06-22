@@ -21,7 +21,6 @@ public class BambooDiskRenderer<T extends KanokaEntity> extends EntityRenderer<T
 	}
 
 	public void render(T entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
-		Bionimine.LOGGER.info(TEXTURE.toString());
 		// matrixStackIn.push();
 		// matrixStackIn.scale(-1.0F, -1.0F, 1.0F);
 		// this.modelKanoka.setRotationAngles(entityIn, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);

@@ -16,8 +16,8 @@ import com.github.gresh113.bionimine.init.ItemInit;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.objects.tileentity.BionimineTileEntityTypes;
-import com.github.gresh113.bionimine.toagear.kanohi.EquipmentEventChecker;
-import com.github.gresh113.bionimine.toagear.kanohi.KanohiInit;
+import com.github.gresh113.bionimine.objects.toagear.kanohi.EquipmentEventChecker;
+import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiInit;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
 import net.minecraft.block.Block;

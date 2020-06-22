@@ -1,0 +1,7 @@
+{
+    "parent": "bionimine:block/toa_crate_template",
+    "textures": {
+        "top": "bionimine:blocks/toa_crate_top_brown",
+        "side": "bionimine:blocks/toa_crate_side_brown"
+    }
+}

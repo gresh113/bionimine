@@ -4,13 +4,13 @@ import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity;
 import com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileRenderer;
 import com.github.gresh113.bionimine.entities.fikou_spider.FikouSpiderEntity;
-import com.github.gresh113.bionimine.entities.fikou_spider.FikouSpiderRender;
+import com.github.gresh113.bionimine.entities.fikou_spider.FikouSpiderRenderer;
 import com.github.gresh113.bionimine.entities.husi.HusiEntity;
-import com.github.gresh113.bionimine.entities.husi.HusiRender;
+import com.github.gresh113.bionimine.entities.husi.HusiRenderer;
 import com.github.gresh113.bionimine.entities.kanoka_disk.BambooDiskRenderer;
 import com.github.gresh113.bionimine.entities.kanoka_disk.KanokaEntity;
 import com.github.gresh113.bionimine.entities.matoran.MatoranEntity;
-import com.github.gresh113.bionimine.entities.matoran.MatoranRender;
+import com.github.gresh113.bionimine.entities.matoran.MatoranRenderer;
 import com.github.gresh113.bionimine.entities.telescope.TelescopeEntity;
 
 import net.minecraft.entity.EntityClassification;
@@ -42,14 +42,14 @@ public class BionimineEntityTypes {
 	public static final RegistryObject<EntityType<KanokaEntity>> KANOKA = ENTITY_TYPES.register("kanoka", () -> (EntityType.Builder.<KanokaEntity>create(KanokaEntity::new, EntityClassification.MISC).size(1.0f, 0.0625f).build(new ResourceLocation(Bionimine.MODID, "kanoka").toString())));
 
 	public static final RegistryObject<EntityType<ElementalProjectileEntity>> ELEMENTAL_PROJECTILE = ENTITY_TYPES.register("elemental_projectile", () -> (EntityType.Builder.<ElementalProjectileEntity>create(ElementalProjectileEntity::new, EntityClassification.MISC).size(.05f, 0.05f).build(new ResourceLocation(Bionimine.MODID, "elemental_projectile").toString())));
-
+	
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(KANOKA.get(), BambooDiskRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ELEMENTAL_PROJECTILE.get(), ElementalProjectileRenderer::new);
-		RenderingRegistry.registerEntityRenderingHandler(FIKOU_SPIDER.get(), FikouSpiderRender::new);
-		RenderingRegistry.registerEntityRenderingHandler(MATORAN.get(), MatoranRender::new);
-		RenderingRegistry.registerEntityRenderingHandler(HUSI.get(), HusiRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(FIKOU_SPIDER.get(), FikouSpiderRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(MATORAN.get(), MatoranRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(HUSI.get(), HusiRenderer::new);
 
 		// for (KanohiShape shape : KanohiShape.values())
 		// {BioniMine.LOGGER.info("{|predicate|: {|bionimine:shape|: " +

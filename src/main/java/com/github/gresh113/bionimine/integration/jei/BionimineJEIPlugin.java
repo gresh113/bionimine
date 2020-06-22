@@ -1,8 +1,8 @@
 package com.github.gresh113.bionimine.integration.jei;
 
 import com.github.gresh113.bionimine.Bionimine;
-import com.github.gresh113.bionimine.toagear.kanohi.KanohiInit;
-import com.github.gresh113.bionimine.toagear.kanohi.KanohiItem;
+import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiInit;
+import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiItem;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;

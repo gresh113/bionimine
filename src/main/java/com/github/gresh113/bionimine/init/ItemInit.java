@@ -7,10 +7,10 @@ import com.github.gresh113.bionimine.entities.ModdedSpawnEggItem;
 import com.github.gresh113.bionimine.objects.items.AirBladderItem;
 import com.github.gresh113.bionimine.objects.items.BambooDiskItem;
 import com.github.gresh113.bionimine.objects.items.TelescopeItem;
-import com.github.gresh113.bionimine.toagear.ArmorPalette;
-import com.github.gresh113.bionimine.toagear.ToaArmorItem;
-import com.github.gresh113.bionimine.toagear.ToaTool;
-import com.github.gresh113.bionimine.toagear.elementalabilities.Elements;
+import com.github.gresh113.bionimine.objects.toagear.ArmorPalette;
+import com.github.gresh113.bionimine.objects.toagear.ToaArmorItem;
+import com.github.gresh113.bionimine.objects.toagear.ToaTool;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.Item;

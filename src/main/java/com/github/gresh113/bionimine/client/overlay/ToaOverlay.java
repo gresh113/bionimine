@@ -6,9 +6,9 @@ import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
-import com.github.gresh113.bionimine.toagear.ArmorPalette;
-import com.github.gresh113.bionimine.toagear.ToaArmorItem;
-import com.github.gresh113.bionimine.toagear.kanohi.KanohiItem;
+import com.github.gresh113.bionimine.objects.toagear.ArmorPalette;
+import com.github.gresh113.bionimine.objects.toagear.ToaArmorItem;
+import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiItem;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
@@ -49,58 +49,60 @@ public class ToaOverlay extends ForgeIngameGui {
 		}
 
 		PlayerEntity player = mc.player;
-		IToaEnergy playerCapability = player.getCapability(ToaEnergyProvider.TOA_ENERGY).orElseThrow(() -> new IllegalArgumentException("LazyOptional must not be empty!"));
-		Item headItem = player.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem();
-		Item chestItem = player.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem();
-		boolean kanohiFlag = false;
-		boolean armorFlag = false;
-		int kanohiLevel = 0;
-		int kanohiEnergy = 0;
-		int elementEnergy = 0;
-		ItemStack kanohiStack = ItemStack.EMPTY;
-		ArmorPalette kanohiPalette = ArmorPalette.GRAY;
-		ArmorPalette armorPalette = ArmorPalette.GRAY;
+		if (player.isAlive()) {
+			IToaEnergy playerCapability = player.getCapability(ToaEnergyProvider.TOA_ENERGY).orElseThrow(() -> new IllegalArgumentException("LazyOptional must not be empty!"));
+			Item headItem = player.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem();
+			Item chestItem = player.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem();
+			boolean kanohiFlag = false;
+			boolean armorFlag = false;
+			int kanohiLevel = 0;
+			int kanohiEnergy = 0;
+			int elementEnergy = 0;
+			ItemStack kanohiStack = ItemStack.EMPTY;
+			ArmorPalette kanohiPalette = ArmorPalette.GRAY;
+			ArmorPalette armorPalette = ArmorPalette.GRAY;
 
-		// ItemStack stack = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
-		// KanohiShape shape = kanohiItem.getShape(stack);
-		// ArmorPalette palette = kanohiItem.getPalette(stack);
-		if (headItem instanceof KanohiItem) {
-			KanohiItem kanohiItem = (KanohiItem) headItem;
-			// kanohiStack = new ItemStack(kanohiItem);
-			kanohiStack = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
-			kanohiFlag = true;
-			kanohiLevel = kanohiItem.getPowerLevel();
-			kanohiEnergy = playerCapability.getKanohiEnergy();
-			kanohiPalette = KanohiItem.getPalette(player.getItemStackFromSlot(EquipmentSlotType.HEAD));
-		}
+			// ItemStack stack = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
+			// KanohiShape shape = kanohiItem.getShape(stack);
+			// ArmorPalette palette = kanohiItem.getPalette(stack);
+			if (headItem instanceof KanohiItem) {
+				KanohiItem kanohiItem = (KanohiItem) headItem;
+				// kanohiStack = new ItemStack(kanohiItem);
+				kanohiStack = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
+				kanohiFlag = true;
+				kanohiLevel = kanohiItem.getPowerLevel();
+				kanohiEnergy = playerCapability.getKanohiEnergy();
+				kanohiPalette = KanohiItem.getPalette(player.getItemStackFromSlot(EquipmentSlotType.HEAD));
+			}
 
-		if (chestItem instanceof ToaArmorItem) {
-			// ToaArmorItem armorItem = (ToaArmorItem) chestItem;
-			armorFlag = true;
-			elementEnergy = playerCapability.getElementalEnergy();
-			armorPalette = ToaArmorItem.getPalette(player.getItemStackFromSlot(EquipmentSlotType.CHEST));
-		}
+			if (chestItem instanceof ToaArmorItem) {
+				// ToaArmorItem armorItem = (ToaArmorItem) chestItem;
+				armorFlag = true;
+				elementEnergy = playerCapability.getElementalEnergy();
+				armorPalette = ToaArmorItem.getPalette(player.getItemStackFromSlot(EquipmentSlotType.CHEST));
+			}
 
-		if (kanohiFlag || armorFlag) {
-			if (!event.isCanceled()) {
-				if (pre(ElementType.HOTBAR))
-					return;
-				bind(OVERLAY_TEXTURE);
-				RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-				RenderSystem.disableBlend();
-				this.blit(4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
-				this.blit(14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
-				RenderSystem.enableBlend();
-				RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-				if (kanohiFlag) {
-					renderKanohiBar(kanohiEnergy, kanohiLevel, kanohiPalette, kanohiStack);
+			if (kanohiFlag || armorFlag) {
+				if (!event.isCanceled()) {
+					if (pre(ElementType.HOTBAR))
+						return;
+					bind(OVERLAY_TEXTURE);
+					RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+					RenderSystem.disableBlend();
+					this.blit(4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
+					this.blit(14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
+					RenderSystem.enableBlend();
+					RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+					if (kanohiFlag) {
+						renderKanohiBar(kanohiEnergy, kanohiLevel, kanohiPalette, kanohiStack);
+					}
+					if (armorFlag) {
+						renderElementBar(elementEnergy, armorPalette);
+					}
+
+					bind(GUI_ICONS_LOCATION);
+					pre(ElementType.HOTBAR);
 				}
-				if (armorFlag) {
-					renderElementBar(elementEnergy, armorPalette);
-				}
-
-				bind(GUI_ICONS_LOCATION);
-				pre(ElementType.HOTBAR);
 			}
 		}
 	}

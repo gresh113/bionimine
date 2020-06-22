@@ -2,7 +2,7 @@ package com.github.gresh113.bionimine.entities.elemental_projectiles;
 
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.entities.BionimineEntityTypes;
-import com.github.gresh113.bionimine.toagear.elementalabilities.Elements;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
