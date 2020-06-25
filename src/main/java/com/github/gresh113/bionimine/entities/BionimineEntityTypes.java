@@ -1,17 +1,13 @@
 package com.github.gresh113.bionimine.entities;
 
 import com.github.gresh113.bionimine.Bionimine;
-import com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity;
-import com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileRenderer;
-import com.github.gresh113.bionimine.entities.fikou_spider.FikouSpiderEntity;
-import com.github.gresh113.bionimine.entities.fikou_spider.FikouSpiderRenderer;
-import com.github.gresh113.bionimine.entities.husi.HusiEntity;
-import com.github.gresh113.bionimine.entities.husi.HusiRenderer;
-import com.github.gresh113.bionimine.entities.kanoka_disk.BambooDiskRenderer;
-import com.github.gresh113.bionimine.entities.kanoka_disk.KanokaEntity;
+import com.github.gresh113.bionimine.client.entities.renderers.BambooDiskRenderer;
+import com.github.gresh113.bionimine.client.entities.renderers.ElementalProjectileRenderer;
+import com.github.gresh113.bionimine.client.entities.renderers.FikouSpiderRenderer;
+import com.github.gresh113.bionimine.client.entities.renderers.HusiRenderer;
+import com.github.gresh113.bionimine.client.entities.renderers.MatoranRenderer;
+import com.github.gresh113.bionimine.entities.matoran.KanokaEntity;
 import com.github.gresh113.bionimine.entities.matoran.MatoranEntity;
-import com.github.gresh113.bionimine.entities.matoran.MatoranRenderer;
-import com.github.gresh113.bionimine.entities.telescope.TelescopeEntity;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;

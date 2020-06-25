@@ -3,7 +3,7 @@ package com.github.gresh113.bionimine.objects.items;
 import java.util.List;
 import java.util.Random;
 
-import com.github.gresh113.bionimine.entities.telescope.TelescopeEntity;
+import com.github.gresh113.bionimine.entities.TelescopeEntity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

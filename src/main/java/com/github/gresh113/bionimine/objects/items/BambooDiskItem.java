@@ -2,7 +2,7 @@ package com.github.gresh113.bionimine.objects.items;
 
 import java.util.function.Predicate;
 
-import com.github.gresh113.bionimine.entities.kanoka_disk.KanokaEntity;
+import com.github.gresh113.bionimine.entities.matoran.KanokaEntity;
 import com.github.gresh113.bionimine.init.ItemInit;
 
 import net.minecraft.enchantment.EnchantmentHelper;

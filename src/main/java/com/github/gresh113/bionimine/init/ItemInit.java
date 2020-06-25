@@ -46,12 +46,14 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> air_bladder = ITEMS.register("air_bladder", () -> new AirBladderItem());
 	public static final RegistryObject<Item> bamboo_pole = ITEMS.register("bamboo_pole", () -> new Item(defaultItemProperties));
-	public static Item lightstone_item = new Item(defaultItemProperties);
+	public static Item lightstone_item = new Item(defaultItemProperties); // Needs to be a separate item to be used as the group icon
 	public static final RegistryObject<Item> lightstone = ITEMS.register("lightstone", () -> lightstone_item);
 	public static final RegistryObject<Item> protosteel = ITEMS.register("protosteel", () -> new Item(defaultItemProperties));
 	public static final RegistryObject<Item> protodermis = ITEMS.register("protodermis", () -> new Item(defaultItemProperties));
 	public static final RegistryObject<Item> protodermis_ingot = ITEMS.register("protodermis_ingot", () -> new Item(defaultItemProperties));
 	public static final RegistryObject<Item> protodermis_rod = ITEMS.register("protodermis_rod", () -> new Item(defaultItemProperties));
+	public static final RegistryObject<Item> widgets = ITEMS.register("widgets", () -> new Item(defaultItemProperties));
+	public static final RegistryObject<Item> madu_fruit = ITEMS.register("madu_fruit", () -> new Item(defaultItemProperties));
 
 	public static final RegistryObject<Item> bamboo_disk = ITEMS.register("bamboo_disk", () -> new BambooDiskItem(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance)));
 

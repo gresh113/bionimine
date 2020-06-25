@@ -8,7 +8,7 @@
           "type": "minecraft:alternatives",
           "children": [
             {
-              "type": "minecraft:block",
+              "type": "minecraft:item",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

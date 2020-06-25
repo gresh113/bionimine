@@ -3,8 +3,8 @@ package com.github.gresh113.bionimine.objects.toagear.elementalabilities.project
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
-import com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity;
-import com.github.gresh113.bionimine.entities.elemental_projectiles.IceProjectileModel;
+import com.github.gresh113.bionimine.client.entities.models.IceProjectileModel;
+import com.github.gresh113.bionimine.entities.ElementalProjectileEntity;
 import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.network.ToaEnergyMessage;
 import com.github.gresh113.bionimine.objects.toagear.ToaTool;

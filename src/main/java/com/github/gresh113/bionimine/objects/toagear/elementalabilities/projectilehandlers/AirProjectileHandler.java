@@ -1,7 +1,7 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers;
 
-import com.github.gresh113.bionimine.entities.elemental_projectiles.AirProjectileModel;
-import com.github.gresh113.bionimine.entities.elemental_projectiles.ElementalProjectileEntity;
+import com.github.gresh113.bionimine.client.entities.models.AirProjectileModel;
+import com.github.gresh113.bionimine.entities.ElementalProjectileEntity;
 import com.github.gresh113.bionimine.objects.toagear.ToaTool;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 

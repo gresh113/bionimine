@@ -7,7 +7,7 @@
   <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:\Users\Public\Documents\My Documents\Modding\bioinimine\run"/>
   <mapAttribute key="org.eclipse.debug.core.environmentVariables">
     <mapEntry key="MOD_CLASSES" value="examplemod%%C:\Users\Public\Documents\My Documents\Modding\bioinimine\bin\main;examplemod%%C:\Users\Public\Documents\My Documents\Modding\bioinimine\bin\main"/>
-    <mapEntry key="MCP_MAPPINGS" value="snapshot_20200610-1.15.1"/>
+    <mapEntry key="MCP_MAPPINGS" value="snapshot_20200623-1.15.1"/>
     <mapEntry key="MCP_VERSION" value="20200515.085601"/>
     <mapEntry key="FORGE_VERSION" value="31.2.0"/>
     <mapEntry key="FORGE_GROUP" value="net.minecraftforge"/>
