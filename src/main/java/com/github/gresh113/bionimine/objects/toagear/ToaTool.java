@@ -156,7 +156,7 @@ public class ToaTool extends Item {
 			ToaTool toolItem = (ToaTool) stack.getItem();
 			Elements element = toolItem.getElement();
 			if (!(element == null)) {
-				String elementName = element.getName();
+				String elementName = element.func_176610_l();
 				String firstLetter = "" + elementName.charAt(0);
 				laterText = " of " + firstLetter.toUpperCase() + elementName.substring(1, elementName.length());
 			}

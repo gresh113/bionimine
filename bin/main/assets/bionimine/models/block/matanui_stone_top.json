@@ -1,0 +1,26 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"1": "bionimine:blocks/matanui_stone",
+		"2": "bionimine:blocks/matanui_stone_face",
+		"3": "bionimine:blocks/matanui_stone_right",
+		"4": "bionimine:blocks/matanui_stone_left",
+		"particle": "bionimine:blocks/matanui_stone_right"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 12, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [10, 8, 10]},
+			"faces": {
+				"north": {"uv": [0, 0, 12, 12], "texture": "#2"},
+				"east": {"uv": [0, 0, 12, 12], "texture": "#4"},
+				"south": {"uv": [0, 0, 12, 12], "texture": "#1"},
+				"west": {"uv": [0, 0, 12, 12], "texture": "#3"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		}
+	]
+}

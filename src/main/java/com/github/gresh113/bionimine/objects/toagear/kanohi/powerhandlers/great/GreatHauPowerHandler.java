@@ -23,9 +23,10 @@ public class GreatHauPowerHandler extends KanohiPowerHandler {
 		playerIn.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 0, 1, false, false, false));
 		playerIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 0, 2, false, false, false));
 		if (!world.isRemote) {
-			BlockPos currentPos = playerIn.getPosition();
+			BlockPos playerPos = new BlockPos(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ());
+			BlockPos currentPos = playerIn.func_233580_cy_();
 			Direction[] directions = Direction.getFacingDirections(playerIn);
-			Bionimine.LOGGER.info(directions[0].getName());
+			Bionimine.LOGGER.info(directions[0].func_176610_l());
 			int xparity;
 			int zparity;
 			Direction dir = directions[0];

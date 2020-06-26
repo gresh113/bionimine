@@ -55,7 +55,7 @@ public class BambooDiskItem extends ShootableItem {
 	               if (!worldIn.isRemote) {
 	                  BambooDiskItem diskitem = (BambooDiskItem)(itemstack.getItem() instanceof BambooDiskItem ? itemstack.getItem() : ItemInit.bamboo_disk.get());
 	                  KanokaEntity diskentity = diskitem.createDisk(worldIn, itemstack, playerentity);
-	                  diskentity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F, 1.0F);
+	                  diskentity.shoot(playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F, 1.0F);
 
 	                  stack.damageItem(1, playerentity, (consumer) -> {consumer.sendBreakAnimation(playerentity.getActiveHand());
 	                  });
@@ -138,5 +138,10 @@ public class BambooDiskItem extends ShootableItem {
 	    */
 	   public Predicate<ItemStack> getInventoryAmmoPredicate() {
 	      return ARROWS;
-	   }	
+	   }
+
+	@Override
+	public int func_230305_d_() {
+		return 15;
+	}	
 }

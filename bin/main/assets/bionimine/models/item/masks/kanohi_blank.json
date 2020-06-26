@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bionimine:item/kanohi_blank"
+  },
+  "overrides": [
+  {"predicate": {"bionimine:shape": 0.0 }, "model": "bionimine:item/hau"},
+  {"predicate": {"bionimine:shape": 0.02}, "model": "bionimine:item/miru"},
+  {"predicate": {"bionimine:shape": 0.03}, "model": "bionimine:item/akaku"},
+  {"predicate": {"bionimine:shape": 0.04}, "model": "bionimine:item/kaukau"},
+  {"predicate": {"bionimine:shape": 0.05}, "model": "bionimine:item/pakari"},
+  {"predicate": {"bionimine:shape": 0.06}, "model": "bionimine:item/kakama"}
+  ]
+}

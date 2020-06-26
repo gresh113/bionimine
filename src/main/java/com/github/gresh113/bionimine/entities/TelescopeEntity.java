@@ -38,7 +38,7 @@ public class TelescopeEntity extends LivingEntity {
 
 	public boolean hitByEntity(Entity entityIn) {
 		return entityIn instanceof PlayerEntity
-				&& !this.world.isBlockModifiable((PlayerEntity) entityIn, new BlockPos(this));
+				&& !this.world.isBlockModifiable((PlayerEntity) entityIn, new BlockPos(this.getPositionUnderneath()));
 	}
 
 	protected SoundEvent getFallSound(int heightIn) {

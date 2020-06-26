@@ -11,7 +11,7 @@ import com.github.gresh113.bionimine.init.ItemInit;
 import com.github.gresh113.bionimine.registration.MatoranRegistration;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Dynamic;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.entity.AgeableEntity;
@@ -19,7 +19,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.ai.brain.memory.MemoryModuleType;
@@ -32,18 +31,11 @@ import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.merchant.IReputationTracking;
-import net.minecraft.entity.merchant.IReputationType;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
-import net.minecraft.entity.merchant.villager.VillagerData;
-import net.minecraft.entity.merchant.villager.VillagerProfession;
-import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.villager.IVillagerType;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.MerchantOffer;
 import net.minecraft.item.MerchantOffers;
 import net.minecraft.nbt.CompoundNBT;
@@ -54,13 +46,10 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.pathfinding.GroundPathNavigator;
 import net.minecraft.pathfinding.PathNodeType;
-import net.minecraft.stats.IStatFormatter;
-import net.minecraft.stats.Stats;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.DifficultyInstance;
@@ -135,7 +124,6 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 		this.getNavigator().setCanSwim(true);
 		this.setCanPickUpLoot(true);
 		this.setMatoranData(this.getMatoranData().withElement(element).withProfession(MatoranProfession.NONE));
-		this.brain = this.createBrain(new Dynamic<>(NBTDynamicOps.INSTANCE, new CompoundNBT()));
 	}
 
 	public Brain<MatoranEntity> getBrain() {
@@ -143,7 +131,7 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 	}
 
 	protected Brain<?> createBrain(Dynamic<?> dynamicIn) {
-		Brain<MatoranEntity> brain = new Brain<MatoranEntity>(MEMORY_TYPES, SENSOR_TYPES, dynamicIn);
+		Brain<MatoranEntity> brain = Brain.func_233705_a_(MEMORY_TYPES, SENSOR_TYPES).func_233748_a_(dynamicIn);
 		this.initBrain(brain);
 		return brain;
 	}
@@ -157,7 +145,7 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 
 	private void initBrain(Brain<MatoranEntity> matoranbrain) {
 		MatoranProfession matoranprofession = this.getMatoranData().getProfession();
-		float f = (float) this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getValue();
+		float f = 0.5f;
 		matoranbrain.setSchedule(Schedule.SIMPLE);
 		// matoranbrain.registerActivity(Activity.WORK,
 		// VillagerTasks.work(matoranprofession, f),
@@ -183,12 +171,6 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 		this.goalSelector.addGoal(1, new WaterAvoidingRandomWalkingGoal(this, .5D));
 		this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
-	}
-
-	protected void registerAttributes() {
-		super.registerAttributes();
-		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double) 0.23F);
-		this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 
 	@Override
@@ -297,7 +279,7 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 	}
 
 	@Override
-	protected boolean canEquipItem(ItemStack stack) {
+	public boolean canEquipItem(ItemStack stack) {
 		return super.canEquipItem(stack);
 	}
 
@@ -329,7 +311,9 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 
 	}
 
-	public boolean processInteract(PlayerEntity player, Hand hand) {
+	//Process interact
+	@Override
+	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) { 
 		if (this.isAlive() && !this.hasCustomer() && !this.isSleeping() && !player.isSecondaryUseActive()) {
 			boolean flag1 = this.getOffers().isEmpty();
 			if (hand == Hand.MAIN_HAND) {
@@ -341,17 +325,17 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 			}
 
 			if (flag1) {
-				return super.processInteract(player, hand);
+				return ActionResultType.func_233537_a_(this.world.isRemote);
 			} else {
 				if (!this.world.isRemote && !this.offers.isEmpty()) {
 					this.displayMerchantGui(player);
 				}
 
-				return true;
+				return ActionResultType.func_233537_a_(this.world.isRemote);
 			}
 
 		} else {
-			return super.processInteract(player, hand);
+			return super.func_230254_b_(player, hand);
 		}
 	}
 

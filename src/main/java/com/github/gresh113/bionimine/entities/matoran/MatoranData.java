@@ -3,11 +3,11 @@ package com.github.gresh113.bionimine.entities.matoran;
 import com.github.gresh113.bionimine.api.BionimineRegistries;
 import com.github.gresh113.bionimine.registration.MatoranRegistration;
 import com.google.common.collect.ImmutableMap;
-import com.mojang.datafixers.types.DynamicOps;
 
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.IDataSerializer;
+import net.minecraft.util.datafix.DelegatingDynamicOps;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -37,7 +37,7 @@ public class MatoranData {
 		return new MatoranData(this.element, professionIn);
 	}
 
-	public <T> T serialize(DynamicOps<T> opIn) {
+	public <T> T serialize(DelegatingDynamicOps<T> opIn) {
 		return opIn.createMap(ImmutableMap.of(opIn.createString("element"), opIn.createString(BionimineRegistries.MATORAN_ELEMENTS.getKey(this.element).toString()), opIn.createString("profession"), opIn.createString(BionimineRegistries.MATORAN_PROFESSIONS.getKey(this.profession).toString())));
 	}
 

@@ -30,7 +30,7 @@ public class MatoranRegistration {
 
 		isInitialised = true;
 	}
-	public static final DeferredRegister<MatoranElement> ELEMENTS = new DeferredRegister<>(LazyForgeRegistry.of(MatoranElement.class), Bionimine.MODID);
+	public static final DeferredRegister<MatoranElement> ELEMENTS = DeferredRegister.create(LazyForgeRegistry.of(MatoranElement.class), Bionimine.MODID);
 	
 	public static final RegistryObject<MatoranElement> PO = ELEMENTS.register("po", () -> new MatoranElement("po"));
 	public static final RegistryObject<MatoranElement> KO = ELEMENTS.register("ko", () -> new MatoranElement("ko"));
@@ -40,7 +40,7 @@ public class MatoranRegistration {
 	public static final RegistryObject<MatoranElement> ONU = ELEMENTS.register("onu", () -> new MatoranElement("onu"));
 	
 	
-	public static final DeferredRegister<MatoranProfession> PROFESSIONS = new DeferredRegister<MatoranProfession>(LazyForgeRegistry.of(MatoranProfession.class), Bionimine.MODID);
+	public static final DeferredRegister<MatoranProfession> PROFESSIONS = DeferredRegister.create(LazyForgeRegistry.of(MatoranProfession.class), Bionimine.MODID);
 	
 	public static final RegistryObject<MatoranProfession> NONE = PROFESSIONS.register("none", () -> MatoranProfession.NONE);
 	

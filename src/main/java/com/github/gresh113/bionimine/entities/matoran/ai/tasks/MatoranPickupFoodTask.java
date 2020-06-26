@@ -14,7 +14,7 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPosWrapper;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.server.ServerWorld;
 
 public class MatoranPickupFoodTask  extends Task<MatoranEntity>{
@@ -32,7 +32,7 @@ public class MatoranPickupFoodTask  extends Task<MatoranEntity>{
 	   protected void startExecuting(ServerWorld worldIn, MatoranEntity entityIn, long gameTimeIn) {
 	      ItemEntity itementity = this.nearbyEntities.get(worldIn.rand.nextInt(this.nearbyEntities.size()));
 	      if (entityIn.canPickupItem(itementity.getItem().getItem())) {
-	         Vec3d vec3d = itementity.getPositionVec();
+	         Vector3d vec3d = itementity.getPositionVec();
 	         entityIn.getBrain().setMemory(MemoryModuleType.LOOK_TARGET, new BlockPosWrapper(new BlockPos(vec3d)));
 	         entityIn.getBrain().setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(vec3d, 0.5F, 0));
 	      }

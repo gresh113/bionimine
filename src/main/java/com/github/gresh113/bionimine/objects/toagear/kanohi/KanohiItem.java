@@ -15,6 +15,7 @@ import com.github.gresh113.bionimine.objects.toagear.ToaArmorItem;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.powerhandlers.KanohiPowerHandler;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,6 +24,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemModelsProperties;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
@@ -46,7 +48,8 @@ public class KanohiItem extends ArmorItem {
 
 	private IItemPropertyGetter shapeGetter = new IItemPropertyGetter() {
 		@OnlyIn(Dist.CLIENT)
-		public float call(ItemStack stackIn, @Nullable World worldIn, @Nullable LivingEntity entityIn) {
+		@Override
+		public float call(ItemStack stackIn, ClientWorld clientIn, LivingEntity entityIn) {
 			CompoundNBT compoundNBT = stackIn.getOrCreateTag();
 			String tag = "shape";
 			KanohiShape stackShape;
@@ -65,19 +68,19 @@ public class KanohiItem extends ArmorItem {
 	public KanohiItem(Kanohi kanohiIn, Item.Properties properties) {
 		super(material, defaultSlot, properties);
 		kanohiID = kanohiIn;
-		this.addPropertyOverride(resourceLocation, shapeGetter);
+		//this.addPropertyOverride(resourceLocation, shapeGetter);
 	}
 
 	public KanohiItem(Kanohi kanohiIn) {
 		super(material, defaultSlot, defaultProperties);
 		kanohiID = kanohiIn;
-		this.addPropertyOverride(resourceLocation, shapeGetter);
+		//this.addPropertyOverride(resourceLocation, shapeGetter);
 	}
 
 	public KanohiItem() {
 		super(material, defaultSlot, defaultProperties);
 		kanohiID = Kanohi.TAHUS_HAU;
-		this.addPropertyOverride(resourceLocation, shapeGetter);
+		//this.addPropertyOverride(resourceLocation, shapeGetter);
 	}
 
 	public Kanohi getKanohi() {
@@ -143,7 +146,7 @@ public class KanohiItem extends ArmorItem {
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-		return (Bionimine.MODID + ":textures/models/kanohi/" + KanohiItem.getShape(stack).getName() + "/" + KanohiItem.getPalette(stack).getName() + ".png");
+		return (Bionimine.MODID + ":textures/models/kanohi/" + KanohiItem.getShape(stack).func_176610_l() + "/" + KanohiItem.getPalette(stack).func_176610_l() + ".png");
 	}
 
 	@OnlyIn(Dist.CLIENT)

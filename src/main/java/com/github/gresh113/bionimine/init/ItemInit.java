@@ -20,7 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
 
-	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Bionimine.MODID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Bionimine.MODID);
 
 	static Item.Properties defaultItemProperties = new Item.Properties().group(BioniMineItemGroup.instance);
 

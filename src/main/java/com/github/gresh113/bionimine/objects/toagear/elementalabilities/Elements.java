@@ -33,10 +33,10 @@ public enum Elements implements IStringSerializable {
 		this.abilityHolder = abilityHolderIn;
 	}
 
-	@Override
-	public String getName() {
-		return name;
-	}
+//	@Override
+//	public String getName() {
+//		return name;
+//	}
 
 	public int getID() {
 		return id;
@@ -52,6 +52,11 @@ public enum Elements implements IStringSerializable {
 
 	public ToaAbilityHolder getAbilityHolder() {
 		return abilityHolder;
+	}
+
+	@Override
+	public String func_176610_l() {
+		return name;
 	}
 
 }

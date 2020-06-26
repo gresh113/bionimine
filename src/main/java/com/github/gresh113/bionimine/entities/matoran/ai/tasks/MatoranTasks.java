@@ -15,7 +15,7 @@ public class MatoranTasks {
 	//@formatter:off
 	public static ImmutableList<Pair<Integer, ? extends Task<? super MatoranEntity>>> core(MatoranProfession profession, float speed) {
 	      return ImmutableList.of(
-	    		  Pair.of(0, new SwimTask(0.4F, 0.8F)), 
+	    		  Pair.of(0, new SwimTask(0.8F)), 
 	    		  Pair.of(0, new InteractWithDoorTask()), 
 	    		  Pair.of(0, new LookTask(45, 90)) 
 //	    		  ,Pair.of(0, new PanicTask()) // Would need to be rewritten as task for Matoran

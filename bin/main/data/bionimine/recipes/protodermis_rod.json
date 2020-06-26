@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "bionimine:protodermis_ingot"
+    }
+  },
+  "result": {
+    "item": "bionimine:protodermis_rod",
+    "count": 1
+  }
+}

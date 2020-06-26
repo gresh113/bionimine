@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=east,half=lower":  { "model": "bionimine:block/matanui_stone_bottom" },
+        "facing=south,half=lower": { "model": "bionimine:block/matanui_stone_bottom", "y": 90 },
+        "facing=west,half=lower":  { "model": "bionimine:block/matanui_stone_bottom", "y": 180 },
+        "facing=north,half=lower": { "model": "bionimine:block/matanui_stone_bottom", "y": 270 },
+        "facing=east,half=upper":  { "model": "bionimine:block/matanui_stone_top" },
+        "facing=south,half=upper": { "model": "bionimine:block/matanui_stone_top", "y": 90 },
+        "facing=west,half=upper":  { "model": "bionimine:block/matanui_stone_top", "y": 180 },
+        "facing=north,half=upper": { "model": "bionimine:block/matanui_stone_top", "y": 270 }
+    }
+}

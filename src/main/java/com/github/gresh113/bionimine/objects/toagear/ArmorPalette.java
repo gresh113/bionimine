@@ -34,10 +34,10 @@ public enum ArmorPalette implements IStringSerializable {
 	private final Color color4;
 	private final Color color5;
 
-	@Override
-	public String getName() {
-		return name;
-	}
+//	@Override
+//	public String getName() {
+//		return name;
+//	}
 	public Color getColorLayer1() {
 		return color1;
 	}
@@ -88,6 +88,14 @@ public enum ArmorPalette implements IStringSerializable {
     {
       compoundNBT.putString(tagname, name);
     }
+	@Override
+	public String func_176610_l() {
+		return name;
+	}
+	
+	public String getName() {
+		return func_176610_l();
+	}
 
   }
 

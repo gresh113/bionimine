@@ -25,7 +25,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(modid = Bionimine.MODID, bus = Bus.MOD, value = Dist.CLIENT)
 public class BionimineEntityTypes {
 
-	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, Bionimine.MODID);
+	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, Bionimine.MODID);
 
 	public static final RegistryObject<EntityType<FikouSpiderEntity>> FIKOU_SPIDER = ENTITY_TYPES.register("fikou_spider", () -> (EntityType.Builder.<FikouSpiderEntity>create(FikouSpiderEntity::new, EntityClassification.MONSTER).size(0.9f, 1.3f).build(new ResourceLocation(Bionimine.MODID, "fikou_spider").toString())));
 

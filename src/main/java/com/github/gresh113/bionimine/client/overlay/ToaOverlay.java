@@ -9,6 +9,7 @@ import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import com.github.gresh113.bionimine.objects.toagear.ArmorPalette;
 import com.github.gresh113.bionimine.objects.toagear.ToaArmorItem;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiItem;
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
@@ -40,9 +41,10 @@ public class ToaOverlay extends ForgeIngameGui {
 	}
 
 	public void render(RenderGameOverlayEvent.Pre event) {
+		MatrixStack stack = new MatrixStack();
 		this.scaledWidth = this.mc.getMainWindow().getScaledWidth();
 		this.scaledHeight = this.mc.getMainWindow().getScaledHeight();
-		eventParent = new RenderGameOverlayEvent(this.mc.getRenderPartialTicks(), this.mc.getMainWindow());
+		eventParent = new RenderGameOverlayEvent(stack, this.mc.getRenderPartialTicks(), this.mc.getMainWindow());
 
 		if (event.getType() == ElementType.HOTBAR) {
 			return;
@@ -84,24 +86,24 @@ public class ToaOverlay extends ForgeIngameGui {
 
 			if (kanohiFlag || armorFlag) {
 				if (!event.isCanceled()) {
-					if (pre(ElementType.HOTBAR))
+					if (pre(stack, ElementType.HOTBAR))
 						return;
 					bind(OVERLAY_TEXTURE);
 					RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 					RenderSystem.disableBlend();
-					this.blit(4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
-					this.blit(14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
+					this.func_238468_a_(stack, 4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
+					this.func_238468_a_(stack, 14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
 					RenderSystem.enableBlend();
 					RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 					if (kanohiFlag) {
-						renderKanohiBar(kanohiEnergy, kanohiLevel, kanohiPalette, kanohiStack);
+						renderKanohiBar(stack, kanohiEnergy, kanohiLevel, kanohiPalette, kanohiStack);
 					}
 					if (armorFlag) {
-						renderElementBar(elementEnergy, armorPalette);
+						renderElementBar(stack, elementEnergy, armorPalette);
 					}
 
-					bind(GUI_ICONS_LOCATION);
-					pre(ElementType.HOTBAR);
+					bind(VIGNETTE_TEX_PATH);
+					pre(stack, ElementType.HOTBAR);
 				}
 			}
 		}
@@ -119,12 +121,9 @@ public class ToaOverlay extends ForgeIngameGui {
 	// height, float textureX, float textureY, int textureWidth, int textureHeight);
 
 	// blit(int x, int y, int textureX, int textureY, int width, int height);
-	protected void renderKanohiBar(int energyIn, int kanohiLevel, ArmorPalette kanohiPalette, ItemStack kanohiStackIn) {
+	protected void renderKanohiBar(MatrixStack stack, int energyIn, int kanohiLevel, ArmorPalette kanohiPalette, ItemStack kanohiStackIn) {
 		bind(OVERLAY_TEXTURE);
 		this.mc.getProfiler().startSection("kanohiBar");
-		Color color = kanohiPalette.getColorLayer2();
-		RenderSystem.color4f(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
-		RenderSystem.enableBlend();
 
 		Float barLength = 60F;
 		int max = ToaEnergy.maxKanohiEnergy;
@@ -135,37 +134,32 @@ public class ToaOverlay extends ForgeIngameGui {
 			bind(OVERLAY_TEXTURE);
 		}
 		if (kanohiLevel == 1) {
-			this.blit(25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.func_238468_a_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
 		} else if (kanohiLevel == 2) {
-			this.blit(25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
-			this.blit(27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
+			this.func_238468_a_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.func_238468_a_(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
 		} else if (kanohiLevel == 3) {
-			this.blit(25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
-			this.blit(27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
-			this.blit(25, (scaledHeight / 2) + 5, 45, 87, 4, 2);
+			this.func_238468_a_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.func_238468_a_(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
+			this.func_238468_a_(stack, 25, (scaledHeight / 2) + 5, 45, 87, 4, 2);
 		}
 
 		if (length > 0) {
-			this.blit(14, (int) (((scaledHeight / 2) - 13) - length), 27, (int) (15 + (barLength - length)), 6, length);
+			this.func_238468_a_(stack, 14, (int) (((scaledHeight / 2) - 13) - length), 27, (int) (15 + (barLength - length)), 6, length);
 			// this.blit(6, l, 6, 15, 3, length);
 		}
-		RenderSystem.enableBlend();
-		RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.getProfiler().endSection();
 	}
 
-	protected void renderElementBar(int energyIn, ArmorPalette armorPalette) {
+	protected void renderElementBar(MatrixStack stack, int energyIn, ArmorPalette armorPalette) {
 		bind(OVERLAY_TEXTURE);
 		this.mc.getProfiler().startSection("elementBar");
-		Color color = armorPalette.getColorLayer2();
-		RenderSystem.color4f(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
-		RenderSystem.enableBlend();
 		Float barLength = 60F;
 		int max = ToaEnergy.maxElementalEnergy;
 		int length = (int) (energyIn * (barLength / max));
 		// int l = 19;
 		if (length > 0) {
-			this.blit(14, (scaledHeight / 2) + 13, 27, 101, 6, length);
+			this.func_238468_a_(stack, 14, (scaledHeight / 2) + 13, 27, 101, 6, length);
 			// this.blit(9, l, 10, 15, 3, length);
 		}
 		RenderSystem.enableBlend();
@@ -173,8 +167,8 @@ public class ToaOverlay extends ForgeIngameGui {
 		this.mc.getProfiler().endSection();
 	}
 
-	private boolean pre(ElementType type) {
-		return MinecraftForge.EVENT_BUS.post(new RenderGameOverlayEvent.Pre(eventParent, type));
+	private boolean pre(MatrixStack stack, ElementType type) {
+		return MinecraftForge.EVENT_BUS.post(new RenderGameOverlayEvent.Pre(stack, eventParent, type));
 	}
 
 }

@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "facing=down,open=false": { "model": "bionimine:block/toa_chest", "x": 180 },
+        "facing=up,open=false": { "model": "bionimine:block/toa_chest" },
+        "facing=north,open=false": { "model": "bionimine:block/toa_chest", "x": 90 },
+        "facing=south,open=false": { "model": "bionimine:block/toa_chest", "x": 90, "y": 180 },
+        "facing=west,open=false": { "model": "bionimine:block/toa_chest", "x": 90, "y": 270 },
+        "facing=east,open=false": { "model": "bionimine:block/toa_chest", "x": 90, "y": 90 },
+        "facing=down,open=true": { "model": "bionimine:block/toa_chest_open", "x": 180 },
+        "facing=up,open=true": { "model": "bionimine:block/toa_chest_open" },
+        "facing=north,open=true": { "model": "bionimine:block/toa_chest_open", "x": 90 },
+        "facing=south,open=true": { "model": "bionimine:block/toa_chest_open", "x": 90, "y": 180 },
+        "facing=west,open=true": { "model": "bionimine:block/toa_chest_open", "x": 90, "y": 270 },
+        "facing=east,open=true": { "model": "bionimine:block/toa_chest_open", "x": 90, "y": 90 }
+    }
+}

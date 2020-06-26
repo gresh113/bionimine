@@ -132,68 +132,74 @@ public class ToaArmorItem extends ArmorItem {
 	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
 		if (stack.getItem() instanceof ToaArmorItem) {
 			ToaArmorItem armoritem = (ToaArmorItem) stack.getItem();
-			return (Bionimine.MODID + ":textures/models/armor/toa_armor/" + armoritem.element.getName() + ".png");
+			return (Bionimine.MODID + ":textures/models/armor/toa_armor/" + armoritem.element.func_176610_l() + ".png");
 		}else
 			return null;
 	}
 
-	private enum KanohiMaterial implements IArmorMaterial {
-		KANOHI("kanohi", 25, 5, 9, SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 0.0F);
-
-		private final String name;
-		private final int maxDamageFactor;
-		private final int damageReductionAmount;
-		private final int enchantability;
-		private final SoundEvent soundEvent;
-		private final float toughness;
-
-		private KanohiMaterial(String nameIn, int maxDamageFactorIn, int damageReductionAmountsIn, int enchantabilityIn, SoundEvent equipSoundIn, float toughnessIn) {
-			this.name = nameIn;
-			this.maxDamageFactor = maxDamageFactorIn;
-			this.damageReductionAmount = damageReductionAmountsIn;
-			this.enchantability = enchantabilityIn;
-			this.soundEvent = equipSoundIn;
-			this.toughness = toughnessIn;
-		}
-
-		@Override
-		public int getDurability(EquipmentSlotType slotIn) {
-			// TODO Auto-generated method stub
-			return 15 * maxDamageFactor;
-		}
-
-		@Override
-		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
-			return damageReductionAmount;
-		}
-
-		@Override
-		public int getEnchantability() {
-			return enchantability;
-		}
-
-		@Override
-		public SoundEvent getSoundEvent() {
-			return soundEvent;
-		}
-
-		@Override
-		public Ingredient getRepairMaterial() {
-			return null;
-		}
-
-		@Override
-		public String getName() {
-			// TODO Auto-generated method stub
-			return name;
-		}
-
-		@Override
-		public float getToughness() {
-			// TODO Auto-generated method stub
-			return toughness;
-		}
-
-	}
+//	private enum KanohiMaterial implements IArmorMaterial {
+//		KANOHI("kanohi", 25, 5, 9, SoundEvents.ITEM_ARMOR_EQUIP_TURTLE, 0.0F);
+//
+//		private final String name;
+//		private final int maxDamageFactor;
+//		private final int damageReductionAmount;
+//		private final int enchantability;
+//		private final SoundEvent soundEvent;
+//		private final float toughness;
+//
+//		private KanohiMaterial(String nameIn, int maxDamageFactorIn, int damageReductionAmountsIn, int enchantabilityIn, SoundEvent equipSoundIn, float toughnessIn) {
+//			this.name = nameIn;
+//			this.maxDamageFactor = maxDamageFactorIn;
+//			this.damageReductionAmount = damageReductionAmountsIn;
+//			this.enchantability = enchantabilityIn;
+//			this.soundEvent = equipSoundIn;
+//			this.toughness = toughnessIn;
+//		}
+//
+//		@Override
+//		public int getDurability(EquipmentSlotType slotIn) {
+//			// TODO Auto-generated method stub
+//			return 15 * maxDamageFactor;
+//		}
+//
+//		@Override
+//		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+//			return damageReductionAmount;
+//		}
+//
+//		@Override
+//		public int getEnchantability() {
+//			return enchantability;
+//		}
+//
+//		@Override
+//		public SoundEvent getSoundEvent() {
+//			return soundEvent;
+//		}
+//
+//		@Override
+//		public Ingredient getRepairMaterial() {
+//			return null;
+//		}
+//
+//		@Override
+//		public String getName() {
+//			// TODO Auto-generated method stub
+//			return name;
+//		}
+//
+//		@Override
+//		public float getToughness() {
+//			// TODO Auto-generated method stub
+//			return toughness;
+//		}
+//
+//		@Override
+//		public float func_230304_f_() {
+//			// TODO Auto-generated method stub
+//			return 0;
+//		}
+//
+//	}
 
 }

@@ -25,11 +25,8 @@ import com.github.gresh113.bionimine.registration.MatoranRegistration;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.RegistryEvent;
@@ -45,7 +42,6 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistry;
-import net.minecraftforge.registries.RegistryBuilder;
 import net.minecraftforge.registries.RegistryManager;
 
 @Mod(Bionimine.MODID)
@@ -97,7 +93,7 @@ public class Bionimine {
 
 	@SubscribeEvent
 	public void setup(final FMLCommonSetupEvent event) {
-		RenderTypeLookup.setRenderLayer(BlockInit.kanohi_pedestal.get(), RenderType.getCutout());
+		//RenderTypeLookup.setRenderLayer(BlockInit.kanohi_pedestal.get(), RenderType.getCutout());
 		CapabilityManager.INSTANCE.register(IToaEnergy.class, new ToaEnergyStorage(), new ToaEnergyFactory());
 		BioniminePacketHandler.init();
 	}

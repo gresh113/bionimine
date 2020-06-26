@@ -52,7 +52,7 @@ public class MatoranTradeTask extends Task<MatoranEntity>{
 	   }
 
 	   private void walkAndLookCustomer(MatoranEntity owner) {
-	      EntityPosWrapper entityposwrapper = new EntityPosWrapper(owner.getCustomer());
+	      EntityPosWrapper entityposwrapper = new EntityPosWrapper(owner.getCustomer(), true);
 	      Brain<?> brain = owner.getBrain();
 	      brain.setMemory(MemoryModuleType.WALK_TARGET, new WalkTarget(entityposwrapper, this.speed, 2));
 	      brain.setMemory(MemoryModuleType.LOOK_TARGET, entityposwrapper);

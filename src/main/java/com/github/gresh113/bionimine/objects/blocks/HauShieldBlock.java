@@ -44,15 +44,6 @@ public class HauShieldBlock extends Block {
 		return BionimineTileEntityTypes.HAU_SHIELD.get().create();
 	}
 
-	@Override
-	public void onProjectileCollision(World worldIn, BlockState state, BlockRayTraceResult hit, Entity projectile) {
-		if (projectile instanceof AbstractArrowEntity) {
-			((AbstractArrowEntity) projectile).setKnockbackStrength(2);
-		}
-		super.onProjectileCollision(worldIn, state, hit, projectile);
-	}
-
-	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		switch ((Direction) state.get(FACING)) {
 		case NORTH:
@@ -70,11 +61,6 @@ public class HauShieldBlock extends Block {
 	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
-	}
-
-	@Override
-	public boolean causesSuffocation(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		return false;
 	}
 
 	@Override
@@ -100,9 +86,10 @@ public class HauShieldBlock extends Block {
 			return this.getDefaultState().with(FACING, Direction.NORTH);
 	}
 
-	@Override
-	public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		return false;
-	}
+//	@Override
+//	public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
+//		return false;
+//	}
+	
 
 }

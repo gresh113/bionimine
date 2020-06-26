@@ -11,10 +11,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockItemInit {
 	// Block item Registry
-	public static final DeferredRegister<Item> BLOCK_ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, Bionimine.MODID);
+	public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Bionimine.MODID);
 
 	// Special Blocks
-	public static final RegistryObject<Item> kanohi_pedestal = BLOCK_ITEMS.register("kanohi_pedestal", () -> new BlockItem(BlockInit.kanohi_pedestal.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
+	//public static final RegistryObject<Item> kanohi_pedestal = BLOCK_ITEMS.register("kanohi_pedestal", () -> new BlockItem(BlockInit.kanohi_pedestal.get(), new Item.Properties().group(BioniMineItemGroup.instance)));
 	//@formatter:off
 	public static final RegistryObject<Item> toa_crate_red = BLOCK_ITEMS.register("toa_crate_red", () -> 
 		new BlockItem(BlockInit.toa_crate_red.get(), new Item.Properties().group(BioniMineItemGroup.instance)));

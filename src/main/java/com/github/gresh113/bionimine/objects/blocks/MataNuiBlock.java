@@ -67,18 +67,19 @@ public class MataNuiBlock extends Block {
 	}
 
 	public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
-		DoubleBlockHalf doubleblockhalf = state.get(HALF);
-		BlockPos blockpos = doubleblockhalf == DoubleBlockHalf.LOWER ? pos.up() : pos.down();
-		BlockState blockstate = worldIn.getBlockState(blockpos);
-		if (blockstate.getBlock() == this && blockstate.get(HALF) != doubleblockhalf) {
-			worldIn.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 35);
-			worldIn.playEvent(player, 2001, blockpos, Block.getStateId(blockstate));
-			ItemStack itemstack = player.getHeldItemMainhand();
-			if (!worldIn.isRemote && !player.isCreative() && player.canHarvestBlock(blockstate)) {
-				Block.spawnDrops(state, worldIn, pos, (TileEntity) null, player, itemstack);
-				Block.spawnDrops(blockstate, worldIn, blockpos, (TileEntity) null, player, itemstack);
+		if (!worldIn.isRemote && player.isCreative()) {
+			DoubleBlockHalf doubleblockhalf = state.get(HALF);
+			if (doubleblockhalf == DoubleBlockHalf.UPPER) {
+				BlockPos blockpos = pos.down();
+				BlockState blockstate = worldIn.getBlockState(blockpos);
+				if (blockstate.getBlock() == state.getBlock() && blockstate.get(HALF) == DoubleBlockHalf.LOWER) {
+					worldIn.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 35);
+					worldIn.playEvent(player, 2001, blockpos, Block.getStateId(blockstate));
+				}
 			}
 		}
+
+		super.onBlockHarvested(worldIn, pos, state, player);
 
 	}
 
@@ -109,7 +110,5 @@ public class MataNuiBlock extends Block {
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(HALF, FACING);
 	}
-	
-	
 
 }

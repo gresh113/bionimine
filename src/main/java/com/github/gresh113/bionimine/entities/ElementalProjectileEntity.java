@@ -13,7 +13,6 @@ import net.minecraft.particles.BasicParticleType;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.network.NetworkHooks;
@@ -62,14 +61,14 @@ public class ElementalProjectileEntity extends AbstractArrowEntity implements IE
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
-	@Override
-	protected void func_225516_i_() {
-		++this.ticksInGround;
-		if (this.ticksInGround >= 10) {
-			this.remove();
-		}
-
-	}
+//	@Override
+//	protected void func_225516_i_() {
+//		++ticksInGround;
+//		if (this.ticksInGround >= 10) {
+//			this.remove();
+//		}
+//
+//	}
 
 	@Override
 	public void tick() {

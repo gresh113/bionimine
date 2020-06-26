@@ -27,7 +27,7 @@ public abstract class ElementalProjectileHandler extends ToaAbilityHandler{
 		ToaTool toolItem = (ToaTool) (stackIn.getItem() instanceof ToaTool ? stackIn.getItem() : ItemInit.ice_sword.get());
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, toolItem.getElement());
 		float velocity = ToaTool.getArrowVelocity(1000);
-		projectileEntity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
+		projectileEntity.shoot(playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
 		projectileEntity.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 		/*
 		 * stackIn.damageItem(1, playerentity, (consumer) -> {

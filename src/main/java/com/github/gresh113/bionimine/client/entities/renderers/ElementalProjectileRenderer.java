@@ -7,7 +7,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.Vector3f;
+import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -41,7 +41,7 @@ public class ElementalProjectileRenderer<T extends ElementalProjectileEntity> ex
 		if (element == null)
 			element = Elements.FIRE;
 		//Bionimine.LOGGER.info(element.getName());
-		ResourceLocation loc = new ResourceLocation(Bionimine.MODID, "textures/entity/" + element.getName() + "_projectile.png");
+		ResourceLocation loc = new ResourceLocation(Bionimine.MODID, "textures/entity/" + element.func_176610_l() + "_projectile.png");
 		return loc;
 		
 	}

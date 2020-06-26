@@ -18,7 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkDirection;
 
@@ -31,7 +31,7 @@ public class IceProjectileHandler extends ElementalProjectileHandler {
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, Elements.ICE);
 		float velocity = ToaTool.getArrowVelocity(1000);
 
-		projectileEntity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
+		projectileEntity.shoot(playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
 		projectileEntity.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 		/*
 		 * stackIn.damageItem(1, playerentity, (consumer) -> {
@@ -49,7 +49,7 @@ public class IceProjectileHandler extends ElementalProjectileHandler {
 
 	@Override
 	public void spawnParticles(ElementalProjectileEntity entityIn) {
-		Vec3d vector = entityIn.getMotion();
+		Vector3d vector = entityIn.getMotion();
 		double dx = vector.x;
 		double dy = vector.y;
 		double dz = vector.z;

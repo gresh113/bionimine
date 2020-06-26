@@ -11,8 +11,13 @@ public enum ShieldState implements IStringSerializable{
 		name = string;
 	}
 
+//	@Override
+//	public String getName() {
+//		return name;
+//	}
+
 	@Override
-	public String getName() {
+	public String func_176610_l() {
 		return name;
 	}
 
