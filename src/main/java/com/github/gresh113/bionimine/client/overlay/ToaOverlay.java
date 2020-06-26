@@ -13,6 +13,9 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
@@ -41,7 +44,7 @@ public class ToaOverlay extends ForgeIngameGui {
 	}
 
 	public void render(RenderGameOverlayEvent.Pre event) {
-		MatrixStack stack = new MatrixStack();
+		MatrixStack stack = event.getMatrixStack();
 		this.scaledWidth = this.mc.getMainWindow().getScaledWidth();
 		this.scaledHeight = this.mc.getMainWindow().getScaledHeight();
 		eventParent = new RenderGameOverlayEvent(stack, this.mc.getRenderPartialTicks(), this.mc.getMainWindow());
@@ -89,12 +92,8 @@ public class ToaOverlay extends ForgeIngameGui {
 					if (pre(stack, ElementType.HOTBAR))
 						return;
 					bind(OVERLAY_TEXTURE);
-					RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-					RenderSystem.disableBlend();
-					this.func_238468_a_(stack, 4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
-					this.func_238468_a_(stack, 14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
-					RenderSystem.enableBlend();
-					RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+					this.func_238474_b_(stack, 4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
+					this.func_238474_b_(stack, 14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
 					if (kanohiFlag) {
 						renderKanohiBar(stack, kanohiEnergy, kanohiLevel, kanohiPalette, kanohiStack);
 					}
@@ -102,25 +101,13 @@ public class ToaOverlay extends ForgeIngameGui {
 						renderElementBar(stack, elementEnergy, armorPalette);
 					}
 
-					bind(VIGNETTE_TEX_PATH);
+					bind(field_230665_h_);
 					pre(stack, ElementType.HOTBAR);
 				}
 			}
 		}
 	}
 
-	// Blit functions (from Mekanism?)
-	// blit(int x, int y, TextureAtlasSprite icon, int width, int height);
-	// blit(int x, int y, int textureX, int textureY, int width, int height, int
-	// textureWidth, int textureHeight);
-	// blit(int x, int y, int zLevel, float textureX, float textureY, int width, int
-	// height, int textureWidth, int textureHeight);
-	// blit(int x, int y, int desiredWidth, int desiredHeight, int textureX, int
-	// textureY, int width, int height, int textureWidth, int textureHeight);
-	// innerBlit(int x, int endX, int y, int endY, int zLevel, int width, int
-	// height, float textureX, float textureY, int textureWidth, int textureHeight);
-
-	// blit(int x, int y, int textureX, int textureY, int width, int height);
 	protected void renderKanohiBar(MatrixStack stack, int energyIn, int kanohiLevel, ArmorPalette kanohiPalette, ItemStack kanohiStackIn) {
 		bind(OVERLAY_TEXTURE);
 		this.mc.getProfiler().startSection("kanohiBar");
@@ -134,20 +121,22 @@ public class ToaOverlay extends ForgeIngameGui {
 			bind(OVERLAY_TEXTURE);
 		}
 		if (kanohiLevel == 1) {
-			this.func_238468_a_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.func_238474_b_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
 		} else if (kanohiLevel == 2) {
-			this.func_238468_a_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
-			this.func_238468_a_(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
+			this.func_238474_b_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.func_238474_b_(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
 		} else if (kanohiLevel == 3) {
-			this.func_238468_a_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
-			this.func_238468_a_(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
-			this.func_238468_a_(stack, 25, (scaledHeight / 2) + 5, 45, 87, 4, 2);
+			this.func_238474_b_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.func_238474_b_(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
+			this.func_238474_b_(stack, 25, (scaledHeight / 2) + 5, 45, 87, 4, 2);
 		}
 
 		if (length > 0) {
-			this.func_238468_a_(stack, 14, (int) (((scaledHeight / 2) - 13) - length), 27, (int) (15 + (barLength - length)), 6, length);
+			this.func_238474_b_(stack, 14, (int) (((scaledHeight / 2) - 13) - length), 27, (int) (15 + (barLength - length)), 6, length);
 			// this.blit(6, l, 6, 15, 3, length);
 		}
+		RenderSystem.enableBlend();
+		RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.getProfiler().endSection();
 	}
 
@@ -159,7 +148,7 @@ public class ToaOverlay extends ForgeIngameGui {
 		int length = (int) (energyIn * (barLength / max));
 		// int l = 19;
 		if (length > 0) {
-			this.func_238468_a_(stack, 14, (scaledHeight / 2) + 13, 27, 101, 6, length);
+			this.func_238474_b_(stack, 14, (scaledHeight / 2) + 13, 27, 101, 6, length);
 			// this.blit(9, l, 10, 15, 3, length);
 		}
 		RenderSystem.enableBlend();
@@ -170,5 +159,6 @@ public class ToaOverlay extends ForgeIngameGui {
 	private boolean pre(MatrixStack stack, ElementType type) {
 		return MinecraftForge.EVENT_BUS.post(new RenderGameOverlayEvent.Pre(stack, eventParent, type));
 	}
+	
 
 }

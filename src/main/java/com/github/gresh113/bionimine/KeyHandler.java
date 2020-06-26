@@ -10,7 +10,7 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 public class KeyHandler {
 	private static long window = Minecraft.getInstance().getMainWindow().getHandle();
 	
-	public static KeyBinding kanohiTrigger = new KeyBinding(Bionimine.MODID + ".key.kanohiTrigger", GLFW.GLFW_KEY_G, "BioniMine");
+	public static KeyBinding kanohiTrigger = new KeyBinding(Bionimine.MODID + ".key.kanohiTrigger", GLFW.GLFW_KEY_R, "BioniMine");
 	
 	public static void registerKeys()
 	{

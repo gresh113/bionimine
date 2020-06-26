@@ -118,7 +118,7 @@ public class ToaTool extends Item {
 
 				currentAbilityHandler = abilityArray[i];
 				if (!(currentAbilityHandler == null)) {
-					playerIn.sendStatusMessage(new StringTextComponent("Mode: " + currentAbilityHandler.getAbilityTypeName()), true);
+					playerIn.sendStatusMessage(new StringTextComponent(currentAbilityHandler.getAbilityTypeName()) + " Mode", true);
 				}
 				compoundNBT.putInt(tag, i);
 

@@ -23,7 +23,7 @@ public class AirProjectileHandler extends ElementalProjectileHandler {
 		boolean flag = playerentity.abilities.isCreativeMode;
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, Elements.AIR);
 		float velocity = ToaTool.getArrowVelocity(1000);
-		projectileEntity.shoot(playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
+		projectileEntity.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
 		projectileEntity.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 		/*
 		 * stackIn.damageItem(1, playerentity, (consumer) -> {

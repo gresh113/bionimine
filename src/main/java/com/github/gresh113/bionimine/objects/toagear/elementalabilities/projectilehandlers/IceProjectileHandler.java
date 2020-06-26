@@ -1,18 +1,12 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers;
 
-import com.github.gresh113.bionimine.capabilities.IToaEnergy;
-import com.github.gresh113.bionimine.capabilities.ToaEnergy;
-import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import com.github.gresh113.bionimine.client.entities.models.IceProjectileModel;
 import com.github.gresh113.bionimine.entities.ElementalProjectileEntity;
-import com.github.gresh113.bionimine.network.BioniminePacketHandler;
-import com.github.gresh113.bionimine.network.ToaEnergyMessage;
 import com.github.gresh113.bionimine.objects.toagear.ToaTool;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
@@ -20,7 +14,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.network.NetworkDirection;
 
 public class IceProjectileHandler extends ElementalProjectileHandler {
 	private IceProjectileModel model = new IceProjectileModel();;
@@ -31,7 +24,7 @@ public class IceProjectileHandler extends ElementalProjectileHandler {
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, Elements.ICE);
 		float velocity = ToaTool.getArrowVelocity(1000);
 
-		projectileEntity.shoot(playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
+		projectileEntity.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
 		projectileEntity.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 		/*
 		 * stackIn.damageItem(1, playerentity, (consumer) -> {

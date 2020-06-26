@@ -68,19 +68,20 @@ public class KanohiItem extends ArmorItem {
 	public KanohiItem(Kanohi kanohiIn, Item.Properties properties) {
 		super(material, defaultSlot, properties);
 		kanohiID = kanohiIn;
-		//this.addPropertyOverride(resourceLocation, shapeGetter);
+		ItemModelsProperties.func_239418_a_(this, resourceLocation, shapeGetter);
 	}
 
 	public KanohiItem(Kanohi kanohiIn) {
 		super(material, defaultSlot, defaultProperties);
 		kanohiID = kanohiIn;
 		//this.addPropertyOverride(resourceLocation, shapeGetter);
+		ItemModelsProperties.func_239418_a_(this, resourceLocation, shapeGetter);
 	}
-
+	
 	public KanohiItem() {
 		super(material, defaultSlot, defaultProperties);
 		kanohiID = Kanohi.TAHUS_HAU;
-		//this.addPropertyOverride(resourceLocation, shapeGetter);
+		ItemModelsProperties.func_239418_a_(this, resourceLocation, shapeGetter);
 	}
 
 	public Kanohi getKanohi() {

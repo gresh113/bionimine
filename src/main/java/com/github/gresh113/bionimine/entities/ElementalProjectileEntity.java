@@ -1,6 +1,5 @@
 package com.github.gresh113.bionimine.entities;
 
-import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 
 import net.minecraft.entity.EntityType;
@@ -9,8 +8,6 @@ import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.particles.BasicParticleType;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
@@ -61,14 +58,14 @@ public class ElementalProjectileEntity extends AbstractArrowEntity implements IE
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 
-//	@Override
-//	protected void func_225516_i_() {
-//		++ticksInGround;
-//		if (this.ticksInGround >= 10) {
-//			this.remove();
-//		}
-//
-//	}
+	@Override
+	protected void func_225516_i_() {
+		++timeInGround;
+		if (this.timeInGround >= 10) {
+			this.remove();
+		}
+
+	}
 
 	@Override
 	public void tick() {
