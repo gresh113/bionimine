@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 import com.github.gresh113.bionimine.entities.matoran.ai.IMatoranReputationType;
 import com.github.gresh113.bionimine.init.ItemInit;
-import com.github.gresh113.bionimine.registration.MatoranRegistration;
+import com.github.gresh113.bionimine.init.MatoranRegistration;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Dynamic;
@@ -39,7 +39,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.MerchantOffer;
 import net.minecraft.item.MerchantOffers;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.NBTDynamicOps;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;

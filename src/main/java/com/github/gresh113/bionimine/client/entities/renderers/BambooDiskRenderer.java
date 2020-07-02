@@ -2,9 +2,10 @@ package com.github.gresh113.bionimine.client.entities.renderers;
 
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.client.entities.models.KanokaDiskModel;
-import com.github.gresh113.bionimine.entities.matoran.KanokaEntity;
+import com.github.gresh113.bionimine.entities.KanokaEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;

@@ -1,8 +1,5 @@
 package com.github.gresh113.bionimine.objects.toagear.kanohi.powerhandlers.great;
 
-import java.util.ArrayList;
-
-import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.objects.blocks.HauShieldBlock;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.powerhandlers.KanohiPowerHandler;
@@ -23,13 +20,12 @@ public class GreatHauPowerHandler extends KanohiPowerHandler {
 		playerIn.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 0, 1, false, false, false));
 		playerIn.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 0, 2, false, false, false));
 		if (!world.isRemote) {
-			BlockPos playerPos = new BlockPos(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ());
 			BlockPos currentPos = playerIn.func_233580_cy_();
-			Direction[] directions = Direction.getFacingDirections(playerIn);
-			Bionimine.LOGGER.info(directions[0].func_176610_l());
+			//Direction[] directions = Direction.getFacingDirections(playerIn);
+			//Bionimine.LOGGER.info(directions[0].func_176610_l());
 			int xparity;
 			int zparity;
-			Direction dir = directions[0];
+			Direction dir = playerIn.getHorizontalFacing();
 			switch (dir) {
 			case EAST:
 				xparity = 1;
@@ -62,6 +58,10 @@ public class GreatHauPowerHandler extends KanohiPowerHandler {
 				
 			} else if (powerLevelIn == 2) {
 				int maxheight = 3;
+//				BlockPos setPos = movePosFromDir(currentPos, dir);
+//				set1x3(setPos, world, dir);
+//				set1x3(setPos, world, dir);
+//				set1x3(setPos, world, dir);
 				if (xparity == 0) {
 					for (int height = 0; height < maxheight; ++height) {
 						for (int length = origin.getX() - 2; length < origin.getX() + 2; ++length) {

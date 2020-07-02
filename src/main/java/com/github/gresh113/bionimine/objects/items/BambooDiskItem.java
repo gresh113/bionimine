@@ -2,15 +2,12 @@ package com.github.gresh113.bionimine.objects.items;
 
 import java.util.function.Predicate;
 
-import com.github.gresh113.bionimine.entities.matoran.KanokaEntity;
+import com.github.gresh113.bionimine.entities.KanokaEntity;
 import com.github.gresh113.bionimine.init.ItemInit;
 
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.ArrowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -55,7 +52,7 @@ public class BambooDiskItem extends ShootableItem {
 	               if (!worldIn.isRemote) {
 	                  BambooDiskItem diskitem = (BambooDiskItem)(itemstack.getItem() instanceof BambooDiskItem ? itemstack.getItem() : ItemInit.bamboo_disk.get());
 	                  KanokaEntity diskentity = diskitem.createDisk(worldIn, itemstack, playerentity);
-	                  diskentity.shoot(playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F, 1.0F);
+	                  diskentity.func_234612_a_(playerentity,playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F, 1.0F);
 
 	                  stack.damageItem(1, playerentity, (consumer) -> {consumer.sendBreakAnimation(playerentity.getActiveHand());
 	                  });
@@ -90,13 +87,12 @@ public class BambooDiskItem extends ShootableItem {
 	    * Gets the velocity of the arrow entity from the bow's charge
 	    */
 	   public static float getArrowVelocity(int charge) {
-	      float f = (float)charge / 20.0F;
-	      f = (f * f + f * 2.0F) / 3.0F;
-	      if (f > 1.0F) {
-	         f = 1.0F;
-	      }
-
-	      return f;
+		   float f = (float) charge / 20.0F;
+			f = (f * f + f * 2.0F) / 3.0F;
+			if (f > 1.0F) {
+				f = 1.0F;
+			}
+			return f;
 	   }
 
 	   /**

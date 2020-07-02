@@ -21,13 +21,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkDirection;
 
 public abstract class ElementalProjectileHandler extends ToaAbilityHandler{
-
+	private static String name = "Projectile";
+	
 	public void summonProjectile(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
 		boolean flag = playerentity.abilities.isCreativeMode;
 		ToaTool toolItem = (ToaTool) (stackIn.getItem() instanceof ToaTool ? stackIn.getItem() : ItemInit.ice_sword.get());
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, toolItem.getElement());
 		float velocity = ToaTool.getArrowVelocity(1000);
-		projectileEntity.shoot(playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
+		projectileEntity.func_234612_a_(playerentity,playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
 		projectileEntity.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 		/*
 		 * stackIn.damageItem(1, playerentity, (consumer) -> {
@@ -67,7 +68,7 @@ public abstract class ElementalProjectileHandler extends ToaAbilityHandler{
 	
 	@Override
 	public String getAbilityTypeName() {
-		return "Projectile";
+		return name;
 	}
 	
 	public abstract void spawnParticles(ElementalProjectileEntity entityIn);

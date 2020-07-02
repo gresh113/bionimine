@@ -1,5 +1,12 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.AOEAttackHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.AirAOEHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.EarthAOEHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.FireAOEHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.IceAOEHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.WaterAOEHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.AirProjectileHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.EarthProjectileHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.ElementalProjectileHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.FireProjectileHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.IceProjectileHandler;
@@ -8,34 +15,33 @@ import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projecti
 import net.minecraft.util.IStringSerializable;
 
 public enum ToaAbilityHolder implements IStringSerializable {
-	NONE("none", new FireProjectileHandler()), 
-	FIRE("fire", new FireProjectileHandler()), 
-	ICE("ice", new IceProjectileHandler()),
-	AIR("air", new AirProjectileHandler()),
-	WATER("ice", new WaterProjectileHandler());
+	NONE("none", new FireProjectileHandler(), new FireAOEHandler()), 
+	FIRE("fire", new FireProjectileHandler(), new FireAOEHandler()), 
+	ICE("ice", new IceProjectileHandler(), new IceAOEHandler()),
+	AIR("air", new AirProjectileHandler(), new AirAOEHandler()),
+	WATER("ice", new WaterProjectileHandler(), new WaterAOEHandler()),
+	EARTH("earth", new EarthProjectileHandler(), new EarthAOEHandler());
 
 	private ElementalProjectileHandler projectileHandler;
 
-	//private ForwardAttackHandler forwardHandler;
+	
 	//private TraversalHandler traversalHandler;
 	//private ChargedMeleeHandler meleeHandler
-	//private AOEAtackHandler aoeHandler;
+	private AOEAttackHandler aoeHandler;
 	
 	private String name;
 	private ToaAbilityHandler[] abilityTypeList = new ToaAbilityHandler[4];
 		
 	
-	private ToaAbilityHolder(String nameIn, ElementalProjectileHandler projectileHandlerIn) {
+	private ToaAbilityHolder(String nameIn, ElementalProjectileHandler projectileHandlerIn, AOEAttackHandler aoeHandlerIn) {
 		projectileHandler = projectileHandlerIn;
 		abilityTypeList[0] = projectileHandler;
-		//forwardHandler = forwardHanlderIn;
-		//abilityTypeList[1] = forwardHandler;
 		//traversalHandler = traversalHandlerIn;
-		//abilityTypeList[2] = traversalHandler;
+		//abilityTypeList[1] = traversalHandler;
 		//meleeHandler = meleeHandlerIn;
-		//abilityTypeList[3] = meleeHandler;
-		//aoeHandler = aoeHandlerIn;
-		//abilityTypeList[4] = aoeHandler;
+		//abilityTypeList[2] = meleeHandler;
+		aoeHandler = aoeHandlerIn;
+		abilityTypeList[3] = aoeHandler;
 		name = nameIn;
 	}
 

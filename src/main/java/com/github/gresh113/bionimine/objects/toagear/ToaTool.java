@@ -23,7 +23,8 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 public class ToaTool extends Item {
-	private static final Item.Properties defaultProperties = new Item.Properties().group(BioniMineItemGroup.instance).maxStackSize(1);
+	private static final Item.Properties defaultProperties = new Item.Properties()
+			.group(BioniMineItemGroup.instance).maxStackSize(1);
 	Elements element;
 	ToaAbilityHandler currentAbilityHandler;
 
@@ -104,7 +105,7 @@ public class ToaTool extends Item {
 			if (itemstack.getItem() instanceof ToaTool) {
 				ToaTool toolItem = (ToaTool) itemstack.getItem();
 				CompoundNBT compoundNBT = itemstack.getOrCreateTag();
-				String tag = "SelectedAbility";
+				String tag = "selected_ability";
 				int i;
 				if (compoundNBT.contains(tag)) {
 					i = compoundNBT.getInt(tag);
@@ -118,9 +119,10 @@ public class ToaTool extends Item {
 
 				currentAbilityHandler = abilityArray[i];
 				if (!(currentAbilityHandler == null)) {
-					playerIn.sendStatusMessage(new StringTextComponent(currentAbilityHandler.getAbilityTypeName()) + " Mode", true);
+					playerIn.sendStatusMessage(new StringTextComponent(currentAbilityHandler.getAbilityTypeName() + " Mode"), true);
 				}
 				compoundNBT.putInt(tag, i);
+
 
 			}
 			return ActionResult.resultPass(itemstack);
@@ -148,7 +150,7 @@ public class ToaTool extends Item {
 				return ActionResult.resultFail(itemstack);
 		}
 	}
-	
+
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (stack.getItem() instanceof ToaTool) {
@@ -163,7 +165,7 @@ public class ToaTool extends Item {
 			tooltip.add(new StringTextComponent("Toa Tool" + laterText));
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
-		
+
 	}
 
 }

@@ -1,7 +1,5 @@
 package com.github.gresh113.bionimine.init;
 
-import java.util.function.Supplier;
-
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.objects.blocks.HauShieldBlock;
 //import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;

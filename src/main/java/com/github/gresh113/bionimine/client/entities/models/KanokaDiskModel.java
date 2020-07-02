@@ -1,5 +1,5 @@
 package com.github.gresh113.bionimine.client.entities.models;
-import com.github.gresh113.bionimine.entities.matoran.KanokaEntity;
+import com.github.gresh113.bionimine.entities.KanokaEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 

@@ -5,12 +5,10 @@ import java.util.List;
 import com.github.gresh113.bionimine.Bionimine;
 //import com.github.gresh113.bionimine.client.gui.KanohiPedestalScreen;
 import com.github.gresh113.bionimine.init.BlockInit;
-import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiColorHandler;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiInit;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiItem;
 
-import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.api.distmarker.Dist;

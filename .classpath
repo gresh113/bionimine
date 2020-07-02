@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="output" path="bin/default"/>
 	<classpathentry output="bin/main" kind="src" path="src/main/java">
 		<attributes>
 			<attribute name="gradle_scope" value="main"/>
@@ -28,14 +29,13 @@
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:\Users\Public\Documents\My Documents\Modding\bionimine_1.16\build\natives"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="bin/default"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
-	<classpathentry sourcepath="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.18_mapped_snapshot_20200514-1.16/forge-1.16.1-32.0.18_mapped_snapshot_20200514-1.16-sources.jar" kind="lib" path="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.18_mapped_snapshot_20200514-1.16/forge-1.16.1-32.0.18_mapped_snapshot_20200514-1.16-recomp.jar">
+	<classpathentry sourcepath="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.34_mapped_snapshot_20200514-1.16/forge-1.16.1-32.0.34_mapped_snapshot_20200514-1.16-sources.jar" kind="lib" path="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.34_mapped_snapshot_20200514-1.16/forge-1.16.1-32.0.34_mapped_snapshot_20200514-1.16-recomp.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.18_mapped_snapshot_20200514-1.16/forge-1.16.1-32.0.18_mapped_snapshot_20200514-1.16-sources.jar" kind="lib" path="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.18_mapped_snapshot_20200514-1.16/forge-1.16.1-32.0.18_mapped_snapshot_20200514-1.16-launcher.jar">
+	<classpathentry sourcepath="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.34_mapped_snapshot_20200514-1.16/forge-1.16.1-32.0.34_mapped_snapshot_20200514-1.16-sources.jar" kind="lib" path="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.34_mapped_snapshot_20200514-1.16/forge-1.16.1-32.0.34_mapped_snapshot_20200514-1.16-launcher.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
@@ -45,7 +45,7 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Josiah/.gradle/caches/modules-2/files-2.1/net.minecraftforge/accesstransformers/2.1.1/c71c342554f6f9c23224b8b3fc33eea9305b119c/accesstransformers-2.1.1-sources.jar" kind="lib" path="C:/Users/Josiah/.gradle/caches/modules-2/files-2.1/net.minecraftforge/accesstransformers/2.1.1/1d1e439ef345ab5fd76df679de70a0c35f03bf4a/accesstransformers-2.1.1-shadowed.jar">
+	<classpathentry sourcepath="C:/Users/Josiah/.gradle/caches/modules-2/files-2.1/net.minecraftforge/accesstransformers/2.1.3/b5392b6162d258613cc3d7eea74a9b9d1c10c25/accesstransformers-2.1.3-sources.jar" kind="lib" path="C:/Users/Josiah/.gradle/caches/modules-2/files-2.1/net.minecraftforge/accesstransformers/2.1.3/addc10ee659e011004852c6cf1d036180f67a169/accesstransformers-2.1.3-shadowed.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>

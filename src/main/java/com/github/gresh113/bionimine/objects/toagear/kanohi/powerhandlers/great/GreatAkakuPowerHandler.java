@@ -21,7 +21,7 @@ public class GreatAkakuPowerHandler extends KanohiPowerHandler {
 	public void trigger(int powerLevel, ItemStack stackIn, World world, PlayerEntity playerIn) {
 		if (!(world == null)) {
 			int distance = powerLevel*20;
-			BlockPos playerPos = new BlockPos(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ());
+			//BlockPos playerPos = new BlockPos(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ());
 			BlockPos pos = playerIn.func_233580_cy_();
 			//Vec3d vector = new Vec3d(kanohiPowerLevel*7, kanohiPowerLevel*7, kanohiPowerLevel*7);
 			AxisAlignedBB bb = new AxisAlignedBB(pos);

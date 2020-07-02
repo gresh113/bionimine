@@ -8,7 +8,7 @@ public enum Elements implements IStringSerializable {
 	FIRE("fire", 1, ToaAbilityHolder.FIRE), 
 	AIR("air", 2, ToaAbilityHolder.AIR), 
 	WATER("water", 3, ToaAbilityHolder.WATER), 
-	EARTH("earth", 4, ToaAbilityHolder.NONE), 
+	EARTH("earth", 4, ToaAbilityHolder.EARTH), 
 	STONE("stone", 5, ToaAbilityHolder.NONE), 
 	ICE("ice", 6, ToaAbilityHolder.ICE), 
 	LIGHT("light", 7, ToaAbilityHolder.NONE), 

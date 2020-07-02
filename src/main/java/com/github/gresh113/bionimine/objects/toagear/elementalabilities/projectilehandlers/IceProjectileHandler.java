@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers;
 
-import com.github.gresh113.bionimine.client.entities.models.IceProjectileModel;
+import com.github.gresh113.bionimine.client.entities.models.elementalprojectiles.IceProjectileModel;
 import com.github.gresh113.bionimine.entities.ElementalProjectileEntity;
 import com.github.gresh113.bionimine.objects.toagear.ToaTool;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
@@ -16,7 +16,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
 public class IceProjectileHandler extends ElementalProjectileHandler {
-	private IceProjectileModel model = new IceProjectileModel();;
+	private static EntityModel<ElementalProjectileEntity> model = new IceProjectileModel();;
 
 	@Override
 	public void summonProjectile(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {

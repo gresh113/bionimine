@@ -1,13 +1,10 @@
 package com.github.gresh113.bionimine.objects.items;
 
 import java.util.List;
-import java.util.Random;
 
 import com.github.gresh113.bionimine.entities.TelescopeEntity;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.item.ArmorStandEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
@@ -20,7 +17,6 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Rotations;
 import net.minecraft.world.World;
 
 public class TelescopeItem extends Item{

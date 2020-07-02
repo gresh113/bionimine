@@ -16,12 +16,12 @@ import com.github.gresh113.bionimine.entities.matoran.MatoranProfession;
 import com.github.gresh113.bionimine.init.BlockInit;
 import com.github.gresh113.bionimine.init.BlockItemInit;
 import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.MatoranRegistration;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.objects.tileentity.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.EquipmentEventChecker;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiInit;
-import com.github.gresh113.bionimine.registration.MatoranRegistration;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
 import net.minecraft.block.Block;

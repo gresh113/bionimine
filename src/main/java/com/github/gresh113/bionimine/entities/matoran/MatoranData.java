@@ -1,7 +1,6 @@
 package com.github.gresh113.bionimine.entities.matoran;
 
 import com.github.gresh113.bionimine.api.BionimineRegistries;
-import com.github.gresh113.bionimine.registration.MatoranRegistration;
 import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.network.PacketBuffer;
