@@ -23,7 +23,7 @@ public class StoneProjectileHandler extends ElementalProjectileHandler {
 	@Override
 	public void summonProjectile(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
 		boolean flag = playerentity.abilities.isCreativeMode;
-		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, Elements.EARTH);
+		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, Elements.STONE);
 		float velocity = ToaTool.getArrowVelocity(1000);
 		projectileEntity.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
 		projectileEntity.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;

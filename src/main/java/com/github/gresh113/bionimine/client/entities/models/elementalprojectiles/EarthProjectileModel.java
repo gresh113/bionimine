@@ -21,7 +21,7 @@ public class EarthProjectileModel extends EntityModel<ElementalProjectileEntity>
 
 		Dirt = new ModelRenderer(this);
 		Dirt.setTextureOffset(0, 0).addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F, 0.0F, false);
-		Dirt.setRotationPoint(8.0F, 8.0F, 8.0F);
+		Dirt.setRotationPoint(-8.0F, -8.0F, -8.0F);
 	}
 
 	@Override
