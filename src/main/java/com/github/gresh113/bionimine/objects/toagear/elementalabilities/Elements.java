@@ -9,10 +9,12 @@ public enum Elements implements IStringSerializable {
 	AIR("air", 2, ToaAbilityHolder.AIR), 
 	WATER("water", 3, ToaAbilityHolder.WATER), 
 	EARTH("earth", 4, ToaAbilityHolder.EARTH), 
-	STONE("stone", 5, ToaAbilityHolder.NONE), 
+	STONE("stone", 5, ToaAbilityHolder.STONE), 
 	ICE("ice", 6, ToaAbilityHolder.ICE), 
+	
 	LIGHT("light", 7, ToaAbilityHolder.NONE), 
 	SHADOW("shadow", 8, ToaAbilityHolder.NONE), 
+	
 	SONICS("sonics", 9, ToaAbilityHolder.NONE), 
 	GRAVITY("gravity", 10, ToaAbilityHolder.NONE), 
 	PLASMA("plasma", 11, ToaAbilityHolder.NONE), 

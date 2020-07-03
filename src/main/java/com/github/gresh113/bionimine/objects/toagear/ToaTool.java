@@ -8,6 +8,9 @@ import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.ToaAbilityHandler;
 
+import net.minecraft.client.GameSettings;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.widget.list.KeyBindingList;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -163,6 +166,11 @@ public class ToaTool extends Item {
 				laterText = " of " + firstLetter.toUpperCase() + elementName.substring(1, elementName.length());
 			}
 			tooltip.add(new StringTextComponent("Toa Tool" + laterText));
+			
+			ITextComponent sneakkey = Minecraft.getInstance().gameSettings.keyBindSneak.func_238171_j_();
+			ITextComponent rightclick = Minecraft.getInstance().gameSettings.keyBindUseItem.func_238171_j_();
+					
+			tooltip.add(new StringTextComponent(sneakkey.getString() + " + " + rightclick.getString() + " to change tool mode"));
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 

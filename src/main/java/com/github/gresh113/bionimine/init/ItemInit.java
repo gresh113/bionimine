@@ -35,7 +35,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> fire_sword = ITEMS.register("fire_sword", () -> new ToaTool(Elements.FIRE));
 	public static final RegistryObject<Item> air_axe = ITEMS.register("air_axe", () -> new ToaTool(Elements.AIR));
 	public static final RegistryObject<Item> water_hook = ITEMS.register("water_hook", () -> new ToaTool(Elements.WATER));
-	public static final RegistryObject<Item> earth_claw = ITEMS.register("earth_claw", () -> new ToaTool(Elements.EARTH));
+	public static final RegistryObject<Item> earth_claw = ITEMS.register("earth_claw", () -> new ToaTool(Elements.STONE));
 
 	public static final RegistryObject<Item> heatstone = ITEMS.register("heatstone", () -> new FlintAndSteelItem(new Item.Properties().maxStackSize(1).group(BioniMineItemGroup.instance)));
 

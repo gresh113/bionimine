@@ -4,12 +4,14 @@ import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandl
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.EarthAOEHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.FireAOEHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.IceAOEHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.StoneAOEHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.WaterAOEHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.AirProjectileHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.EarthProjectileHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.ElementalProjectileHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.FireProjectileHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.IceProjectileHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.StoneProjectileHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.WaterProjectileHandler;
 
 import net.minecraft.util.IStringSerializable;
@@ -20,7 +22,8 @@ public enum ToaAbilityHolder implements IStringSerializable {
 	ICE("ice", new IceProjectileHandler(), new IceAOEHandler()),
 	AIR("air", new AirProjectileHandler(), new AirAOEHandler()),
 	WATER("ice", new WaterProjectileHandler(), new WaterAOEHandler()),
-	EARTH("earth", new EarthProjectileHandler(), new EarthAOEHandler());
+	EARTH("earth", new EarthProjectileHandler(), new EarthAOEHandler()),
+	STONE("stone", new StoneProjectileHandler(), new StoneAOEHandler());
 
 	private ElementalProjectileHandler projectileHandler;
 

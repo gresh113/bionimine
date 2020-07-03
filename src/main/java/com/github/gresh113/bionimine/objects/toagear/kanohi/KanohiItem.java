@@ -6,13 +6,13 @@ import javax.annotation.Nullable;
 
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.Bionimine.KanohiItemGroup;
-import com.github.gresh113.bionimine.KeyHandler;
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import com.github.gresh113.bionimine.objects.toagear.ArmorPalette;
 import com.github.gresh113.bionimine.objects.toagear.ToaArmorItem;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.powerhandlers.KanohiPowerHandler;
+import com.github.gresh113.bionimine.util.KeyHandler;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.world.ClientWorld;

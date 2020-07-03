@@ -22,6 +22,7 @@ import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.objects.tileentity.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.EquipmentEventChecker;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiInit;
+import com.github.gresh113.bionimine.util.KeyHandler;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
 import net.minecraft.block.Block;
