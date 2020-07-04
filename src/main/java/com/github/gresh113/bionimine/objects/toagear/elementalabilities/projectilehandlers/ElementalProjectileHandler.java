@@ -22,6 +22,7 @@ import net.minecraftforge.fml.network.NetworkDirection;
 
 public abstract class ElementalProjectileHandler extends ToaAbilityHandler{
 	private static String name = "Projectile";
+	private int cooldownTicks = 20;
 	
 	public void summonProjectile(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
 		boolean flag = playerentity.abilities.isCreativeMode;
@@ -64,6 +65,7 @@ public abstract class ElementalProjectileHandler extends ToaAbilityHandler{
 	@Override
 	public void trigger(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
 		summonProjectile(stackIn, worldIn, playerentity);
+		playerentity.getCooldownTracker().setCooldown(stackIn.getItem(), cooldownTicks);
 	}
 	
 	@Override

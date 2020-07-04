@@ -21,7 +21,7 @@ public class StoneProjectileModel extends EntityModel<ElementalProjectileEntity>
 
 		rock = new ModelRenderer(this);
 		rock.setTextureOffset(0, 0).addBox(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F, 0.0F, false);
-		rock.setRotationPoint(8.0F, 8.0F, 8.0F);
+		rock.setRotationPoint(-8.0F, -8.0F, -8.0F);
 	}
 
 	@Override

@@ -7,11 +7,6 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-// Made with Blockbench 3.5.4
-// Exported for Minecraft version 1.15
-// Paste this class into your mod and generate all required imports
-
-
 public class EarthProjectileModel extends EntityModel<ElementalProjectileEntity> {
 	private final ModelRenderer Dirt;
 

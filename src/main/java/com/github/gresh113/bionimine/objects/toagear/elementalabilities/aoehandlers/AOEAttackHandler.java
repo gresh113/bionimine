@@ -14,12 +14,14 @@ import net.minecraft.world.World;
 
 public abstract class AOEAttackHandler extends ToaAbilityHandler{
 	private static final String name = "AOE";
+	private int cooldownTicks = 50;
 	@Override
 	public String getAbilityTypeName() {return name;}
 
 	@Override
 	public void trigger(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
 		callAoe(stackIn, worldIn, playerentity);
+		playerentity.getCooldownTracker().setCooldown(stackIn.getItem(), cooldownTicks );
 	}
 
 	protected void callAoe(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
