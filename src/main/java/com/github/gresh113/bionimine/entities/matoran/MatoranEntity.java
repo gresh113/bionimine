@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 
 import com.github.gresh113.bionimine.entities.matoran.ai.IMatoranReputationType;
-import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.ItemRegistration;
 import com.github.gresh113.bionimine.init.MatoranRegistration;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -19,7 +19,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.ai.brain.memory.MemoryModuleType;
 import net.minecraft.entity.ai.brain.schedule.Activity;
@@ -70,12 +73,12 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 	private static final DataParameter<String> TEXTURE = EntityDataManager.createKey(MatoranEntity.class, DataSerializers.STRING);
 	private static final DataParameter<Boolean> HAS_TRADES = EntityDataManager.createKey(MatoranEntity.class, DataSerializers.BOOLEAN);
 	private static final Set<Item> ALLOWED_INVENTORY_ITEMS = ImmutableSet.of(
-			ItemInit.bamboo_disk.get(),
-			ItemInit.heatstone.get(),
-			ItemInit.flag.get(),
-			ItemInit.air_bladder.get(),
-			ItemInit.widgets.get(),
-			ItemInit.madu_fruit.get()
+			ItemRegistration.bamboo_disk.get(),
+			ItemRegistration.heatstone.get(),
+			ItemRegistration.flag.get(),
+			ItemRegistration.air_bladder.get(),
+			ItemRegistration.widgets.get(),
+			ItemRegistration.madu_fruit.get()
 			);
 	private static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
 			MemoryModuleType.HOME, 
@@ -116,7 +119,7 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 		this(type, worldIn, MatoranRegistration.TA.get());
 	}
 
-	public MatoranEntity(EntityType<? extends MatoranEntity> type, World worldIn, MatoranElement element) {
+	public MatoranEntity(EntityType<? extends MatoranEntity> type, World worldIn, ElementalAffiliation element) {
 		super(type, worldIn);
 		this.setPathPriority(PathNodeType.WATER, 0.0F);
 		((GroundPathNavigator) this.getNavigator()).setBreakDoors(true);
@@ -170,6 +173,10 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 		this.goalSelector.addGoal(1, new WaterAvoidingRandomWalkingGoal(this, .5D));
 		this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
+	}
+	
+	public static AttributeModifierMap.MutableAttribute assignAttributes() {
+		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, 0.5D).func_233815_a_(Attributes.field_233819_b_, 48.0D);
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package com.github.gresh113.bionimine.objects.items;
 import java.util.function.Predicate;
 
 import com.github.gresh113.bionimine.entities.KanokaEntity;
-import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.ItemRegistration;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -50,7 +50,7 @@ public class BambooDiskItem extends ShootableItem {
 	            if (!((double)f < 0.1D)) {
 	               boolean flag1 = playerentity.abilities.isCreativeMode;
 	               if (!worldIn.isRemote) {
-	                  BambooDiskItem diskitem = (BambooDiskItem)(itemstack.getItem() instanceof BambooDiskItem ? itemstack.getItem() : ItemInit.bamboo_disk.get());
+	                  BambooDiskItem diskitem = (BambooDiskItem)(itemstack.getItem() instanceof BambooDiskItem ? itemstack.getItem() : ItemRegistration.bamboo_disk.get());
 	                  KanokaEntity diskentity = diskitem.createDisk(worldIn, itemstack, playerentity);
 	                  diskentity.func_234612_a_(playerentity,playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, f * 3.0F, 1.0F);
 

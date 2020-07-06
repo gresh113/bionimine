@@ -4,7 +4,7 @@ import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import com.github.gresh113.bionimine.entities.ElementalProjectileEntity;
-import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.ItemRegistration;
 import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.network.ToaEnergyMessage;
 import com.github.gresh113.bionimine.objects.toagear.ToaTool;
@@ -26,7 +26,7 @@ public abstract class ElementalProjectileHandler extends ToaAbilityHandler{
 	
 	public void summonProjectile(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
 		boolean flag = playerentity.abilities.isCreativeMode;
-		ToaTool toolItem = (ToaTool) (stackIn.getItem() instanceof ToaTool ? stackIn.getItem() : ItemInit.ice_sword.get());
+		ToaTool toolItem = (ToaTool) (stackIn.getItem() instanceof ToaTool ? stackIn.getItem() : ItemRegistration.ice_sword.get());
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, toolItem.getElement());
 		float velocity = ToaTool.getArrowVelocity(1000);
 		projectileEntity.func_234612_a_(playerentity,playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);

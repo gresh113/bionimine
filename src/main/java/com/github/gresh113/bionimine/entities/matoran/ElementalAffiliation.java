@@ -2,11 +2,11 @@ package com.github.gresh113.bionimine.entities.matoran;
 
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class MatoranElement extends ForgeRegistryEntry<MatoranElement>{
+public class ElementalAffiliation extends ForgeRegistryEntry<ElementalAffiliation>{
 	
 	private String name;
 	
-	public MatoranElement(String nameIn) {
+	public ElementalAffiliation(String nameIn) {
 		this.name = nameIn;
 		
 	}

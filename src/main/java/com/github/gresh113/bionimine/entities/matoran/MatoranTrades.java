@@ -5,7 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.ItemRegistration;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
@@ -28,10 +28,10 @@ public class MatoranTrades extends VillagerTrades {
 		   //@formatter:off
 		   map.put(MatoranProfession.NONE, gatAsIntMap(ImmutableMap.of(1, 
 		    		  new VillagerTrades.ITrade[]{
-		    				  new MatoranTrades.WidgetForItemsTrade(ItemInit.madu_fruit.get(), 8, 12, 10), 
-		    				  new MatoranTrades.ItemsForWidgetsTrade(ItemInit.lightstone.get(), 8, 16, 2), 
-		    				  new MatoranTrades.ItemsForWidgetsTrade(ItemInit.air_bladder.get(), 4, 16, 2), 
-		    				  new MatoranTrades.ItemsForWidgetsTrade(ItemInit.bamboo_disk.get(), 4, 16, 2)}, 2, 
+		    				  new MatoranTrades.WidgetForItemsTrade(ItemRegistration.madu_fruit.get(), 8, 12, 10), 
+		    				  new MatoranTrades.ItemsForWidgetsTrade(ItemRegistration.lightstone.get(), 8, 16, 2), 
+		    				  new MatoranTrades.ItemsForWidgetsTrade(ItemRegistration.air_bladder.get(), 4, 16, 2), 
+		    				  new MatoranTrades.ItemsForWidgetsTrade(ItemRegistration.bamboo_disk.get(), 4, 16, 2)}, 2, 
 		    		  new VillagerTrades.ITrade[]{
 		    				  new MatoranTrades.WidgetForItemsTrade(Blocks.PUMPKIN, 6, 12, 10), 
 		    				  new MatoranTrades.ItemsForWidgetsTrade(Items.PUMPKIN_PIE, 1, 4, 5), 
@@ -126,7 +126,7 @@ public class MatoranTrades extends VillagerTrades {
 
 		      public MerchantOffer getOffer(Entity trader, Random rand) {
 		         ItemStack itemstack = new ItemStack(this.tradeItem, this.count);
-		         return new MerchantOffer(itemstack, new ItemStack(ItemInit.widgets.get()), this.maxUses, this.xpValue, this.priceMultiplier);
+		         return new MerchantOffer(itemstack, new ItemStack(ItemRegistration.widgets.get()), this.maxUses, this.xpValue, this.priceMultiplier);
 		      }
 		   }
 
@@ -185,7 +185,7 @@ public class MatoranTrades extends VillagerTrades {
 
 		      @Nullable
 		      public MerchantOffer getOffer(Entity trader, Random rand) {
-		         return new MerchantOffer(new ItemStack(ItemInit.widgets.get(), this.widgetCount), new ItemStack(this.buyingItem.getItem(), this.buyingItemCount), new ItemStack(this.sellingItem.getItem(), this.sellingItemCount), this.maxUses, this.xpValue, this.priceMultiplier);
+		         return new MerchantOffer(new ItemStack(ItemRegistration.widgets.get(), this.widgetCount), new ItemStack(this.buyingItem.getItem(), this.buyingItemCount), new ItemStack(this.sellingItem.getItem(), this.sellingItemCount), this.maxUses, this.xpValue, this.priceMultiplier);
 		      }
 		   }
 
@@ -223,7 +223,7 @@ public class MatoranTrades extends VillagerTrades {
 		      }
 
 		      public MerchantOffer getOffer(Entity trader, Random rand) {
-		         return new MerchantOffer(new ItemStack(ItemInit.widgets.get(), this.widgetCost), new ItemStack(this.tradedItem.getItem(), this.tradedItemCount), this.maxUses, this.givenXP, this.priceMultiplier);
+		         return new MerchantOffer(new ItemStack(ItemRegistration.widgets.get(), this.widgetCost), new ItemStack(this.tradedItem.getItem(), this.tradedItemCount), this.maxUses, this.givenXP, this.priceMultiplier);
 		      }
 		   }
 }

@@ -6,10 +6,13 @@ import com.github.gresh113.bionimine.client.entities.renderers.ElementalProjecti
 import com.github.gresh113.bionimine.client.entities.renderers.FikouSpiderRenderer;
 import com.github.gresh113.bionimine.client.entities.renderers.HusiRenderer;
 import com.github.gresh113.bionimine.client.entities.renderers.MatoranRenderer;
+import com.github.gresh113.bionimine.client.entities.renderers.TuragaRenderer;
 import com.github.gresh113.bionimine.entities.matoran.MatoranEntity;
+import com.github.gresh113.bionimine.entities.turaga.TuragaEntity;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,6 +31,18 @@ public class BionimineEntityTypes {
 	//@formatter:off
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, Bionimine.MODID);
 
+	
+	public static final RegistryObject<EntityType<MatoranEntity>> MATORAN = 
+			ENTITY_TYPES.register("matoran", () -> (
+					EntityType.Builder.<MatoranEntity>create(MatoranEntity::new, EntityClassification.CREATURE).size(.75f, 1.5f)
+					.build(new ResourceLocation(Bionimine.MODID, "matoran").toString())));
+	
+	public static final RegistryObject<EntityType<TuragaEntity>> TURAGA = 
+			ENTITY_TYPES.register("turaga", () -> (
+					EntityType.Builder.<TuragaEntity>create(TuragaEntity::new, EntityClassification.CREATURE).size(.75f, 1.5f)
+					.build(new ResourceLocation(Bionimine.MODID, "turaga").toString())));
+	
+	
 	public static final RegistryObject<EntityType<FikouSpiderEntity>> 
 	FIKOU_SPIDER = ENTITY_TYPES.register("fikou_spider", () -> (
 			EntityType.Builder.<FikouSpiderEntity>create(FikouSpiderEntity::new, EntityClassification.MONSTER).size(0.9f, 1.3f)
@@ -37,11 +52,6 @@ public class BionimineEntityTypes {
 			ENTITY_TYPES.register("husi", () -> (
 					EntityType.Builder.<HusiEntity>create(HusiEntity::new, EntityClassification.CREATURE).size(0.9f, 1.3f)
 					.build(new ResourceLocation(Bionimine.MODID, "husi").toString())));
-
-	public static final RegistryObject<EntityType<MatoranEntity>> MATORAN = 
-			ENTITY_TYPES.register("matoran", () -> (
-					EntityType.Builder.<MatoranEntity>create(MatoranEntity::new, EntityClassification.CREATURE).size(.75f, 1.5f)
-					.build(new ResourceLocation(Bionimine.MODID, "matoran").toString())));
 
 	public static final RegistryObject<EntityType<TelescopeEntity>> TELESCOPE = 
 			ENTITY_TYPES.register("telescope", () -> (
@@ -66,12 +76,17 @@ public class BionimineEntityTypes {
 	
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
+		RenderingRegistry.registerEntityRenderingHandler(MATORAN.get(), MatoranRenderer::new);
+		GlobalEntityTypeAttributes.put(MATORAN.get(), MatoranEntity.assignAttributes().func_233813_a_());
+		RenderingRegistry.registerEntityRenderingHandler(TURAGA.get(), TuragaRenderer::new);
+		GlobalEntityTypeAttributes.put(TURAGA.get(), TuragaEntity.assignAttributes().func_233813_a_());
+		
 		RenderingRegistry.registerEntityRenderingHandler(KANOKA.get(), BambooDiskRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ELEMENTAL_PROJECTILE.get(), ElementalProjectileRenderer::new);
 		//RenderingRegistry.registerEntityRenderingHandler(ELEMENTAL_SPIKES.get(), ElementalSpikesRenderer::new);
 		
 		RenderingRegistry.registerEntityRenderingHandler(FIKOU_SPIDER.get(), FikouSpiderRenderer::new);
-		RenderingRegistry.registerEntityRenderingHandler(MATORAN.get(), MatoranRenderer::new);
+		
 		RenderingRegistry.registerEntityRenderingHandler(HUSI.get(), HusiRenderer::new);
 	}
 

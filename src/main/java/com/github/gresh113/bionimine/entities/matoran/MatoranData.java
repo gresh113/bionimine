@@ -12,15 +12,15 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class MatoranData {
 	private static final int[] field_221136_a = new int[] { 0, 10, 70, 150, 250 };
-	private final MatoranElement element;
+	private final ElementalAffiliation element;
 	private final MatoranProfession profession;
 
-	public MatoranData(MatoranElement elementIn, MatoranProfession professionIn) {
+	public MatoranData(ElementalAffiliation elementIn, MatoranProfession professionIn) {
 		this.element = elementIn;
 		this.profession = professionIn;
 	}
 
-	public MatoranElement getElement() {
+	public ElementalAffiliation getElement() {
 		return this.element;
 	}
 
@@ -28,7 +28,7 @@ public class MatoranData {
 		return this.profession;
 	}
 
-	public MatoranData withElement(MatoranElement elementIn) {
+	public MatoranData withElement(ElementalAffiliation elementIn) {
 		return new MatoranData(elementIn, this.profession);
 	}
 

@@ -19,7 +19,7 @@ public enum ArmorPalette implements IStringSerializable {
 	LIGHT_BLUE("light_blue", Color.decode("#83C2FF"), Color.decode("#4DA5FF"), Color.decode("#4998EC"), Color.decode("#4585CA"), Color.decode("#406B98")),
 	PRUPLE("purple", new Color(62,42,115), new Color(41,13,113), new Color(36,10,99), new Color(29,9,81), new Color(19,6,54)),
 	TEAL("teal", new Color(14,149,138), Color.decode("#009166"), Color.decode("#007C5E"), Color.decode("#005E4D"), Color.decode("#005145")),
-	LIME_GREEN("lime_green", Color.decode("#37CA5F"), Color.decode("#17C435"), Color.decode("#17AB38"), Color.decode("#178736"), Color.decode("#177834")),
+	LIME_GREEN("lime_green", Color.decode("#75CA37"), Color.decode("#5DB536"), Color.decode("#46A135"), Color.decode("#2E8C34"), Color.decode("#177834")),
 	SAND_BLUE("sand_blue", Color.decode("#70A4C3"), Color.decode("#478EB9"), Color.decode("#4282A5"), Color.decode("#3C6F8E"), Color.decode("#335569")),
 	BURNT_ORANGE("burnt_orange", Color.decode("#F7A029"), Color.decode("#EA7D10"), Color.decode("#BE650F"), Color.decode("#874A0E"), Color.decode("#492C11")),
 	TAN("tan", Color.decode("#EDCF95"), Color.decode("#F2CE77"), Color.decode("#D0B266"), Color.decode("#7A6A42"), Color.decode("#54432B")),

@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.objects.toagear.kanohi.powerhandlers.great;
 
-import com.github.gresh113.bionimine.init.BlockInit;
+import com.github.gresh113.bionimine.init.BlockRegistration;
 import com.github.gresh113.bionimine.objects.blocks.HauShieldBlock;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.powerhandlers.KanohiPowerHandler;
 
@@ -68,7 +68,7 @@ public class GreatHauPowerHandler extends KanohiPowerHandler {
 
 							BlockPos setPos = new BlockPos(length, origin.getY() + height, origin.getZ());
 							if (world.isAirBlock(setPos)) {
-								world.setBlockState(setPos, ((HauShieldBlock) BlockInit.hau_shield.get()).setShieldDirection(dir));
+								world.setBlockState(setPos, ((HauShieldBlock) BlockRegistration.hau_shield.get()).setShieldDirection(dir));
 							}
 						}
 					}
@@ -79,7 +79,7 @@ public class GreatHauPowerHandler extends KanohiPowerHandler {
 
 							BlockPos setPos = new BlockPos(origin.getX(), origin.getY() + height, length);
 							if (world.isAirBlock(setPos)) {
-								world.setBlockState(setPos, ((HauShieldBlock) BlockInit.hau_shield.get()).setShieldDirection(dir));
+								world.setBlockState(setPos, ((HauShieldBlock) BlockRegistration.hau_shield.get()).setShieldDirection(dir));
 							}
 						}
 					}
@@ -101,21 +101,21 @@ public class GreatHauPowerHandler extends KanohiPowerHandler {
 
 	private void set1x2(BlockPos setPos, World world, Direction dir) {
 		if (world.isAirBlock(setPos)) {
-			world.setBlockState(setPos, ((HauShieldBlock) BlockInit.hau_shield.get()).setShieldDirection(dir));
+			world.setBlockState(setPos, ((HauShieldBlock) BlockRegistration.hau_shield.get()).setShieldDirection(dir));
 		}
 		if (world.isAirBlock(setPos.up())) {
-			world.setBlockState(setPos.up(), ((HauShieldBlock) BlockInit.hau_shield.get()).setShieldDirection(dir));
+			world.setBlockState(setPos.up(), ((HauShieldBlock) BlockRegistration.hau_shield.get()).setShieldDirection(dir));
 		}
 	}
 	private void set1x3(BlockPos setPos, World world, Direction dir) {
 		if (world.isAirBlock(setPos)) {
-			world.setBlockState(setPos, ((HauShieldBlock) BlockInit.hau_shield.get()).setShieldDirection(dir));
+			world.setBlockState(setPos, ((HauShieldBlock) BlockRegistration.hau_shield.get()).setShieldDirection(dir));
 		}
 		if (world.isAirBlock(setPos.up())) {
-			world.setBlockState(setPos.up(), ((HauShieldBlock) BlockInit.hau_shield.get()).setShieldDirection(dir));
+			world.setBlockState(setPos.up(), ((HauShieldBlock) BlockRegistration.hau_shield.get()).setShieldDirection(dir));
 		}
 		if (world.isAirBlock(setPos.up().up())) {
-			world.setBlockState(setPos.up().up(), ((HauShieldBlock) BlockInit.hau_shield.get()).setShieldDirection(dir));
+			world.setBlockState(setPos.up().up(), ((HauShieldBlock) BlockRegistration.hau_shield.get()).setShieldDirection(dir));
 		}
 	}
 	

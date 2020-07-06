@@ -11,11 +11,11 @@ import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyStorage;
 import com.github.gresh113.bionimine.client.gui.KanohiOverlayHandler;
 import com.github.gresh113.bionimine.entities.BionimineEntityTypes;
-import com.github.gresh113.bionimine.entities.matoran.MatoranElement;
+import com.github.gresh113.bionimine.entities.matoran.ElementalAffiliation;
 import com.github.gresh113.bionimine.entities.matoran.MatoranProfession;
-import com.github.gresh113.bionimine.init.BlockInit;
-import com.github.gresh113.bionimine.init.BlockItemInit;
-import com.github.gresh113.bionimine.init.ItemInit;
+import com.github.gresh113.bionimine.init.BlockRegistration;
+import com.github.gresh113.bionimine.init.BlockItemRegistration;
+import com.github.gresh113.bionimine.init.ItemRegistration;
 import com.github.gresh113.bionimine.init.MatoranRegistration;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.network.BioniminePacketHandler;
@@ -67,9 +67,9 @@ public class Bionimine {
 		BionimineTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
 		BionimineContainerTypes.CONTAINER_TYPES.register(modEventBus);
 		BionimineEntityTypes.ENTITY_TYPES.register(modEventBus);
-		BlockInit.BLOCKS.register(modEventBus);
-		BlockItemInit.BLOCK_ITEMS.register(modEventBus);
-		ItemInit.ITEMS.register(modEventBus);
+		BlockRegistration.BLOCKS.register(modEventBus);
+		BlockItemRegistration.BLOCK_ITEMS.register(modEventBus);
+		ItemRegistration.ITEMS.register(modEventBus);
 		//KanohiInit.KANOHI.register(modEventBus);
 		
 		MinecraftForge.EVENT_BUS.register(new KanohiOverlayHandler());
@@ -143,7 +143,7 @@ public class Bionimine {
 
 		@Override
 		public ItemStack createIcon() {
-			return new ItemStack(ItemInit.lightstone_item);
+			return new ItemStack(ItemRegistration.lightstone_item);
 		}
 	}
 
@@ -180,8 +180,8 @@ public class Bionimine {
 		}
 		
 		@SubscribeEvent
-		public static void registerElements(RegistryEvent.Register<MatoranElement> event) {
-			BionimineRegistries.MATORAN_ELEMENTS = (ForgeRegistry<MatoranElement>) RegistryManager.ACTIVE.getRegistry(MatoranElement.class);
+		public static void registerElements(RegistryEvent.Register<ElementalAffiliation> event) {
+			BionimineRegistries.MATORAN_ELEMENTS = (ForgeRegistry<ElementalAffiliation>) RegistryManager.ACTIVE.getRegistry(ElementalAffiliation.class);
 			
 			//Bionimine.LOGGER.info("Got the thing: " + MatoranRegistration.TA.get().getName());
 			

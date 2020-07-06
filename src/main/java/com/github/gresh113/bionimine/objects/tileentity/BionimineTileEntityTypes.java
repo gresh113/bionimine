@@ -1,7 +1,7 @@
 package com.github.gresh113.bionimine.objects.tileentity;
 
 import com.github.gresh113.bionimine.Bionimine;
-import com.github.gresh113.bionimine.init.BlockInit;
+import com.github.gresh113.bionimine.init.BlockRegistration;
 
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.state.DirectionProperty;
@@ -20,6 +20,6 @@ public class BionimineTileEntityTypes {
 //					.create(KanohiPedestalTileEntity::new, BlockInit.kanohi_pedestal.get()).build(null));
 	public static final RegistryObject<TileEntityType<HauShieldTileEntity>> HAU_SHIELD = TILE_ENTITY_TYPES
 			.register("hau_shield", () -> TileEntityType.Builder
-					.create(HauShieldTileEntity::new, BlockInit.hau_shield.get()).build(null));
+					.create(HauShieldTileEntity::new, BlockRegistration.hau_shield.get()).build(null));
 
 }

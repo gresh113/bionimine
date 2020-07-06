@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.github.gresh113.bionimine.Bionimine;
 //import com.github.gresh113.bionimine.client.gui.KanohiPedestalScreen;
-import com.github.gresh113.bionimine.init.BlockInit;
+import com.github.gresh113.bionimine.init.BlockRegistration;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiColorHandler;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiInit;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiItem;
@@ -25,7 +25,7 @@ public class ClientEventBusSubscriber {
 	public static void clientSetup(FMLClientSetupEvent event) {
 		//ScreenManager.registerFactory(BionimineContainerTypes.PEDESTAL.get(), KanohiPedestalScreen::new);
 		
-		RenderTypeLookup.setRenderLayer(BlockInit.hau_shield.get(), RenderType.getTranslucent());
+		RenderTypeLookup.setRenderLayer(BlockRegistration.hau_shield.get(), RenderType.getTranslucent());
 	}
 		
 	

@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.world.gen;
 
-import com.github.gresh113.bionimine.init.BlockInit;
+import com.github.gresh113.bionimine.init.BlockRegistration;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
@@ -26,7 +26,7 @@ public class ProtodermisOreGen {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
 					Feature.ORE
 							.withConfiguration(new OreFeatureConfig(fillerBlock,
-									BlockInit.protodermis_ore.get().getDefaultState(), 10))
+									BlockRegistration.protodermis_ore.get().getDefaultState(), 10))
 							.withPlacement(protodermisConfig));
 		}
 	}

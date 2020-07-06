@@ -111,8 +111,7 @@ public class MatoranModel<T extends MatoranEntity> extends EntityModel<T> implem
 			f = 1.0F;
 		}
 
-		this.ArmR.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 2.0F * limbSwingAmount * 0.5F
-				/ f;
+		this.ArmR.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 2.0F * limbSwingAmount * 0.5F / f;
 		this.ArmL.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F / f;
 		this.ArmR.rotateAngleZ = 0.0F;
 		this.ArmL.rotateAngleZ = 0.0F;
