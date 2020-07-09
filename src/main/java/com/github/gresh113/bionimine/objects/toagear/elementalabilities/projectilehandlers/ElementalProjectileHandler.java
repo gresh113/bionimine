@@ -4,11 +4,11 @@ import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import com.github.gresh113.bionimine.entities.ElementalProjectileEntity;
-import com.github.gresh113.bionimine.init.ItemRegistration;
 import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.network.ToaEnergyMessage;
 import com.github.gresh113.bionimine.objects.toagear.ToaTool;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.ToaAbilityHandler;
+import com.github.gresh113.bionimine.registration.ItemRegistration;
 
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.entity.player.PlayerEntity;

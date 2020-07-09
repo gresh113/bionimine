@@ -5,7 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.github.gresh113.bionimine.init.ItemRegistration;
+import com.github.gresh113.bionimine.registration.ItemRegistration;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 

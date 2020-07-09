@@ -48,17 +48,17 @@ public enum ToaAbilityHolder implements IStringSerializable {
 		name = nameIn;
 	}
 
-	@Override
-	public String func_176610_l() {
-		return name;
-	}
-
 	public ElementalProjectileHandler getProjectileHandler() {
 		return projectileHandler;
 	}
 
 	public ToaAbilityHandler[] getAbilityArray() {
 		return abilityTypeList;
+	}
+
+	@Override
+	public String getString() {
+		return name;
 	}
 
 }

@@ -41,7 +41,7 @@ public class ElementalProjectileRenderer<T extends ElementalProjectileEntity> ex
 		if (element == null)
 			element = Elements.FIRE;
 		//Bionimine.LOGGER.info(element.getName());
-		ResourceLocation loc = new ResourceLocation(Bionimine.MODID, "textures/entity/" + element.func_176610_l() + "_projectile.png");
+		ResourceLocation loc = new ResourceLocation(Bionimine.MODID, "textures/entity/" + element.getString() + "_projectile.png");
 		return loc;
 		
 	}

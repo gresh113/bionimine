@@ -57,10 +57,16 @@ public class BionimineEntityTypes {
 			ENTITY_TYPES.register("telescope", () -> (
 					EntityType.Builder.<TelescopeEntity>create(TelescopeEntity::new, EntityClassification.MISC).size(.75f, 1.5f)
 					.build(new ResourceLocation(Bionimine.MODID, "telescope").toString())));
+	
+	
+	public static final RegistryObject<EntityType<MaduCaboloEntity>> MADU_CABOLO = 
+			ENTITY_TYPES.register("madu_cabolo", () -> (
+					EntityType.Builder.<MaduCaboloEntity>create(MaduCaboloEntity::new, EntityClassification.MISC).size(1.0f, 0.0625f)
+					.build(new ResourceLocation(Bionimine.MODID, "madu_cabolo").toString())));
 
 	public static final RegistryObject<EntityType<KanokaEntity>> KANOKA = 
 			ENTITY_TYPES.register("kanoka", () -> (
-					EntityType.Builder.<KanokaEntity>create(KanokaEntity::new, EntityClassification.MISC).size(1.0f, 0.0625f)
+					EntityType.Builder.<KanokaEntity>create(KanokaEntity::new, EntityClassification.MISC).size(0.25F, 0.25F).func_233606_a_(4).func_233608_b_(10)
 					.build(new ResourceLocation(Bionimine.MODID, "kanoka").toString())));
 
 	public static final RegistryObject<EntityType<ElementalProjectileEntity>> ELEMENTAL_PROJECTILE = 

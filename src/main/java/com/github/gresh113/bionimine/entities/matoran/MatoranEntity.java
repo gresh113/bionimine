@@ -6,9 +6,12 @@ import java.util.Set;
 
 import javax.annotation.Nullable;
 
+import com.github.gresh113.bionimine.entities.KanokaEntity;
 import com.github.gresh113.bionimine.entities.matoran.ai.IMatoranReputationType;
-import com.github.gresh113.bionimine.init.ItemRegistration;
-import com.github.gresh113.bionimine.init.MatoranRegistration;
+import com.github.gresh113.bionimine.entities.matoran.ai.RangedDiskAttackGoal;
+import com.github.gresh113.bionimine.objects.items.BambooDiskItem;
+import com.github.gresh113.bionimine.registration.ItemRegistration;
+import com.github.gresh113.bionimine.registration.MatoranRegistration;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Dynamic;
@@ -16,10 +19,13 @@ import com.mojang.serialization.Dynamic;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
+import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.Pose;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -31,16 +37,21 @@ import net.minecraft.entity.ai.brain.sensor.Sensor;
 import net.minecraft.entity.ai.brain.sensor.SensorType;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.merchant.IReputationTracking;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
+import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileHelper;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MerchantOffer;
 import net.minecraft.item.MerchantOffers;
+import net.minecraft.item.ShootableItem;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -52,8 +63,10 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -62,7 +75,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 //
-public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDataHolder {
+public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDataHolder, IRangedAttackMob {
 
 	// public static final ResourceLocation TALKED_TO_MATORAN =
 	// Stats.registerCustom("talked_to_villager", IStatFormatter.DEFAULT);
@@ -113,6 +126,26 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 			//SensorType.SECONDARY_POIS
 			);   
 	 //@formatter:on
+	private static final int attackCooldown = 5;
+	private final RangedDiskAttackGoal<MatoranEntity> aiDiskAttack = new RangedDiskAttackGoal<>(this, 1.0D, attackCooldown, 30.0F);
+//	private final MeleeAttackGoal aiAttackOnCollide = new MeleeAttackGoal(this, 1.2D, false) {
+//		/**
+//		 * Reset the task's internal state. Called when this task is interrupted by
+//		 * another one
+//		 */
+//		public void resetTask() {
+//			super.resetTask();
+//			MatoranEntity.this.setAggroed(false);
+//		}
+//
+//		/**
+//		 * Execute a one shot task or start executing a continuous task
+//		 */
+//		public void startExecuting() {
+//			super.startExecuting();
+//			MatoranEntity.this.setAggroed(true);
+//		}
+//	};
 	private boolean canPickUpLoot = true;
 
 	public MatoranEntity(EntityType<? extends MatoranEntity> type, World worldIn) {
@@ -173,10 +206,11 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 		this.goalSelector.addGoal(1, new WaterAvoidingRandomWalkingGoal(this, .5D));
 		this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, SpiderEntity.class, true));
 	}
-	
+
 	public static AttributeModifierMap.MutableAttribute assignAttributes() {
-		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, 0.5D).func_233815_a_(Attributes.field_233819_b_, 48.0D);
+		return MobEntity.func_233666_p_().func_233815_a_(Attributes.MOVEMENT_SPEED, 0.5D).func_233815_a_(Attributes.MAX_HEALTH, 20.0D);
 	}
 
 	@Override
@@ -201,6 +235,7 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 			texture = "matoran";
 		}
 		this.setTexture(texture);
+		this.setCombatTask();
 	}
 
 	public String getTexture() {
@@ -313,13 +348,14 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 	public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, ILivingEntityData spawnDataIn, CompoundNBT dataTag) {
 		this.setMatoranData(this.getMatoranData().withElement(MatoranRegistration.TA.get()));
 		this.populateTradeData();
+		this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemRegistration.bamboo_disk.get(), 16));
 		return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
 
 	}
 
-	//Process interact
+	// Process interact
 	@Override
-	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) { 
+	public ActionResultType func_230254_b_(PlayerEntity player, Hand hand) {
 		if (this.isAlive() && !this.hasCustomer() && !this.isSleeping() && !player.isSecondaryUseActive()) {
 			boolean flag1 = this.getOffers().isEmpty();
 			if (hand == Hand.MAIN_HAND) {
@@ -403,15 +439,67 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 	protected void resetCustomer() {
 		super.resetCustomer();
 	}
-	
-	  public boolean func_223340_ej() {
-	      return true;
-	   }
+
+	public boolean func_223340_ej() {
+		return true;
+	}
 
 	@Nullable
 	@Override
 	public AgeableEntity createChild(AgeableEntity ageable) {
 		return null;
 	}
+
+	@Override
+	public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
+		ItemStack itemstack = this.findAmmo(this.getHeldItem(ProjectileHelper.getHandWith(this, ItemRegistration.bamboo_disk.get())));
+		KanokaEntity kanokaentity = this.throwDisk(itemstack, distanceFactor);
+		double d0 = target.getPosX() - this.getPosX();
+		double d1 = target.getPosYHeight(0.3333333333333333D) - kanokaentity.getPosY();
+		double d2 = target.getPosZ() - this.getPosZ();
+		double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+		kanokaentity.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.world.getDifficulty().getId() * 4));
+		this.playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+		this.world.addEntity(kanokaentity);
+
+	}
+
+	protected KanokaEntity throwDisk(ItemStack stack, float distanceFactor) {
+		MatoranEntity shooter = this;
+		BambooDiskItem diskitem = (BambooDiskItem) (stack.getItem() instanceof BambooDiskItem ? stack.getItem() : ItemRegistration.bamboo_disk.get());
+		KanokaEntity kanokaentity = diskitem.createDisk(shooter.world, stack, shooter);
+		// kanokaentity.setEnchantmentEffectsFromEntity(shooter, distanceFactor);
+		return kanokaentity;
+	}
+
+	public boolean func_230280_a_(ShootableItem item) {
+		return item == ItemRegistration.bamboo_disk.get();
+	}
+
+	public void setCombatTask() {
+		if (this.world != null && !this.world.isRemote) {
+			//this.goalSelector.removeGoal(this.aiAttackOnCollide);
+			this.goalSelector.removeGoal(this.aiDiskAttack);
+			ItemStack heldstack = this.getHeldItem(ProjectileHelper.getHandWith(this, ItemRegistration.bamboo_disk.get()));
+			if (heldstack.getItem() instanceof BambooDiskItem) {
+				this.aiDiskAttack.setAttackCooldown(attackCooldown);
+				this.goalSelector.addGoal(4, this.aiDiskAttack);
+			} else {
+				//this.goalSelector.addGoal(4, this.aiAttackOnCollide);
+			}
+
+		}
+	}
+
+	public void setItemStackToSlot(EquipmentSlotType slotIn, ItemStack stack) {
+		super.setItemStackToSlot(slotIn, stack);
+		if (!this.world.isRemote) {
+			this.setCombatTask();
+		}
+	}
+	
+	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+	      return 1.2F;
+	   }
 
 }

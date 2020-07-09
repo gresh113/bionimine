@@ -147,7 +147,7 @@ public class KanohiItem extends ArmorItem {
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-		return (Bionimine.MODID + ":textures/models/kanohi/" + KanohiItem.getShape(stack).func_176610_l() + "/" + KanohiItem.getPalette(stack).func_176610_l() + ".png");
+		return (Bionimine.MODID + ":textures/models/kanohi/" + KanohiItem.getShape(stack).getString() + "/" + KanohiItem.getPalette(stack).getString() + ".png");
 	}
 
 	@OnlyIn(Dist.CLIENT)

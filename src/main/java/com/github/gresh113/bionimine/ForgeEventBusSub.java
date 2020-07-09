@@ -1,6 +1,5 @@
-package com.github.gresh113.bionimine.util;
+package com.github.gresh113.bionimine;
 
-import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import com.github.gresh113.bionimine.network.BionimineCommands;
@@ -46,5 +45,7 @@ public class ForgeEventBusSub {
 	public void serverLoad(FMLServerStartingEvent event) {
 		BionimineCommands.register(event.getCommandDispatcher());
 	}
+	
+	
 
 }

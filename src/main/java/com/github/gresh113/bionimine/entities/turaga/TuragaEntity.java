@@ -8,8 +8,8 @@ import javax.annotation.Nullable;
 
 import com.github.gresh113.bionimine.entities.matoran.ElementalAffiliation;
 import com.github.gresh113.bionimine.entities.matoran.ai.IMatoranReputationType;
-import com.github.gresh113.bionimine.init.ItemRegistration;
-import com.github.gresh113.bionimine.init.MatoranRegistration;
+import com.github.gresh113.bionimine.registration.ItemRegistration;
+import com.github.gresh113.bionimine.registration.MatoranRegistration;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Dynamic;
@@ -62,17 +62,13 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class TuragaEntity extends AbstractVillagerEntity {
 
 	// public static final ResourceLocation TALKED_TO_MATORAN =
-	// Stats.registerCustom("talked_to_villager", IStatFormatter.DEFAULT);
-
+	// Stats.registerCustom("talked_to_villager", IStatFormatter.DEFAULT);,
 	private ElementalAffiliation element;
 
 	//@formatter:off
 		private static final DataParameter<String> IDENTITY = EntityDataManager.createKey(TuragaEntity.class, DataSerializers.STRING);
 		private static final Set<Item> ALLOWED_INVENTORY_ITEMS = ImmutableSet.of(
-				ItemRegistration.bamboo_disk.get(),
-				ItemRegistration.heatstone.get(),
-				ItemRegistration.flag.get(),
-				ItemRegistration.air_bladder.get(),
+				ItemRegistration.firestaff.get(),
 				ItemRegistration.widgets.get(),
 				ItemRegistration.madu_fruit.get()
 				);
@@ -167,7 +163,9 @@ public class TuragaEntity extends AbstractVillagerEntity {
 	}
 
 	public static AttributeModifierMap.MutableAttribute assignAttributes() {
-		return MobEntity.func_233666_p_().func_233815_a_(Attributes.field_233821_d_, 0.5D).func_233815_a_(Attributes.field_233819_b_, 48.0D);
+		return MobEntity.func_233666_p_()
+				.func_233815_a_(Attributes.MOVEMENT_SPEED, 0.5D)
+				.func_233815_a_(Attributes.MAX_HEALTH, 20.0D);
 	}
 
 	@Override
@@ -297,6 +295,7 @@ public class TuragaEntity extends AbstractVillagerEntity {
 	@Override
 	public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, ILivingEntityData spawnDataIn, CompoundNBT dataTag) {
 		this.populateTradeData();
+		this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemRegistration.firestaff.get()));
 		return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
 
 	}

@@ -1,6 +1,6 @@
 package com.github.gresh113.bionimine.world.gen;
 
-import com.github.gresh113.bionimine.init.BlockRegistration;
+import com.github.gresh113.bionimine.registration.BlockRegistration;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;

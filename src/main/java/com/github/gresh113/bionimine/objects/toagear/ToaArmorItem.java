@@ -128,7 +128,7 @@ public class ToaArmorItem extends ArmorItem {
 	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
 		if (stack.getItem() instanceof ToaArmorItem) {
 			ToaArmorItem armoritem = (ToaArmorItem) stack.getItem();
-			return (Bionimine.MODID + ":textures/models/armor/toa_armor/" + armoritem.element.func_176610_l() + ".png");
+			return (Bionimine.MODID + ":textures/models/armor/toa_armor/" + armoritem.element.getString() + ".png");
 		}else
 			return null;
 	}

@@ -1,12 +1,15 @@
-package com.github.gresh113.bionimine.init;
+package com.github.gresh113.bionimine.registration;
 
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
+import com.github.gresh113.bionimine.client.entities.renderers.BionimineISTER;
 import com.github.gresh113.bionimine.entities.BionimineEntityTypes;
 import com.github.gresh113.bionimine.entities.ModdedSpawnEggItem;
 import com.github.gresh113.bionimine.objects.items.AirBladderItem;
 import com.github.gresh113.bionimine.objects.items.AmanaVoloItem;
 import com.github.gresh113.bionimine.objects.items.BambooDiskItem;
+import com.github.gresh113.bionimine.objects.items.MaduCaboloItem;
+import com.github.gresh113.bionimine.objects.items.StaffItem;
 import com.github.gresh113.bionimine.objects.items.TelescopeItem;
 import com.github.gresh113.bionimine.objects.toagear.ArmorPalette;
 import com.github.gresh113.bionimine.objects.toagear.ToaArmorItem;
@@ -38,6 +41,9 @@ public class ItemRegistration {
 	public static final RegistryObject<Item> water_hook = ITEMS.register("water_hook", () -> new ToaTool(Elements.WATER));
 	public static final RegistryObject<Item> earth_claw = ITEMS.register("earth_claw", () -> new ToaTool(Elements.EARTH));
 	public static final RegistryObject<Item> stone_blaster = ITEMS.register("stone_blaster", () -> new ToaTool(Elements.STONE));
+	
+	public static final RegistryObject<Item> firestaff = ITEMS.register("firestaff", () -> new StaffItem(defaultItemProperties.setISTER(() ->  BionimineISTER::new)));
+	
 
 	public static final RegistryObject<Item> heatstone = ITEMS.register("heatstone", () -> new FlintAndSteelItem(new Item.Properties().maxStackSize(1).group(BioniMineItemGroup.instance)));
 
@@ -49,6 +55,7 @@ public class ItemRegistration {
 
 	public static final RegistryObject<Item> air_bladder = ITEMS.register("air_bladder", () -> new AirBladderItem());
 	public static final RegistryObject<Item> amana_volo_sphere = ITEMS.register("amana_volo_sphere", () -> new AmanaVoloItem());
+	public static final RegistryObject<Item> madu_cabolo = ITEMS.register("madu_cabolo", () -> new MaduCaboloItem(defaultItemProperties));
 	
 	public static final RegistryObject<Item> bamboo_pole = ITEMS.register("bamboo_pole", () -> new Item(defaultItemProperties));
 	public static Item lightstone_item = new Item(defaultItemProperties); // Needs to be a separate item to be used as the group icon
@@ -59,7 +66,7 @@ public class ItemRegistration {
 	public static final RegistryObject<Item> protodermis_rod = ITEMS.register("protodermis_rod", () -> new Item(defaultItemProperties));
 	public static final RegistryObject<Item> widgets = ITEMS.register("widgets", () -> new Item(defaultItemProperties));
 	public static final RegistryObject<Item> madu_fruit = ITEMS.register("madu_fruit", () -> new Item(defaultItemProperties));
-	public static final RegistryObject<Item> madu_cabolo = ITEMS.register("madu_cabolo", () -> new Item(defaultItemProperties));
+	
 
 	public static final RegistryObject<Item> bamboo_disk = ITEMS.register("bamboo_disk", () -> new BambooDiskItem(new Item.Properties().maxStackSize(16).group(BioniMineItemGroup.instance)));
 

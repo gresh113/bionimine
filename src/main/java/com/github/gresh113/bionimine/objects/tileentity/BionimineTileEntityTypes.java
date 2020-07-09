@@ -1,7 +1,7 @@
 package com.github.gresh113.bionimine.objects.tileentity;
 
 import com.github.gresh113.bionimine.Bionimine;
-import com.github.gresh113.bionimine.init.BlockRegistration;
+import com.github.gresh113.bionimine.registration.BlockRegistration;
 
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.state.DirectionProperty;

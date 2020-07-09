@@ -3,7 +3,7 @@ package com.github.gresh113.bionimine.objects.items;
 import java.util.function.Predicate;
 
 import com.github.gresh113.bionimine.entities.KanokaEntity;
-import com.github.gresh113.bionimine.init.ItemRegistration;
+import com.github.gresh113.bionimine.registration.ItemRegistration;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

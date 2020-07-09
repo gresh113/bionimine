@@ -1,8 +1,8 @@
 package com.github.gresh113.bionimine.objects.toagear.kanohi.powerhandlers.great;
 
-import com.github.gresh113.bionimine.init.BlockRegistration;
 import com.github.gresh113.bionimine.objects.blocks.HauShieldBlock;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.powerhandlers.KanohiPowerHandler;
+import com.github.gresh113.bionimine.registration.BlockRegistration;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;

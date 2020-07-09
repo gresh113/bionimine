@@ -13,15 +13,16 @@ import com.github.gresh113.bionimine.client.gui.KanohiOverlayHandler;
 import com.github.gresh113.bionimine.entities.BionimineEntityTypes;
 import com.github.gresh113.bionimine.entities.matoran.ElementalAffiliation;
 import com.github.gresh113.bionimine.entities.matoran.MatoranProfession;
-import com.github.gresh113.bionimine.init.BlockRegistration;
-import com.github.gresh113.bionimine.init.BlockItemRegistration;
-import com.github.gresh113.bionimine.init.ItemRegistration;
-import com.github.gresh113.bionimine.init.MatoranRegistration;
 import com.github.gresh113.bionimine.inventory.container.BionimineContainerTypes;
 import com.github.gresh113.bionimine.network.BioniminePacketHandler;
 import com.github.gresh113.bionimine.objects.tileentity.BionimineTileEntityTypes;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.EquipmentEventChecker;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiInit;
+import com.github.gresh113.bionimine.registration.BlockItemRegistration;
+import com.github.gresh113.bionimine.registration.BlockRegistration;
+import com.github.gresh113.bionimine.registration.ItemRegistration;
+import com.github.gresh113.bionimine.registration.MatoranRegistration;
+import com.github.gresh113.bionimine.registration.PotionRegistration;
 import com.github.gresh113.bionimine.util.KeyHandler;
 import com.github.gresh113.bionimine.world.gen.ProtodermisOreGen;
 
@@ -70,6 +71,8 @@ public class Bionimine {
 		BlockRegistration.BLOCKS.register(modEventBus);
 		BlockItemRegistration.BLOCK_ITEMS.register(modEventBus);
 		ItemRegistration.ITEMS.register(modEventBus);
+		PotionRegistration.POTIONS.register(modEventBus);
+		PotionRegistration.EFFECTS.register(modEventBus);
 		//KanohiInit.KANOHI.register(modEventBus);
 		
 		MinecraftForge.EVENT_BUS.register(new KanohiOverlayHandler());

@@ -65,8 +65,8 @@ public class ToaTool extends Item {
 	
 	protected Builder<Attribute, AttributeModifier> buildAttributeModifiers() {
 		Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-		builder.put(Attributes.field_233823_f_, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) attackDamage, AttributeModifier.Operation.ADDITION));
-		builder.put(Attributes.field_233825_h_, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double) attackSpeed , AttributeModifier.Operation.ADDITION));
+		builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", (double) attackDamage, AttributeModifier.Operation.ADDITION));
+		builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", (double) attackSpeed , AttributeModifier.Operation.ADDITION));
 		return builder;
 	}
 
@@ -194,7 +194,7 @@ public class ToaTool extends Item {
 			ToaTool toolItem = (ToaTool) stack.getItem();
 			Elements element = toolItem.getElement();
 			if (!(element == null)) {
-				String elementName = element.func_176610_l();
+				String elementName = element.getString();
 				String firstLetter = "" + elementName.charAt(0);
 				laterText = " of " + firstLetter.toUpperCase() + elementName.substring(1, elementName.length());
 			}

@@ -87,8 +87,8 @@ public class ToaOverlay extends ForgeIngameGui {
 					if (pre(stack, ElementType.HOTBAR))
 						return;
 					bind(OVERLAY_TEXTURE);
-					this.func_238474_b_(stack, 4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
-					this.func_238474_b_(stack, 14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
+					this.blit(stack, 4, (scaledHeight / 2) - 13, 17, 75, 28, 26);
+					this.blit(stack, 14, (scaledHeight / 2) - 73, 49, 15, 6, 146);
 					if (kanohiFlag) {
 						renderKanohiBar(stack, kanohiEnergy, kanohiLevel, kanohiPalette, kanohiStack);
 					}
@@ -96,7 +96,7 @@ public class ToaOverlay extends ForgeIngameGui {
 						renderElementBar(stack, elementEnergy, armorPalette);
 					}
 
-					bind(field_230665_h_);
+					bind(GUI_ICONS_LOCATION);
 					pre(stack, ElementType.HOTBAR);
 				}
 			}
@@ -116,18 +116,18 @@ public class ToaOverlay extends ForgeIngameGui {
 			bind(OVERLAY_TEXTURE);
 		}
 		if (kanohiLevel == 1) {
-			this.func_238474_b_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.blit(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
 		} else if (kanohiLevel == 2) {
-			this.func_238474_b_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
-			this.func_238474_b_(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
+			this.blit(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.blit(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
 		} else if (kanohiLevel == 3) {
-			this.func_238474_b_(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
-			this.func_238474_b_(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
-			this.func_238474_b_(stack, 25, (scaledHeight / 2) + 5, 45, 87, 4, 2);
+			this.blit(stack, 25, (scaledHeight / 2) - 7, 45, 87, 4, 2);
+			this.blit(stack, 27, (scaledHeight / 2) - 1, 45, 87, 4, 2);
+			this.blit(stack, 25, (scaledHeight / 2) + 5, 45, 87, 4, 2);
 		}
 
 		if (length > 0) {
-			this.func_238474_b_(stack, 14, (int) (((scaledHeight / 2) - 13) - length), 27, (int) (15 + (barLength - length)), 6, length);
+			this.blit(stack, 14, (int) (((scaledHeight / 2) - 13) - length), 27, (int) (15 + (barLength - length)), 6, length);
 			// this.blit(6, l, 6, 15, 3, length);
 		}
 		RenderSystem.enableBlend();
@@ -143,7 +143,7 @@ public class ToaOverlay extends ForgeIngameGui {
 		int length = (int) (energyIn * (barLength / max));
 		// int l = 19;
 		if (length > 0) {
-			this.func_238474_b_(stack, 14, (scaledHeight / 2) + 13, 27, 101, 6, length);
+			this.blit(stack, 14, (scaledHeight / 2) + 13, 27, 101, 6, length);
 			// this.blit(9, l, 10, 15, 3, length);
 		}
 		RenderSystem.enableBlend();

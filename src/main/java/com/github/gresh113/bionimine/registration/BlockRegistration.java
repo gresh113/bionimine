@@ -1,4 +1,4 @@
-package com.github.gresh113.bionimine.init;
+package com.github.gresh113.bionimine.registration;
 
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.objects.blocks.HauShieldBlock;

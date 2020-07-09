@@ -40,8 +40,8 @@ public class HusiEntity extends CreatureEntity {
 	
 	public static AttributeModifierMap.MutableAttribute func_234188_eI_() {
 	      return MobEntity.func_233666_p_()
-	    		  .func_233815_a_(Attributes.field_233818_a_, 10.0D) // Max Health
-	    		  .func_233815_a_(Attributes.field_233821_d_, (double)0.25F); // Movement speed
+	    		  .func_233815_a_(Attributes.MAX_HEALTH, 10.0D) // Max Health
+	    		  .func_233815_a_(Attributes.MOVEMENT_SPEED, (double)0.25F); // Movement speed
 	   }
 
 	protected void playStepSound(BlockPos pos, BlockState blockIn) {

@@ -3,14 +3,14 @@ package com.github.gresh113.bionimine.client;
 import java.util.List;
 
 import com.github.gresh113.bionimine.Bionimine;
-//import com.github.gresh113.bionimine.client.gui.KanohiPedestalScreen;
-import com.github.gresh113.bionimine.init.BlockRegistration;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiColorHandler;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiInit;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.KanohiItem;
+import com.github.gresh113.bionimine.registration.BlockRegistration;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,6 +26,7 @@ public class ClientEventBusSubscriber {
 		//ScreenManager.registerFactory(BionimineContainerTypes.PEDESTAL.get(), KanohiPedestalScreen::new);
 		
 		RenderTypeLookup.setRenderLayer(BlockRegistration.hau_shield.get(), RenderType.getTranslucent());
+		
 	}
 		
 	
@@ -36,5 +37,7 @@ public class ClientEventBusSubscriber {
 			event.getItemColors().register(new KanohiColorHandler(), index);
 		}
 	}
+	
+
 
 }
