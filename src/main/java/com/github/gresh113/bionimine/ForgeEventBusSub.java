@@ -10,8 +10,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.storage.IServerWorldInfo;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -28,24 +36,22 @@ public class ForgeEventBusSub {
 			event.addCapability(loc, new ToaEnergyProvider());
 		}
 	}
-	
 
-
-	@SubscribeEvent
-	public static void onJoinWorld(EntityJoinWorldEvent event) {
-		if (!event.isCanceled() && event.getEntity() instanceof ServerPlayerEntity) {
-			ServerPlayerEntity player = (ServerPlayerEntity) event.getEntity();
-			IToaEnergy capability = player.getCapability(ToaEnergyProvider.TOA_ENERGY).orElseThrow(() -> new IllegalArgumentException("LazyOptional must not be empty!"));
-			ToaEnergyMessage kanohiMessage = new ToaEnergyMessage(capability.getKanohiEnergy(), capability.getElementalEnergy());
-			BioniminePacketHandler.INSTANCE.sendTo(kanohiMessage, player.connection.getNetworkManager(), NetworkDirection.PLAY_TO_CLIENT);
-		}
-	}
+//	@SubscribeEvent
+//	public static void onJoinWorld(EntityJoinWorldEvent event) {
+//		if (!event.isCanceled() && event.getEntity() instanceof ServerPlayerEntity) {
+//			ServerPlayerEntity player = (ServerPlayerEntity) event.getEntity();
+//			IToaEnergy capability = player.getCapability(ToaEnergyProvider.TOA_ENERGY).orElseThrow(() -> new IllegalArgumentException("LazyOptional must not be empty!"));
+//			ToaEnergyMessage kanohiMessage = new ToaEnergyMessage(capability.getKanohiEnergy(), capability.getElementalEnergy());
+//			BioniminePacketHandler.INSTANCE.sendTo(kanohiMessage, player.connection.getNetworkManager(), NetworkDirection.PLAY_TO_CLIENT);
+//		}
+//	}
 
 	@SubscribeEvent
-	public void serverLoad(FMLServerStartingEvent event) {
+	static void serverLoad(FMLServerStartingEvent event) {
 		BionimineCommands.register(event.getCommandDispatcher());
 	}
-	
-	
+
+
 
 }

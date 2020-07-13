@@ -23,7 +23,6 @@ public class EarthProjectileHandler extends ElementalProjectileHandler {
 
 	@Override
 	public void summonProjectile(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
-		boolean flag = playerentity.abilities.isCreativeMode;
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, Elements.EARTH);
 		float velocity = ToaTool.getArrowVelocity(1000);
 		projectileEntity.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
@@ -33,8 +32,6 @@ public class EarthProjectileHandler extends ElementalProjectileHandler {
 		 * consumer.sendBreakAnimation(playerentity.getActiveHand()); });
 		 */
 
-		handleEnergy(playerentity, flag);
-		
 		worldIn.addEntity(projectileEntity);
 		worldIn.playSound((PlayerEntity) null, playerentity.getPosX(), playerentity.getPosY(), playerentity.getPosZ(), SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
 

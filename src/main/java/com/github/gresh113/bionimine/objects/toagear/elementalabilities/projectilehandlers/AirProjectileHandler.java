@@ -20,7 +20,6 @@ public class AirProjectileHandler extends ElementalProjectileHandler {
 
 	@Override
 	public void summonProjectile(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
-		boolean flag = playerentity.abilities.isCreativeMode;
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, Elements.AIR);
 		float velocity = ToaTool.getArrowVelocity(1000);
 		projectileEntity.func_234612_a_(playerentity, playerentity.rotationPitch, playerentity.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
@@ -29,8 +28,6 @@ public class AirProjectileHandler extends ElementalProjectileHandler {
 		 * stackIn.damageItem(1, playerentity, (consumer) -> {
 		 * consumer.sendBreakAnimation(playerentity.getActiveHand()); });
 		 */
-
-		handleEnergy(playerentity, flag);
 		
 		projectileEntity.setKnockbackStrength(10);
 		worldIn.addEntity(projectileEntity);

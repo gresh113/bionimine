@@ -20,7 +20,6 @@ public class IceProjectileHandler extends ElementalProjectileHandler {
 
 	@Override
 	public void summonProjectile(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
-		boolean flag = playerentity.abilities.isCreativeMode;
 		ElementalProjectileEntity projectileEntity = new ElementalProjectileEntity(worldIn, playerentity, Elements.ICE);
 		float velocity = ToaTool.getArrowVelocity(1000);
 
@@ -30,8 +29,6 @@ public class IceProjectileHandler extends ElementalProjectileHandler {
 		 * stackIn.damageItem(1, playerentity, (consumer) -> {
 		 * consumer.sendBreakAnimation(playerentity.getActiveHand()); });
 		 */
-
-		handleEnergy(playerentity, flag);
 		worldIn.addEntity(projectileEntity);
 		worldIn.playSound((PlayerEntity) null, playerentity.getPosX(), playerentity.getPosY(), playerentity.getPosZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + velocity * 0.5F);
 

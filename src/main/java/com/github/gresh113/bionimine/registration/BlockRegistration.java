@@ -1,6 +1,7 @@
 package com.github.gresh113.bionimine.registration;
 
 import com.github.gresh113.bionimine.Bionimine;
+import com.github.gresh113.bionimine.objects.blocks.FrostLayerBlock;
 import com.github.gresh113.bionimine.objects.blocks.HauShieldBlock;
 //import com.github.gresh113.bionimine.objects.blocks.KanohiPedestalBlock;
 import com.github.gresh113.bionimine.objects.blocks.MataNuiBlock;
@@ -22,6 +23,8 @@ public class BlockRegistration {
 	
 	public static final RegistryObject<Block> hau_shield = BLOCKS.register("hau_shield", () -> new HauShieldBlock(Block.Properties.create(Material.GLASS).hardnessAndResistance(10.0F, 10.0F).notSolid()));
 
+	public static final RegistryObject<Block> frost = BLOCKS.register("frost", () -> new FrostLayerBlock(Block.Properties.create(Material.ICE).sound(SoundType.GLASS).notSolid()));
+	
 	// Functional BLocks
 	//public static final RegistryObject<Block> kanohi_pedestal = BLOCKS.register("kanohi_pedestal", () -> new KanohiPedestalBlock(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)));
 

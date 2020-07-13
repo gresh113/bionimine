@@ -24,12 +24,10 @@ public class ClientEventBusSubscriber {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		//ScreenManager.registerFactory(BionimineContainerTypes.PEDESTAL.get(), KanohiPedestalScreen::new);
-		
 		RenderTypeLookup.setRenderLayer(BlockRegistration.hau_shield.get(), RenderType.getTranslucent());
-		
+		RenderTypeLookup.setRenderLayer(BlockRegistration.frost.get(), RenderType.getTranslucent());
 	}
 		
-	
 	@SubscribeEvent
 	public static void onColorHandlerEvent(ColorHandlerEvent.Item event) {
 		List<KanohiItem> array = KanohiInit.itemArray;

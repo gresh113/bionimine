@@ -44,7 +44,7 @@ public enum KanohiPower {
 	NOBLE_MAHIKI("Noble Mahiki", "noble_mahiki", "Illusion", true, true,KanohiShape.MAHIKI_NOBLE, ArmorPalette.LIME_GREEN, null),
 	NOBLE_KOMAU("Noble Komau", "noble_komau", "Mind Control", true,true, KanohiShape.KOMAU_NOBLE, ArmorPalette.TAN, null),
 	NOBLE_RURU("Noble Ruru", "noble_ruru", "Night Vision", true,true, KanohiShape.RURU_NOBLE, ArmorPalette.GRAY, null),
-	NOBLE_MATATU("Noble Matatu", "noble_matatu", "Telekenisis", true,true, KanohiShape.SHAPELESS, ArmorPalette.GRAY, null),
+	NOBLE_MATATU("Noble Matatu", "noble_matatu", "Telekenisis", true,true, KanohiShape.MATATU_NOBLE, ArmorPalette.GRAY, null),
 
 	CALIX("Great Calix", "calix", "Fate", false, false, KanohiShape.SHAPELESS, ArmorPalette.GRAY, null),
 	ELDA("Great Elda", "elda", "Detection", false, false, KanohiShape.SHAPELESS, ArmorPalette.GRAY, null),

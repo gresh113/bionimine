@@ -1,0 +1,10 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "bionimine:item/masks/noble_matatu/noble_matatu_0",
+		"layer1": "bionimine:item/masks/noble_matatu/noble_matatu_1",
+		"layer2": "bionimine:item/masks/noble_matatu/noble_matatu_2",
+		"layer3": "bionimine:item/masks/noble_matatu/noble_matatu_3",
+		"layer4": "bionimine:item/masks/noble_matatu/noble_matatu_4"
+	}
+}

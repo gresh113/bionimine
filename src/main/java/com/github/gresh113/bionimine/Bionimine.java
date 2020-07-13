@@ -73,10 +73,13 @@ public class Bionimine {
 		ItemRegistration.ITEMS.register(modEventBus);
 		PotionRegistration.POTIONS.register(modEventBus);
 		PotionRegistration.EFFECTS.register(modEventBus);
+		
 		//KanohiInit.KANOHI.register(modEventBus);
 		
 		MinecraftForge.EVENT_BUS.register(new KanohiOverlayHandler());
 		MinecraftForge.EVENT_BUS.register(new EquipmentEventChecker());
+		
+		//MinecraftForge.EVENT_BUS.register(ForgeEventBusSub);
 		
 		MatoranRegistration.initialise(modEventBus);
 		
