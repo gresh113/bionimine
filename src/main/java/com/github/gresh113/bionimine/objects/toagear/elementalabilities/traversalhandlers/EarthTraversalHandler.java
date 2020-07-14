@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EarthTraversalHandler extends TraversalHandler {
-	ImmutableList<BlockState> BLOCKS = ImmutableList.of( //@formatter:off
+	public static ImmutableList<BlockState> BLOCKS = ImmutableList.of( //@formatter:off
 			Blocks.DIRT.getDefaultState(), 
 			Blocks.COARSE_DIRT.getDefaultState(), 
 			Blocks.MYCELIUM.getDefaultState(), 

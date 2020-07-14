@@ -30,12 +30,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
-	<classpathentry sourcepath="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.57_mapped_snapshot_20200707-1.16.1/forge-1.16.1-32.0.57_mapped_snapshot_20200707-1.16.1-sources.jar" kind="lib" path="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.57_mapped_snapshot_20200707-1.16.1/forge-1.16.1-32.0.57_mapped_snapshot_20200707-1.16.1-recomp.jar">
+	<classpathentry sourcepath="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.65_mapped_snapshot_20200707-1.16.1/forge-1.16.1-32.0.65_mapped_snapshot_20200707-1.16.1-sources.jar" kind="lib" path="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.65_mapped_snapshot_20200707-1.16.1/forge-1.16.1-32.0.65_mapped_snapshot_20200707-1.16.1.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.57_mapped_snapshot_20200707-1.16.1/forge-1.16.1-32.0.57_mapped_snapshot_20200707-1.16.1-sources.jar" kind="lib" path="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.57_mapped_snapshot_20200707-1.16.1/forge-1.16.1-32.0.57_mapped_snapshot_20200707-1.16.1-launcher.jar">
+	<classpathentry sourcepath="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.65_mapped_snapshot_20200707-1.16.1/forge-1.16.1-32.0.65_mapped_snapshot_20200707-1.16.1-sources.jar" kind="lib" path="C:/Users/Public/Documents/My Documents/Modding/bionimine_1.16/build/fg_cache/net/minecraftforge/forge/1.16.1-32.0.65_mapped_snapshot_20200707-1.16.1/forge-1.16.1-32.0.65_mapped_snapshot_20200707-1.16.1-launcher.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>

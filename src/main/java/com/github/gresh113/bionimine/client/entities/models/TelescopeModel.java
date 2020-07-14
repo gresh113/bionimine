@@ -67,7 +67,6 @@ public class TelescopeModel extends EntityModel<TelescopeEntity> {
 	@Override
 	public void setRotationAngles(TelescopeEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
 			float netHeadYaw, float headPitch) {
-		// TODO Auto-generated method stub
 		
 	}
 }

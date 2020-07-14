@@ -8,6 +8,7 @@ import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;

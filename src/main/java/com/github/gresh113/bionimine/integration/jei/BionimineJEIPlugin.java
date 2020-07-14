@@ -19,7 +19,7 @@
 //	
 //	@Override
 //	public void registerItemSubtypes(ISubtypeRegistration registration) {
-//		// TODO Auto-generated method stub
+//
 //		IModPlugin.super.registerItemSubtypes(registration);
 //		for (KanohiItem item : KanohiInit.itemArray) {
 //			registration.useNbtForSubtypes(item);

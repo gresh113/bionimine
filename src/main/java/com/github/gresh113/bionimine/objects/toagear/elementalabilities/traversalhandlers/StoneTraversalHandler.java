@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class StoneTraversalHandler extends TraversalHandler {
-	ImmutableList<BlockState> BLOCKS = ImmutableList.of( //@formatter:off
+	public static ImmutableList<BlockState> BLOCKS = ImmutableList.of( //@formatter:off
 			Blocks.STONE.getDefaultState()
 			,Blocks.COBBLESTONE.getDefaultState()
 			,Blocks.MOSSY_COBBLESTONE.getDefaultState()

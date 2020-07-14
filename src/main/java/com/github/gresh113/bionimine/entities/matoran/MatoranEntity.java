@@ -341,7 +341,7 @@ public class MatoranEntity extends AbstractVillagerEntity implements IMatoranDat
 	@Override
 	public boolean canPickUpItem(ItemStack itemstackIn) {
 		EquipmentSlotType equipmentslottype = getSlotForItemStack(itemstackIn);
-		return this.getItemStackFromSlot(equipmentslottype).isEmpty() && this.canPickUpLoot();
+		return this.getItemStackFromSlot(equipmentslottype).isEmpty() && this.canPickUpLoot() && canPickupItem(itemstackIn.getItem());
 	}
 
 	@Override

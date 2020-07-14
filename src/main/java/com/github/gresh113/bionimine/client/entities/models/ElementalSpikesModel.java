@@ -22,7 +22,6 @@ public class ElementalSpikesModel extends EntityModel<ElementalSpikesEntity> {
 
 	@Override
 	public void setRotationAngles(ElementalSpikesEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		// TODO Auto-generated method stub
 
 	}
 

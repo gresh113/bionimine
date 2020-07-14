@@ -1,11 +1,10 @@
 package com.github.gresh113.bionimine.objects.toagear;
 
-import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.Bionimine.BioniMineItemGroup;
 import com.github.gresh113.bionimine.capabilities.IToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergy;
 import com.github.gresh113.bionimine.capabilities.ToaEnergyProvider;
-import com.github.gresh113.bionimine.objects.toagear.elementalabilities.ChargedMeleeHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.chargedmeleehandlers.ChargedMeleeHandler;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.ToaAbilityHandler;
 import com.google.common.collect.ImmutableMultimap;

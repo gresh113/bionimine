@@ -10,7 +10,7 @@
       <env name="MOD_CLASSES" value="examplemod%%$PROJECT_DIR$\build\resources\main;examplemod%%$PROJECT_DIR$\build\classes\java\main"/>
       <env name="MCP_MAPPINGS" value="snapshot_20200707-1.16.1"/>
       <env name="MCP_VERSION" value="20200625.160719"/>
-      <env name="FORGE_VERSION" value="32.0.57"/>
+      <env name="FORGE_VERSION" value="32.0.65"/>
       <env name="assetIndex" value="1.16"/>
       <env name="assetDirectory" value="C:\Users\Josiah\.gradle\caches\forge_gradle\assets"/>
       <env name="nativesDirectory" value="$PROJECT_DIR$\build\natives"/>

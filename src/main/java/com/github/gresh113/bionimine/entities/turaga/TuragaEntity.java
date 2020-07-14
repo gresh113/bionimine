@@ -264,7 +264,6 @@ public class TuragaEntity extends AbstractVillagerEntity {
 		} else {
 			super.handleStatusUpdate(id);
 		}
-
 	}
 
 	@Override
@@ -277,10 +276,6 @@ public class TuragaEntity extends AbstractVillagerEntity {
 		return this.canPickUpLoot;
 	}
 
-	public boolean canPickupItem(Item itemIn) {
-		return ALLOWED_INVENTORY_ITEMS.contains(itemIn);
-	}
-
 	@Override
 	public void setCanPickUpLoot(boolean canPickup) {
 		this.canPickUpLoot = canPickup;
@@ -289,7 +284,7 @@ public class TuragaEntity extends AbstractVillagerEntity {
 	@Override
 	public boolean canPickUpItem(ItemStack itemstackIn) {
 		EquipmentSlotType equipmentslottype = getSlotForItemStack(itemstackIn);
-		return this.getItemStackFromSlot(equipmentslottype).isEmpty() && this.canPickUpLoot();
+		return this.getItemStackFromSlot(equipmentslottype).isEmpty() && this.canPickUpLoot() && ALLOWED_INVENTORY_ITEMS.contains(itemstackIn.getItem());
 	}
 
 	@Override

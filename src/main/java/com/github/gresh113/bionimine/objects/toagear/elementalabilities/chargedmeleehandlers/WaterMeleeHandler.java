@@ -1,7 +1,5 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities.chargedmeleehandlers;
 
-import com.github.gresh113.bionimine.Bionimine;
-import com.github.gresh113.bionimine.objects.toagear.elementalabilities.ChargedMeleeHandler;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;

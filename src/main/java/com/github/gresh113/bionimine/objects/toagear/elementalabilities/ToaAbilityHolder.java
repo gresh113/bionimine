@@ -1,9 +1,7 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities;
 
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.aoehandlers.*;
-import com.github.gresh113.bionimine.objects.toagear.elementalabilities.chargedmeleehandlers.AirMeleeHandler;
-import com.github.gresh113.bionimine.objects.toagear.elementalabilities.chargedmeleehandlers.FireMeleeHandler;
-import com.github.gresh113.bionimine.objects.toagear.elementalabilities.chargedmeleehandlers.WaterMeleeHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.chargedmeleehandlers.*;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.projectilehandlers.*;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.traversalhandlers.*;
 import net.minecraft.util.IStringSerializable;
@@ -12,11 +10,11 @@ public enum ToaAbilityHolder implements IStringSerializable {
 
     NONE("none", new FireProjectileHandler(), new FireAOEHandler(), new EarthTraversalHandler(), new FireMeleeHandler()),
     FIRE("fire", new FireProjectileHandler(), new FireAOEHandler(), new FireTraversalHandler(), new FireMeleeHandler()),
-    ICE("ice", new IceProjectileHandler(), new IceAOEHandler(), new IceTraversalHandler(), new FireMeleeHandler()),
+    ICE("ice", new IceProjectileHandler(), new IceAOEHandler(), new IceTraversalHandler(), new IceMeleeHandler()),
     AIR("air", new AirProjectileHandler(), new AirAOEHandler(), new AirTraversalHandler(), new AirMeleeHandler()),
     WATER("water", new WaterProjectileHandler(), new WaterAOEHandler(), new WaterTraversalHandler(), new WaterMeleeHandler()),
-    EARTH("earth", new EarthProjectileHandler(), new EarthAOEHandler(), new EarthTraversalHandler(), new FireMeleeHandler()),
-    STONE("stone", new StoneProjectileHandler(), new StoneAOEHandler(), new StoneTraversalHandler(), new FireMeleeHandler());
+    EARTH("earth", new EarthProjectileHandler(), new EarthAOEHandler(), new EarthTraversalHandler(), new EarthMeleeHandler()),
+    STONE("stone", new StoneProjectileHandler(), new StoneAOEHandler(), new StoneTraversalHandler(), new StoneMeleeHandler());
 
 
     private ElementalProjectileHandler projectileHandler;
