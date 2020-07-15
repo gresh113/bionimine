@@ -93,19 +93,21 @@ public class ToaStoneItem extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack stack = playerIn.getItemStackFromSlot(handIn == Hand.MAIN_HAND ? EquipmentSlotType.MAINHAND : EquipmentSlotType.OFFHAND);
         if (!playerIn.isSneaking()) {
-            CompoundNBT compoundNBT = stack.getOrCreateTag();
-            Elements element = Elements.NONE;
-            if (compoundNBT.contains(tag)) {
-                element = Elements.fromNBT(compoundNBT, tag);
+            if (!worldIn.isRemote()) {
+                CompoundNBT compoundNBT = stack.getOrCreateTag();
+                Elements element = Elements.NONE;
+                if (compoundNBT.contains(tag)) {
+                    element = Elements.fromNBT(compoundNBT, tag);
+                }
+                if (Elements.getItemsFromElement(element) != null) {
+                    //TODO This is broken : (
+                    playerIn.addItemStackToInventory(Elements.getItemsFromElement(element).get(0));
+                    playerIn.addItemStackToInventory(Elements.getItemsFromElement(element).get(1));
+                    playerIn.addItemStackToInventory(Elements.getItemsFromElement(element).get(2));
+                    stack.shrink(1);
+                }
+                return ActionResult.resultConsume(stack);
             }
-            if (Elements.getItemsFromElement(element) != null) {
-                //TODO This is broken : (
-                playerIn.addItemStackToInventory(Elements.getItemsFromElement(element).get(0));
-                playerIn.addItemStackToInventory(Elements.getItemsFromElement(element).get(1));
-                playerIn.addItemStackToInventory(Elements.getItemsFromElement(element).get(2));
-                stack.shrink(1);
-            }
-            return ActionResult.resultConsume(stack);
         }
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }
