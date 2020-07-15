@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "bionimine:item/toa_stone_earth"
+	}
+}

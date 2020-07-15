@@ -14,6 +14,9 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.HandSide;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.vector.Vector3f;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 //Made with Blockbench 3.5.4
 //Exported for Minecraft version 1.15
@@ -190,10 +193,24 @@ public class TuragaModel<T extends TuragaEntity> extends EntityModel<T> implemen
 		return Head;
 	}
 
+	@OnlyIn(Dist.CLIENT)
 	@Override
 	public void translateHand(HandSide sideIn, MatrixStack matrixStackIn) {
-		this.getArmForSide(sideIn).translateRotate(matrixStackIn);
+		ModelRenderer arm = this.getArmForSide(sideIn);
+		//matrixStackIn.translate((double)(arm.rotationPointX) , (double)(arm.rotationPointY), (double)(arm.rotationPointZ));
+		//Bionimine.LOGGER.info(arm.rotationPointX + " " + arm.rotationPointY + " " + arm.rotationPointZ);
+		matrixStackIn.translate((double) (arm.rotationPointX/16) - .01, (double)(arm.rotationPointY/-16) - .01, 0D);
+		if (arm.rotateAngleZ != 0.0F) {
+			matrixStackIn.rotate(Vector3f.ZP.rotation(arm.rotateAngleZ));
+		}
 
+		if (arm.rotateAngleY != 0.0F) {
+			matrixStackIn.rotate(Vector3f.YP.rotation(arm.rotateAngleY));
+		}
+
+		if (arm.rotateAngleX != 0.0F) {
+			matrixStackIn.rotate(Vector3f.XP.rotation(arm.rotateAngleX));
+		}
 	}
 
 	protected ModelRenderer getArmForSide(HandSide side) {

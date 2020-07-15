@@ -30,6 +30,14 @@ public class KanohiInit {
 	//private final static Kanohi MASK_OF_CREATION = new Kanohi(KanohiAbility.CREATION, KanohiType.STANDARD);
 	
 	private final static Kanohi POWERLESS_MASK = new Kanohi(KanohiPower.NONE, KanohiType.STANDARD);
+
+	/*private final static Kanohi GREAT_HAU = new Kanohi(KanohiPower.GREAT_HAU, KanohiType.STANDARD);
+	private final static Kanohi GREAT_MIRU = new Kanohi(KanohiPower.GREAT_MIRU, KanohiType.STANDARD);
+	private final static Kanohi GREAT_KAUKAU = new Kanohi(KanohiPower.GREAT_KAUKAU, KanohiType.STANDARD);
+	private final static Kanohi GREAT_AKAKU = new Kanohi(KanohiPower.GREAT_AKAKU, KanohiType.STANDARD);
+	private final static Kanohi GREAT_PAKARI = new Kanohi(KanohiPower.GREAT_PAKARI, KanohiType.STANDARD);
+	private final static Kanohi GREAT_KAKAMA = new Kanohi(KanohiPower.GREAT_KAKAMA, KanohiType.STANDARD);*/
+
 	public final static KanohiItem PowerlessMaskItem = new KanohiItem(POWERLESS_MASK);
 
 	@SubscribeEvent
@@ -37,7 +45,15 @@ public class KanohiInit {
 
 		// Iterate through Kanohi Abilities
 		for (KanohiPower ability : KanohiPower.values()) {
-			if (ability == KanohiPower.NONE || ability == KanohiPower.VAHI) {continue;}
+			if (ability == KanohiPower.NONE
+					|| ability == KanohiPower.VAHI
+					/*|| ability == KanohiPower.GREAT_HAU
+					|| ability == KanohiPower.GREAT_AKAKU
+					|| ability == KanohiPower.GREAT_KAKAMA
+					|| ability == KanohiPower.GREAT_MIRU
+					|| ability == KanohiPower.GREAT_PAKARI
+					|| ability == KanohiPower.GREAT_KAUKAU*/
+			) {continue;}
 
 			Kanohi iteratedKanohi = new Kanohi(ability, KanohiType.STANDARD);
 			;
@@ -53,16 +69,19 @@ public class KanohiInit {
 
 		// Register legendary masks separately
 		event.getRegistry().register(new KanohiItem(VAHI).setRegistryName(VAHI.getName().toLowerCase()));
+
+		/*event.getRegistry().register(new KanohiItem(GREAT_AKAKU).setRegistryName(GREAT_AKAKU.getName().toLowerCase()));
+		event.getRegistry().register(new KanohiItem(GREAT_HAU).setRegistryName(GREAT_HAU.getName().toLowerCase()));
+		event.getRegistry().register(new KanohiItem(GREAT_MIRU).setRegistryName(GREAT_MIRU.getName().toLowerCase()));
+		event.getRegistry().register(new KanohiItem(GREAT_KAUKAU).setRegistryName(GREAT_KAUKAU.getName().toLowerCase()));
+		event.getRegistry().register(new KanohiItem(GREAT_KAKAMA).setRegistryName(GREAT_KAKAMA.getName().toLowerCase()));
+		event.getRegistry().register(new KanohiItem(GREAT_PAKARI).setRegistryName(GREAT_PAKARI.getName().toLowerCase()));*/
+
 		//event.getRegistry().register(new KanohiItem(IGNIKA).setRegistryName(IGNIKA.getName().toLowerCase()));
 		//event.getRegistry()
 			//	.register(new KanohiItem(MASK_OF_CREATION).setRegistryName(MASK_OF_CREATION.getName().toLowerCase()));
-		
+
 		event.getRegistry().register(PowerlessMaskItem.setRegistryName(POWERLESS_MASK.getName().toLowerCase()));
-		
-		// BioniMine.LOGGER.info("Array includes:");
-		// for (NewKanohiItem index : itemArray) {BioniMine.LOGGER.info("-" +
-		// index.getName());}
-		// BioniMine.LOGGER.info(itemArray.toString());
 
 	}
 }

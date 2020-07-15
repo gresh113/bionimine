@@ -18,7 +18,7 @@ public class TuragaRenderer extends MobRenderer<TuragaEntity, TuragaModel<Turaga
 
 	public TuragaRenderer(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new TuragaModel<TuragaEntity>(), 0.5f);
-		this.addLayer(new HeldItemLayer<>(this));
+		this.addLayer(new MatoranHeldItemLayer<>(this));
 	}
 
 	@Override

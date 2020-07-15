@@ -1,0 +1,15 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bionimine:item/toa_stone"
+  },
+  "overrides": [
+	{"predicate": {"bionimine:element": 0.00}, "model": "bionimine:item/toa_stone/toa_stone"},
+	{"predicate": {"bionimine:element": 0.01}, "model": "bionimine:item/toa_stone/toa_stone_fire"},
+	{"predicate": {"bionimine:element": 0.02}, "model": "bionimine:item/toa_stone/toa_stone_air"},
+	{"predicate": {"bionimine:element": 0.03}, "model": "bionimine:item/toa_stone/toa_stone_water"},
+	{"predicate": {"bionimine:element": 0.04}, "model": "bionimine:item/toa_stone/toa_stone_earth"},
+	{"predicate": {"bionimine:element": 0.05}, "model": "bionimine:item/toa_stone/toa_stone_stone"},
+	{"predicate": {"bionimine:element": 0.06}, "model": "bionimine:item/toa_stone/toa_stone_ice"}
+  ]
+}

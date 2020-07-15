@@ -13,6 +13,7 @@ import com.github.gresh113.bionimine.objects.items.StaffItem;
 import com.github.gresh113.bionimine.objects.items.TelescopeItem;
 import com.github.gresh113.bionimine.objects.toagear.ArmorPalette;
 import com.github.gresh113.bionimine.objects.toagear.ToaArmorItem;
+import com.github.gresh113.bionimine.objects.toagear.ToaStoneItem;
 import com.github.gresh113.bionimine.objects.toagear.ToaTool;
 import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 
@@ -34,6 +35,7 @@ public class ItemRegistration {
 	public static final RegistryObject<Item> toa_armor_earth = ITEMS.register("toa_armor_earth", () -> new ToaArmorItem(ArmorPalette.BLACK, Elements.EARTH));
 	public static final RegistryObject<Item> toa_armor_stone = ITEMS.register("toa_armor_stone", () -> new ToaArmorItem(ArmorPalette.BROWN, Elements.STONE));
 	public static final RegistryObject<Item> toa_armor_ice = ITEMS.register("toa_armor_ice", () -> new ToaArmorItem(ArmorPalette.WHITE, Elements.ICE));
+	public static final RegistryObject<Item> toa_stone = ITEMS.register("toa_stone", () -> new ToaStoneItem());
 
 	public static final RegistryObject<Item> ice_sword = ITEMS.register("ice_sword", () -> new ToaTool(Elements.ICE));
 	public static final RegistryObject<Item> fire_sword = ITEMS.register("fire_sword", () -> new ToaTool(Elements.FIRE));

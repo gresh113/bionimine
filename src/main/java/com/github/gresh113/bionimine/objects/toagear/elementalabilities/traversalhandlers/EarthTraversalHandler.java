@@ -1,33 +1,26 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities.traversalhandlers;
 
-import com.google.common.collect.ImmutableList;
-
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particles.BlockParticleData;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import javax.xml.bind.Element;
+
 public class EarthTraversalHandler extends TraversalHandler {
-	public static ImmutableList<BlockState> BLOCKS = ImmutableList.of( //@formatter:off
-			Blocks.DIRT.getDefaultState(), 
-			Blocks.COARSE_DIRT.getDefaultState(), 
-			Blocks.MYCELIUM.getDefaultState(), 
-			Blocks.PODZOL.getDefaultState(), 
-			Blocks.GRASS_BLOCK.getDefaultState(), 
-			Blocks.GRASS_PATH.getDefaultState(),
-			Blocks.CLAY.getDefaultState(),
-			Blocks.BRICKS.getDefaultState()); //@formatter:on
+
 
 
 	@Override
 	protected void doTraversal(ItemStack stackIn, World worldIn, PlayerEntity playerentity) {
 		BlockPos pos = playerentity.func_233580_cy_();
 		BlockState downstate = worldIn.getBlockState(pos.down());
-		if (BLOCKS.contains(downstate)) {
+		if (Elements.isEarth(downstate)) {
 			for (byte i = 0; i < 5; ++i) {
 				pos = playerentity.func_233580_cy_();
 				playerentity.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());

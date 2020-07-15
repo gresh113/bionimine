@@ -1,7 +1,6 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities.chargedmeleehandlers;
 
-import com.github.gresh113.bionimine.objects.toagear.elementalabilities.traversalhandlers.EarthTraversalHandler;
-import com.github.gresh113.bionimine.objects.toagear.elementalabilities.traversalhandlers.StoneTraversalHandler;
+import com.github.gresh113.bionimine.objects.toagear.elementalabilities.Elements;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
@@ -17,7 +16,7 @@ public class StoneMeleeHandler extends ChargedMeleeHandler {
         World world = target.getEntityWorld();
         target.setVelocity(0, 0, 0);
         BlockState downstate = world.getBlockState(pos.down());
-        if (StoneTraversalHandler.BLOCKS.contains(downstate)) {
+        if (Elements.isStone(downstate)) {
             for (byte i = 0; i < 5; ++i) {
                 pos = target.func_233580_cy_();
                 target.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
