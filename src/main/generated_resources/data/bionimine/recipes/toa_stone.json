@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bionimine",
+  "pattern": [
+    " p ",
+    "psp",
+    " p "
+  ],
+  "key": {
+    "p": {
+      "item": "bionimine:protodermis_ingot"
+    },
+    "s": {
+      "item": "bionimine:lightstone"
+    }
+  },
+  "result": {
+    "item": "bionimine:toa_stone"
+  }
+}
