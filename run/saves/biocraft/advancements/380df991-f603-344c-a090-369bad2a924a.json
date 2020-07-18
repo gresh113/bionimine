@@ -840,6 +840,7 @@
   "minecraft:adventure/kill_all_mobs": {
     "criteria": {
       "minecraft:skeleton": "2020-06-29 18:06:55 -0400",
+      "minecraft:ravager": "2020-07-17 22:27:17 -0400",
       "minecraft:spider": "2020-05-15 21:13:08 -0400",
       "minecraft:creeper": "2020-05-15 21:13:06 -0400",
       "minecraft:zombified_piglin": "2020-07-13 16:50:44 -0400",
@@ -991,6 +992,12 @@
   "minecraft:recipes/food/cooked_porkchop": {
     "criteria": {
       "has_porkchop": "2020-05-26 21:27:19 -0400"
+    },
+    "done": true
+  },
+  "bionimine:recipes/bionimine/toa_stone": {
+    "criteria": {
+      "lightstone": "2020-07-16 22:41:41 -0400"
     },
     "done": true
   },

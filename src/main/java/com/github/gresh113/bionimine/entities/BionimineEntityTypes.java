@@ -1,12 +1,7 @@
 package com.github.gresh113.bionimine.entities;
 
 import com.github.gresh113.bionimine.Bionimine;
-import com.github.gresh113.bionimine.client.entities.renderers.BambooDiskRenderer;
-import com.github.gresh113.bionimine.client.entities.renderers.ElementalProjectileRenderer;
-import com.github.gresh113.bionimine.client.entities.renderers.FikouSpiderRenderer;
-import com.github.gresh113.bionimine.client.entities.renderers.HusiRenderer;
-import com.github.gresh113.bionimine.client.entities.renderers.MatoranRenderer;
-import com.github.gresh113.bionimine.client.entities.renderers.TuragaRenderer;
+import com.github.gresh113.bionimine.client.entities.renderers.*;
 import com.github.gresh113.bionimine.entities.matoran.MatoranEntity;
 import com.github.gresh113.bionimine.entities.turaga.TuragaEntity;
 
@@ -53,6 +48,13 @@ public class BionimineEntityTypes {
 					EntityType.Builder.<HusiEntity>create(HusiEntity::new, EntityClassification.CREATURE).size(0.9f, 1.3f)
 					.build(new ResourceLocation(Bionimine.MODID, "husi").toString())));
 
+
+	public static final RegistryObject<EntityType<MuakaEntity>> MUAKA =
+			ENTITY_TYPES.register("muaka", () -> (
+					EntityType.Builder.<MuakaEntity>create(MuakaEntity::new, EntityClassification.MONSTER).size(2.5F, 2.7F)
+							.build(new ResourceLocation(Bionimine.MODID, "muaka").toString())));
+
+
 	public static final RegistryObject<EntityType<TelescopeEntity>> TELESCOPE = 
 			ENTITY_TYPES.register("telescope", () -> (
 					EntityType.Builder.<TelescopeEntity>create(TelescopeEntity::new, EntityClassification.MISC).size(.75f, 1.5f)
@@ -86,14 +88,18 @@ public class BionimineEntityTypes {
 		GlobalEntityTypeAttributes.put(MATORAN.get(), MatoranEntity.assignAttributes().func_233813_a_());
 		RenderingRegistry.registerEntityRenderingHandler(TURAGA.get(), TuragaRenderer::new);
 		GlobalEntityTypeAttributes.put(TURAGA.get(), TuragaEntity.assignAttributes().func_233813_a_());
+
+		RenderingRegistry.registerEntityRenderingHandler(FIKOU_SPIDER.get(), FikouSpiderRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(HUSI.get(), HusiRenderer::new);
+		GlobalEntityTypeAttributes.put(HUSI.get(), HusiEntity.assignAttributes().func_233813_a_());
+		RenderingRegistry.registerEntityRenderingHandler(MUAKA.get(), MuakaRenderer::new);
+		GlobalEntityTypeAttributes.put(MUAKA.get(), MuakaEntity.assignAttributes().func_233813_a_());
 		
 		RenderingRegistry.registerEntityRenderingHandler(KANOKA.get(), BambooDiskRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ELEMENTAL_PROJECTILE.get(), ElementalProjectileRenderer::new);
 		//RenderingRegistry.registerEntityRenderingHandler(ELEMENTAL_SPIKES.get(), ElementalSpikesRenderer::new);
 		
-		RenderingRegistry.registerEntityRenderingHandler(FIKOU_SPIDER.get(), FikouSpiderRenderer::new);
-		
-		RenderingRegistry.registerEntityRenderingHandler(HUSI.get(), HusiRenderer::new);
+
 	}
 
 }

@@ -24,7 +24,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bionimine:hooks"
+          "name": "bionimine:water_hook"
         }
       ]
     }
