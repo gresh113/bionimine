@@ -6,5 +6,4 @@
 *.gz
 /run/
 .classpath
-.launch
 *.launch

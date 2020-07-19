@@ -1,6 +1,6 @@
 "Bionicle", "LEGO®", and all associated names, designs and trademarks are the intellectual property of The Lego Group. This project is a fan work, and not endorsed or supported by The Lego Group in any way, shape or form. 
 
-All code and assets was created by myself, Gresh113, unless otherwise specified, and fall under the following liscence: 
+All code and assets were created by myself, Gresh113, unless otherwise specified, and fall under the following liscence: 
 
 The MIT License (MIT) Copyright (c) 2020 Gresh113
 
