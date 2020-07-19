@@ -1,4 +1,4 @@
-package com.github.gresh113.bionimine.objects.toagear.elementalabilities.traversalhandlers;
+package com.github.gresh113.bionimine.objects.toagear.elementalabilities;
 
 import com.github.gresh113.bionimine.Bionimine;
 import com.github.gresh113.bionimine.objects.toagear.kanohi.Kanohi;

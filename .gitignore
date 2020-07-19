@@ -5,3 +5,5 @@
 *.gz
 *.gz
 /run/
+.classpath
+.launch

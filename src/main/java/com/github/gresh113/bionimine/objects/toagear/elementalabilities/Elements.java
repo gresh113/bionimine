@@ -1,6 +1,5 @@
 package com.github.gresh113.bionimine.objects.toagear.elementalabilities;
 
-import com.github.gresh113.bionimine.objects.toagear.elementalabilities.traversalhandlers.ElementalLists;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
